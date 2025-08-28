@@ -1,0 +1,8636 @@
+const QUESTIONS = [
+  {
+    id: 1,
+    question:
+      "Kdy jsou diagnostické metody (testy) nutné ke stanovení diagnózy? Předtestová pravděpodobnost definuje pravděpodobnost, že pacient trpí konkrétní chorobou, ještě před tím, než jsou k dispozici výsledky diagnostického testu. Diagnostické testy by se měly provést při:",
+    answers: [
+      "střední předtestové pravděpodobnosti",
+      "vysoké předtestové pravděpodobnosti",
+      "nízké předtestové pravděpodobnosti",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 2,
+    question:
+      "Pro posouzení plánů klinické studie nemá význam odpověď na dotaz:",
+    answers: [
+      "zda bylo ve studii přiděleno skryté a náhodné přidělení",
+      "jak velké jsou 95% intervaly spolehlivosti",
+      "zda byla ve studii použita analýza původního léčebného záměru",
+      "špatně",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 3,
+    question:
+      "Klinicky významné výsledky a statisticky významné výsledky jsou podmíněny:",
+    answers: [
+      "odhadem rozsahu účinku léčby: snížením relativního rizika (relative",
+      "reduction, ARR) a počtem případů nutných k léčbě",
+      "zda byla léčba pacientů ve studii dokončena",
+      "zda lze výsledky studie aplikovat v klinické praxi",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 4,
+    question:
+      "Význam anamnézy pro diagnostiku gastrointestinálních nemocí. Jaká odpověď neodpovídá skutečnosti:",
+    answers: [
+      "anamnéza u některých nemocných přímo stanoví klinickou diagnózu",
+      "anamnéza u většiny nemocných vede k diagnóze pravděpodobné",
+      "anamnéza pro stanovení diagnózy nemá žádný význam",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 5,
+    question: "Symptomy dělíme na:",
+    answers: [
+      "symptomy subjektivní",
+      "symptomy objektivní",
+      "symptomy neurčité",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 6,
+    question: "Hunterova glositida patří do skupiny:",
+    answers: [
+      "patologického povlaku jazyka, patologicky zmnoženého",
+      "patologického povlaku jazyka, patologicky zmenšeného",
+      "akutního povlaku jazyka při chronickém onemocnění",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 7,
+    question:
+      "Mezi doprovodné projevy upozorňující na možnou dysfagii nepatří:",
+    answers: [
+      "slinotok nebo zpětný výstup potravy (drooling) z dutiny ústní",
+      "regurgitace se zpětným návratem zbytků jídla do dutiny ústní",
+      "foetor ex ore",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 8,
+    question: "Příčinou nechutenství není:",
+    answers: [
+      "podráždění centra v laterální části hypotalamu",
+      "podráždění centra ve ventromediální části hypotalamu",
+      "smyslové podněty vycházející z orgánů gastrointestinálního traktu",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 9,
+    question: "Říhání znamená:",
+    answers: [
+      "náhlý zpětný únik vzduchu ze žaludku",
+      "zvětšení obsahu vzduchu v žaludku",
+      "bolestivý tlak v krku",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 10,
+    question: "Mezi sekundární dyspepsie nepatří:",
+    answers: [
+      "dyspepsie při refluxní chorobě jícnu",
+      "dyspepsie při diabetes mellitus",
+      "dyspepsie při hyperparatyreóze",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 11,
+    question: "Ke zvracení bez nauzey dochází:",
+    answers: [
+      "u mozkových nádorů",
+      "u diabetické gastroparézy",
+      "u dilatace jícnu",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 12,
+    question: "Meteorismus je způsoben:",
+    answers: [
+      "nahromaděním většího množství plynů převážně v tlustém střevě",
+      "nadměrným vypuzováním plynů přirozenou cestou konečníkem",
+      "aerofagií",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 13,
+    question: "Fekální inkontinencí rozumíme:",
+    answers: [
+      "neschopnost kontrolovat vyprazdňování stolice",
+      "impakci stolice v konečníku",
+      "bolestivou defekaci",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 14,
+    question: "Krvácení do dolního úseku GIT se projeví:",
+    answers: ["hematemezí", "melenou", "enteroragií"],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 15,
+    question: "Obstrukční ikterus řadíme mezi ikterus:",
+    answers: ["prehepatální", "intrahepatální", "posthepatální"],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 16,
+    question:
+      "name: GASTRO_MG_03v data: otázka číslo:7297 Předpokládaný počet potřebných dospávacích lůžek na endoskopické jednotce je:",
+    answers: [
+      "dvě lůžka na jednu endoskopickou vyšetřovnu",
+      "jedno lůžko na jednu endoskopickou vyšetřovnu",
+      "dospávací lůžka nejsou potřeba",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 17,
+    question: "Průhledný nástavec na konci endoskopu (cap):",
+    answers: [
+      "zlepšuje ohebnost endoskopu",
+      "snižuje riziko infekce pro nemocného",
+      "stabilizuje polohu konce endoskopu",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 18,
+    question:
+      "Mikrobiologické odběry k ověření účinnost dezinfekce se provádějí:",
+    answers: ["jednou měsíčně", "jednou ročně", "čtyřikrát ročně"],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 19,
+    question:
+      "Endoskopické nástroje používané v gastrointestinální endoskopii jsou nejčastěji:",
+    answers: ["jednorázové", "opakovaně použitelné", "recyklovatelné"],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 20,
+    question:
+      "Z hlediska rizika přenosu viabilního viru je při infekci covid-19 koloskopie považována za metodu:",
+    answers: [
+      "s nízkým rizikem přenosu",
+      "s vysokým rizikem přenosu",
+      "s nepredikovatelným rizikem přenosu",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 21,
+    question: "Mezi absolutní kontraindikace digestivní endoskopie nepatří:",
+    answers: [
+      "provedení totální koloskopie při fulminantní kolitidě",
+      "hemodynamická nestabilita pacienta",
+      "provedení koloskopie při toxickém megakolon",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 22,
+    question: "Preventivní endoskopie prováděná v ČR je indikována:",
+    answers: [
+      "v rámci screeningu adenokarcinomu žaludku",
+      "v rámci screeningu adenokarcinomu jícnu",
+      "v rámci screeningu kolorektálního karcinomu",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 23,
+    question:
+      "Provedení endoskopického výkonu bez souhlasu pacienta lze provést v případě:",
+    answers: [
+      "uplatnění konceptu „nevysloveného souhlasu“",
+      "tzv. neinformovaného souhlasu (waiver)",
+      "uplatnění terapeutického privilegia",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 24,
+    question:
+      "Lze provést endoskopickou extrakci cizího tělesa u vězně s cílem extrakce důkazního materiálu bez jeho souhlasu?",
+    answers: [
+      "nelze",
+      "lze v případě právního nařízení",
+      "lze v případě nařízení policií ČR",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 25,
+    question: "Terapeutické privilegium znamená:",
+    answers: [
+      "právo lékaře provést endoskopický výkon bez souhlasu pacienta",
+      "právo lékaře zahájit specifickou léčbu před potvrzením",
+      "špatně",
+      "informace pacienta ohrozily",
+    ],
+    correctIndex: 3,
+    topics: [],
+  },
+  {
+    id: 26,
+    question:
+      "Který z uvedených endoskopických zákroků má vysoké riziko krvácení?",
+    answers: [
+      "polypektomie v kolon &lt; 10 mm",
+      "endoskopická papilosfinkterotomie",
+      "endoskopická ultrasonografie",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 27,
+    question:
+      "Standardní periprocedurální monitorace sedovaného nemocného nezahrnuje:",
+    answers: [
+      "monitoraci saturace kyslíku",
+      "kontinuální monitoraci EKG",
+      "monitoraci krevního tlaku",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 28,
+    question: "Jako antidotum při předávkování opioidy se používá:",
+    answers: ["flumazenil", "naloxon", "N-acetylcystein"],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 29,
+    question: "Před endoskopií gravidní ženy konzultujeme porodníka:",
+    answers: ["vždy", "v 1. trimestru", "ve 3. trimestru"],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 30,
+    question:
+      "Standardní gastroskop lze použít u vyšetření dítěte (stáří, hmotnost):",
+    answers: [
+      "&lt; 1 rok / &lt; 10 kg",
+      "≥ 1 rok / ≥ 10 kg",
+      "≥ 3 roky / ≥ 15 kg",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 31,
+    question:
+      "Při podezření na polknutí knoflíkové baterie provádíme endoskopii u dítěte:",
+    answers: [
+      "do 2 h",
+      "do 24 h",
+      "endoskopii neprovádíme, pouze sledujeme pasáž baterie",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 32,
+    question:
+      "U významného krvácení do horní části GIT provádíme endoskopii u dítěte nejpozději:",
+    answers: ["do 1 hodiny", "do 12 hodin", "do 24 hodin"],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 33,
+    question:
+      "Mezi prioritní obecné indikátory kvality endoskopie podle ASGE nepatří:",
+    answers: [
+      "frekvence výkonů provedených ze správné indikace, která je",
+      "špatně",
+      "špatně",
+      "sedace",
+    ],
+    correctIndex: 3,
+    topics: [],
+  },
+  {
+    id: 34,
+    question:
+      "Cílovou hodnotou standardů kvality (QS) v případě míry dosažení céka při koloskopii je:",
+    answers: ["&gt; 85 %", "&gt; 90 %", "&gt; 95 %"],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 35,
+    question:
+      "Jaký je optimální první krok ve vyšetřovacím programu u pacienta mladšího 50 let s perzistující dyspepsií bez přítomnosti alarmujících symptomů?",
+    answers: [
+      "gastroskopie",
+      "terapeutický test s PPI",
+      "neinvazivní test na H. pylori",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 36,
+    question: "Při horní dysfagii má být iniciální metodou vyšetření:",
+    answers: [
+      "radiologické vyšetření polykacího aktu",
+      "gastroskopie",
+      "pH-metrie jícnu",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 37,
+    question: "task: Jaký typ kličky endoskopu může vzniknout při koloskopii?",
+    answers: ["beta klička", "omega klička", "delta klička"],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 38,
+    question: "Omezení kličky endoskopu v sigmatu lze dosáhnout:",
+    answers: [
+      "kompresí v oblasti levého horního břišního kvadrantu",
+      "kompresí v pravém hypogastriu směřující mediálně do třísla",
+      "kompresí periumbilikálně",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 39,
+    question:
+      "Který manévr lze použít k zabránění znovuvytvoření kličky endoskopu při koloskopii?",
+    answers: ["změna polohy pacienta", "instilace vody", "insuflace CO2"],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 40,
+    question: "Hlavní výhodou kanylace po vodicím drátě je:",
+    answers: [
+      "zrychlení terapeutické fáze výkonu",
+      "snížení rizika post-ERCP pankreatitidy",
+      "použití menšího množství kontrastní látky",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 41,
+    question:
+      "Mezi rizikové faktory post-ERCP pankreatitidy spojené s pacientem nepatří:",
+    answers: [
+      "podezření na dysfunkci Oddiho svěrače",
+      "předchozí post-ERCP pankreatitida",
+      "mužské pohlaví",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 42,
+    question:
+      "Mezi rizikové faktory post-ERCP pankreatitidy spojené s výkonem nepatří:",
+    answers: [
+      "injekce parenchymu pankreatu",
+      "juxtapapilární divertikl",
+      "kanylační pokusy trvající déle než 10 minut",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 43,
+    question:
+      "Základním technickým opatřením k prevenci post-ERCP pankreatitidy u obtížné kanylace je:",
+    answers: [
+      "zavedení profylaktického pankreatického stentu",
+      "použití balonkové dilatace jako alternativy sfinkterotomie",
+      "maximální restrikce techniky precutu",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 44,
+    question: "Antibiotická profylaxe před cholangioskopií je indikována:",
+    answers: ["vždy", "pouze v případech, kdy je plánovaná biopsie", "nikdy"],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 45,
+    question: "Nejčastější komplikací cholangioskopie je:",
+    answers: [
+      "cholangoitida",
+      "krvácení po biopsii",
+      "peripapilární perforace",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 46,
+    question: "Při EUS zobrazení stěny trávicí trubice odpovídá 4. vrstva:",
+    answers: ["submukóze", "muscularis propria", "seróze"],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 47,
+    question: "Gastrointestinální stromální nádor (GIST) vychází typicky:",
+    answers: ["ze 2. EUS vrstvy", "ze 3. EUS vrstvy", "ze 4. EUS vrstvy"],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 48,
+    question: "Lipom je v EUS obraze typicky:",
+    answers: ["hypoechogenní", "izoechogenní", "hyperechogenní"],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 49,
+    question:
+      "Senzitivita EUS (bez FNA) pro duktální adenokarcinom pankreatu je:",
+    answers: ["77 %", "88 %", "98 %"],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 50,
+    question: "task: Co patří mezi komplikace diagnostické enteroskopie?",
+    answers: [
+      "akutní cholecystitida",
+      "akutní cholangitida",
+      "akutní pankreatitida",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 51,
+    question:
+      "arcinom invadující do 3. EUS vrstvy stěny trávicí trubice je stážován jako:",
+    answers: ["uTis", "uT1", "uT2"],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 52,
+    question:
+      "task: U kterého enteroskopického vyšetření je zapotřebí dvou lékařů?",
+    answers: [
+      "jednobalonová enteroskopie",
+      "push enteroskopie",
+      "spirální enteroskopie",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 53,
+    question:
+      "Jaký je průměrný čas dosažení proximálního ilea pomocí balonové enteroskopie?",
+    answers: ["1 hodina", "2 hodiny", "3 hodiny"],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 54,
+    question:
+      "Délka enteroskopů využívaných k vyšetření tenkého střeva se pohybuje v rozmezí:",
+    answers: ["230–260 cm", "182–230 cm", "150–182 cm"],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 55,
+    question:
+      "task: Co patří mezi absolutní kontraindikace kapslové enteroskopie?",
+    answers: ["píštěle tenkého střev", "Zenkerův divertikl", "těhotenství"],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 56,
+    question: "task: Kolik optických soustav má kolonoskopická kapsle?",
+    answers: ["jednu", "dvě", "tři"],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 57,
+    question: "Mezi absorpční barviva nepatří:",
+    answers: ["Lugolův roztok", "indigokarmín", "metylenová modř"],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 58,
+    question: "Mezi indikace konfokální laserové endomikroskopie nepatří:",
+    answers: [
+      "Barrettův jícen",
+      "časný karcinom tračníku a žaludku",
+      "gastritida pozitivní na Helicobacter pylori",
+      "Whippleova choroba",
+    ],
+    correctIndex: 3,
+    topics: [],
+  },
+  {
+    id: 59,
+    question: "Mezi komplikace konfokální endomikroskopie nepatří:",
+    answers: [
+      "žluté zbarvení kůže a sliznic",
+      "oranžové zbarvení moči",
+      "gastritida pozitivní na Helicobacter pylori",
+      "Whippleova choroba",
+    ],
+    correctIndex: 3,
+    topics: [],
+  },
+  {
+    id: 60,
+    question: "Diagnostická laparoskopie umožňuje vyšetření jater:",
+    answers: [
+      "v rozsahu 2/3 povrchu jater",
+      "v celém rozsahu",
+      "v rozsahu 1/3 povrchu jater",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 61,
+    question:
+      "Mezi relativní kontraindikace diagnostické laparoskopie nepatří:",
+    answers: ["enzní ascites", "předchozí laparotomie", "cirhóza jater"],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 62,
+    question: "Mezi komplikace diagnostické laparoskopie patří:",
+    answers: ["pankreatitida", "divertikulitida", "peritonitida"],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 63,
+    question:
+      "task: Jaká je frekvence komplikací při diagnostické laparoskopii?",
+    answers: ["1–5 %", "5–10 %", "10–15 %"],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 64,
+    question:
+      "Trokar pro laparoskop v rámci diagnostické laparoskopie se nejčastěji zavádí:",
+    answers: [
+      "přes subhepatální port",
+      "přes periumbilikální port",
+      "přes port v pravé jámě kyčelní",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 65,
+    question:
+      "Kolik wattů je doporučeno použít při hemostáze elektrokoagulaci v oblasti duodena?",
+    answers: ["5–10 W", "10–15 W", "20–30 W", "shuffleodpovědi: false"],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 66,
+    question:
+      "Jak je charakterizována povrchová neoplastická léze 0-IIb podle Pařížské klasifikace?",
+    answers: [
+      "plochá léze v úrovni sliznice",
+      "lehce vyvýšená léze nad sliznicí",
+      "lehce snížená léze pod sliznicí",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 67,
+    question:
+      "task: Jaké je riziko reziduální neoplazie u piecemeal polypektomie?",
+    answers: ["30 %", "20 %", "10 %"],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 68,
+    question:
+      "Ve srovnání s piecemeal endoskopické submukózní resekce (EMR) je hlavní výhodou endoskopické submukózní disekce (ESD):",
+    answers: [
+      "nižší výskyt komplikací (perforace, krvácení)",
+      "nižší výskyt lokální reziduální neoplazie",
+      "kratší operační čas",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 69,
+    question: "task: Co nepatří mezi indikace k použití endoklipů?",
+    answers: [
+      "Malloryho–Weissův syndrom",
+      "Dieulafoyova léze",
+      "jícnové varixy",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 70,
+    question: "Klip OVESCO lze použít:",
+    answers: [
+      "k uzávěru perforace pouze v dolní části GIT",
+      "k uzávěru perforace pouze v horní části GIT",
+      "k uzávěru perforace v horní i dolní části GIT",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 71,
+    question:
+      "Který endoklip lze opakovaně otevřít a zavřít před definitivní aplikací?",
+    answers: [
+      "QuickClip (Olympus, Japonsko)",
+      "Instinct Clip (Cook, USA)",
+      "Resolution Clip (Boston Scientific Corporation, USA)",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 72,
+    question: "Mezi rizikové faktory selhání klipování perforace patří:",
+    answers: [
+      "velikost perforace nad 10 mm",
+      "perforace v pravém tračníku",
+      "obtížně přístupná lokalizace perforace pro endoskop",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 73,
+    question: "Komplikace biliární sfinkterotomie nastávají:",
+    answers: ["ve 2 %", "v 10 %", "v 18 %"],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 74,
+    question:
+      "Mezi potenciální dlouhodobé nežádoucí efekty biliární sfinkterotomie nepatří:",
+    answers: ["choledocholitiáza", "stenóza papily", "cholangiokarcinom"],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 75,
+    question:
+      "Jaké je riziko perforace při dilataci stenózy kolorektální anastomózy?",
+    answers: ["0,1 %", "1 %", "5 %"],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 76,
+    question: "Vyberte správné tvrzení:",
+    answers: [
+      "Plastové stenty mohou být nepotahované.",
+      "Plastové stenty jsou vždy pokryté.",
+      "Plastové stenty jsou indikované u maligních stenóz duodena.",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 77,
+    question:
+      "Jaká je obecně doporučovaná délka stentu při řešení stenózy v jícnu?",
+    answers: [
+      "stent by měl být o 2 cm delší, než je délka stenózy",
+      "stent by měl být o 4 cm delší, než je délka stenózy",
+      "stent by měl být o 6 cm delší, než je délka stenózy",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 78,
+    question: "Duodenální stenty jsou indikované v případě:",
+    answers: [
+      "maligních stenóz duodena",
+      "benigních stenóz duodena",
+      "maligních i benigních stenóz duodena",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 79,
+    question:
+      "Cílem drenáže benigní biliární stenózy několika paralelně zavedenými plastovými stenty je:",
+    answers: [
+      "zabránit migraci stentů",
+      "prevence cholangoitidy",
+      "dosažení remodelace stenózy",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 80,
+    question: "Cílem drenáže pankreatického vývodu je:",
+    answers: [
+      "zlepšení endokrinní funkce pankreatu",
+      "ovlivnění bolesti",
+      "zlepšení exokrinní funkce pankreatu",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 81,
+    question:
+      "K endoskopické drenáží walled-off pankreatické nekrózy použijeme nejčastěji:",
+    answers: [
+      "lumen apoziční metalický stent",
+      "potažený biliární metalický stent",
+      "2–3 plastové double-pigtail stenty",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 82,
+    question:
+      "Jak často je vyžadována endoskopická extrakce v případě cizího tělesa v GIT?",
+    answers: ["v 1 % případů", "v 10–20 % případů", "v 50 % případů"],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 83,
+    question: "Mezi indikace provedení PEG nepatří:",
+    answers: [
+      "porucha polykání u cévní mozkové příhody",
+      "perzistující vegetativní stav",
+      "terminální fáze demence",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 84,
+    question:
+      "task: Která indikace není vhodná pro použití argonové plazmakoagulace?",
+    answers: [
+      "krvácení z gastroduodenálního vředu",
+      "ošetření angiodysplazie tračníku",
+      "ablace lokální reziduální neoplazie po endoskopické resekci",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 85,
+    question: "ezi nevýhody fotodynamické léčby Barrettova nepatří:",
+    answers: [
+      "nižší účinnost než u radiofrekvenční ablace",
+      "vyšší riziko vzniku stenózy než u radiofrekvenční ablace",
+      "fototoxicita",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 86,
+    question: "Mezi endoskopickou bariatrickou terapii v žaludku nepatří:",
+    answers: [
+      "aspirační terapie",
+      "gastroplastické techniky",
+      "gastrointestinální „sleeve“ bypassy",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 87,
+    question:
+      "Radiofrekvenční ablace a následná remodelace duodenální sliznice pozitivně ovlivní:",
+    answers: [
+      "kardiovaskulární mortalitu",
+      "steatoreu",
+      "diabetes mellitus 2. typu",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 88,
+    question:
+      "Kolik procent jedinců podstupujících bariatrickou chirurgickou operaci má patologický nález při předoperačním endoskopickém vyšetření?",
+    answers: ["1–9 % pacientů", "10–19 % pacientů", "20–25 % pacientů"],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 89,
+    question:
+      "name: GASTRO_MG_03p data: otázka číslo:7132 Pro gastrointestinální endoskopy je požadován následující stupeň očisty:",
+    answers: [
+      "jednostupňová dezinfekce",
+      "dvoustupňová dezinfekce",
+      "sterilizace",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 90,
+    question:
+      "Pro gastrointestinální endoskopy je požadován následující stupeň očisty:",
+    answers: [
+      "jednostupňová dezinfekce",
+      "dvoustupňová dezinfekce",
+      "sterilizace",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 91,
+    question: "Endoskopie je indikována, pokud:",
+    answers: [
+      "jde o sledování již zhojeného benigního onemocnění",
+      "riziko ohrožení zdraví nebo života pacienta převažuje nad",
+      "špatně",
+      "postupu",
+    ],
+    correctIndex: 3,
+    topics: [],
+  },
+  {
+    id: 92,
+    question: "Dispenzární endoskopie je využívaná:",
+    answers: [
+      "pro vyhledávání neoplazií u bezpříznakových jedinců s běžným",
+      "špatně",
+      "neoplazie",
+      "rozšiřuje spektrum léčby časných neoplazií trávicí trubice",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 93,
+    question:
+      "Nepodepsání informovaného souhlasu je považováno za kontraindikaci endoskopického výkonu s výjimkou těchto situací:",
+    answers: [
+      "urgentní výkon",
+      "pacient s perforací trávicí trubice",
+      "pacient s toxickým megakolon",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 94,
+    question:
+      "Způsobilost k podepsání informovaného souhlasu s endoskopickým vyšetřením v ČR je dána:",
+    answers: [
+      "dosažením věku 16 let",
+      "dosažením věku 18 let",
+      "dosažením věku 21 let",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 95,
+    question: "Pro přípravu ke koloskopii je doporučeno:",
+    answers: [
+      "vysadit preparáty železa 72 hodin před výkonem",
+      "použít dělený režim přípravy",
+      "nejíst zbytkovou stravu nejméně týden před výkonem",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 96,
+    question: "Mezi kontraindikace provedení endoskopie v graviditě nepatří:",
+    answers: [
+      "abrupce placenty",
+      "odtok plodové vody",
+      "druhý trimestr gravidity",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 97,
+    question:
+      "Mezi endoskopické výkony, u kterých je indikována antibiotická profylaxe, nepatří:",
+    answers: [
+      "EUS-FNA u pacientů s cystickou lézí",
+      "perkutánní endoskopická gastrostomie",
+      "endoskopická mukózní resekce",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 98,
+    question: "Antibiotickou profylaxi v endoskopii podáváme:",
+    answers: [
+      "perorálně den před výkonem",
+      "intravenózně 60 minut před výkonem",
+      "intravenózně po ukončení výkonu",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 99,
+    question:
+      "Pařížská klasifikace povrchových gastrointestinálních neoplazií:",
+    answers: [
+      "popisuje uspořádání cév na povrchu neoplazií",
+      "popisuje makroskopickou morfologii neoplastických lézí",
+      "vyžaduje zvětšovací endoskopii",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 100,
+    question: "task: U kterého onemocnění používáme Bismuthovu klasifikaci?",
+    answers: [
+      "refluxní ezofagitida",
+      "krvácející gastroduodenálního vřed",
+      "cholangiokarcinom",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 101,
+    question:
+      "Který indikátor kvality je považován za zlatý standard při detekci neoplazie při koloskopii:",
+    answers: [
+      "záchyt adenomů (ADR)",
+      "záchyt polypů (PDR)",
+      "záchyt sesilních pilovitých lézí (SSDR)",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 102,
+    question:
+      "Standardizovaný mapovací systém horní časti gastrointestinálního traktu podle ESGE v případě fyziologického nálezu zahrnuje:",
+    answers: ["6 snímků", "8 snímků", "9 snímků"],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 103,
+    question:
+      "V které části endoskopickém obrazu je zadní stěna těla žaludku u pacienta v poloze na levém boku?",
+    answers: [
+      "levá strana obrazu",
+      "pravá strana obrazu",
+      "horní strana obrazu",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 104,
+    question:
+      "Fyziologické vyklenutí jícnu ve střední části jícnu je způsobeno:",
+    answers: [
+      "větvením bronchiálního stromu",
+      "obloukem hrudní aorty",
+      "myokardem",
+      "shuffleodpovědi: false",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 105,
+    question:
+      "task: Jaký je doporučený minimální vysouvací čas při koloskopii?",
+    answers: ["9 minut", "6 minut", "7 minut"],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 106,
+    question:
+      "Screeningová kolonoskopie je indikována u asymptomatických jedinců s negativní osobní a rodinnou anamnézou kolorektální neoplazie ve věku:",
+    answers: ["≥ 55 let", "≥ 50 let", "≥ 45 let", "shuffleodpovědi: false"],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 107,
+    question: "Post-ERCP pankreatitida se vyskytuje:",
+    answers: ["v 1 %", "ve 3,5 %", "v 9 %", "shuffleodpovědi: false"],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 108,
+    question:
+      "Základním farmakologickým opatřením k prevenci post-ERCP pankreatitidy je:",
+    answers: [
+      "antibiotická profylaxe",
+      "rektální aplikace 100 mg indometacinu před nebo těsně po ERCP",
+      "bolus 250 µg somatostatinu aplikovaný před ERCP",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 109,
+    question: "Nejčastější indikací k terapeutické cholangioskopii je:",
+    answers: [
+      "selektivní kanylace stenózy",
+      "obtížná choledocholitiáza",
+      "migrace stentu do žlučových cest",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 110,
+    question: "Nejvyšší senzitivitu pro adenokarcinom pankreatu má metoda:",
+    answers: ["PET-CT", "EUS", "nukleární magnetická rezonance"],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 111,
+    question:
+      "Která endoskopická metoda je považována za zlatý standard vyšetření tenkého střeva?",
+    answers: [
+      "jednobalonová enteroskopie",
+      "dvoubalonová enteroskopie",
+      "spirální enteroskopie",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 112,
+    question: "Mezi hlavní indikace ezofageální kapsle patří:",
+    answers: [
+      "screening spinocelulárního karcinomu jícnu",
+      "verifikace hiátové hernie",
+      "screening Barrettova jícnu",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 113,
+    question: "task: Co patří mezi indikace kapslové kolonoskopie?",
+    answers: [
+      "krvácení z nejasného zdroje",
+      "screening kolorektálního karcinomu",
+      "inkompletní kolonoskopie",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 114,
+    question: "Endoskopická tetováž se používá:",
+    answers: [
+      "k lokalizaci některých neoplastických lézí",
+      "vždy po polypektomii",
+      "vždy po endoskopické mukózní resekci",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 115,
+    question: "task: Které vyšetření vyžaduje nefixovaný bioptický vzorek?",
+    answers: [
+      "histologické vyšetření na H. pylori",
+      "histochemické vyšetření",
+      "EUS-FNB",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 116,
+    question: "Pro diagnózu malignity se doporučuje:",
+    answers: [
+      "provést vícečetné cílené biopsie",
+      "provést histochemické vyšetření",
+      "provést necílené biopsie",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 117,
+    question:
+      "Hranice povrchové submukózní invaze (sm1) karcinomu v Barrettově jícnu je:",
+    answers: ["≤ 500 µm", "≤ 200 µm", "≤ 1 000 µm"],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 118,
+    question:
+      "Hranice povrchové submukózní invaze (sm1) karcinomu v kolorektu je:",
+    answers: ["≤ 500 µm", "≤ 200 µm", "≤ 1000 µm"],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 119,
+    question: "task: Co je nejčastějším zdrojem krvácení z horní části GIT?",
+    answers: ["vřed žaludku", "vřed duodena", "jícnové varixy"],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 120,
+    question:
+      "Co je nejčastějším zdrojem hemodynamicky významného krvácení z dolní části GIT?",
+    answers: ["hemoroidy", "divertikulóza", "angiodysplazie"],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 121,
+    question:
+      "task: Jaké jsou cílové hodnoty hemoglobinu u krvácejících varixů?",
+    answers: ["90–100 g/l", "80–90 g/l", "70–80 g/l"],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 122,
+    question:
+      "Jaká je optimální metoda endoskopické polypektomie pro sesilní polyp o velikosti 5 mm v tračníku?",
+    answers: [
+      "bioptickými kleštěmi",
+      "polypektomie kličkou za tepla (hot snare)",
+      "polypektomie kličkou za studena (cold snare)",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 123,
+    question:
+      "Do které vrstvy stěny trávicí trubice se aplikuje podpich injektorem před endoskopickou polypektomií velkého sesilního polypu?",
+    answers: [
+      "lamina muscularis mucosae",
+      "submukóza",
+      "lamina muscularis propria",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 124,
+    question:
+      "Jaký typ elektrického proudu není doporučen k endoskopickému snesení polypu?",
+    answers: ["smíšený", "koagulační", "řezací"],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 125,
+    question:
+      "Endoskopickou podmínkou kurativní endoskopické resekce karcinomu je:",
+    answers: [
+      "ošetření okraje a spodiny argonovou plazmakoagulací",
+      "negativní výsledek biopsie ze spodiny po resekci",
+      "en bloc resekce",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 126,
+    question: "Za kontraindikaci endoskopické ampulektomie není považována:",
+    answers: [
+      "velikost léze ≥ 20 mm",
+      "přítomnost ulcerace stříšky ampuly",
+      "intraduktální šíření do vzdálenosti přesahující 10 mm",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 127,
+    question:
+      "Které typy stenóz jícnu mají nejmenší riziko perforace při endoskopické terapii?",
+    answers: ["peptické stenózy", "postradiační stenózy", "kaustické stenózy"],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 128,
+    question: "task: Co je Danišův stent?",
+    answers: [
+      "samoexpandibilní plastový stent",
+      "samoexpandibilní nepokrytý metalický stent",
+      "samoexpandibilní pokrytý metalický stent",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 129,
+    question: "Medián průchodnosti plastového biliárního stentu je:",
+    answers: ["30 dní", "60 dní", "130 dní"],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 130,
+    question:
+      "Medián průchodnosti biliárního samoexpandibilního metalického stentu je:",
+    answers: ["90 dní", "270 dní", "průchodnost je časově neomezená"],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 131,
+    question: "Účinnost mechanické litotrypse v léčbě choledocholitiázy je:",
+    answers: ["85–90 %", "70–75 %", "65–70 %"],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 132,
+    question:
+      "Symptomatický konkrement v hlavním pankreatickém vývodu, který nelze extrahovat endoskopicky, řešíme preferenčně:",
+    answers: [
+      "chirurgicky",
+      "intraduktální radiofrekvenční ablací",
+      "extrakorporální rázovou vlnou",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 133,
+    question:
+      "K endoskopické drenáži pseudocysty pankreatu použijeme nejčastěji:",
+    answers: [
+      "lumen apoziční metalický stent",
+      "potažený biliární metalický stent",
+      "2–3 plastové double-pigtail stenty",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+
+  {
+    id: 134,
+    question:
+      "Jaké jsou maximální rozměry tupého cizího tělesa, při kterých je možná spontánní pasáž GIT?",
+    answers: [
+      "šířka 1 cm a délka 4 cm",
+      "šířka 2 cm a délka 6 cm",
+      "šířka 3 cm a délka 7 cm",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 135,
+    question: "Neurgentní endoskopická extrakce cizího tělesa je indikována:",
+    answers: [
+      "tupé předměty v žaludku o průměru do 2,5 cm",
+      "impakce sousta v jícnu, bez známek kompletní obstrukce jícnu",
+      "cizí těleso v jícnu tupých okrajů",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 136,
+    question: "Mezi kontraindikace provedení PEG/PEG patří:",
+    answers: [
+      "nepřítomnost transluminace stěny během endoskopie",
+      "velký ascites",
+      "stavy po resekci žaludku",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 137,
+    question:
+      "V současnosti je laser v digestivní endoskopii používán nejčastěji:",
+    answers: [
+      "k litotrypsi obtížné choledocholitiázy",
+      "k desobliteraci karcinomu jícnu",
+      "k léčbě poradiační proktitidy",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 138,
+    question:
+      "Jaká je nejčastější endoskopická bariatrická terapie v tenkém střevě?",
+    answers: [
+      "duodenojejunální bypass (Endobarrier)",
+      "radiofrekvenční ablace a následná remodelace duodenální",
+      "špatně",
+      "špatně",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 139,
+    question: "Intragastrické balony jsou extrahovány:",
+    answers: ["po 3 měsících", "po 6–12 měsících", "po 3–6 měsících"],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 140,
+    question:
+      "task: Co patří mezi rizikové faktory kolonické exploze při APC v rektu?",
+    answers: [
+      "nadměrná insuflace CO2",
+      "diabetes mellitus 2. typu",
+      "neadekvátní střevní příprava",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 141,
+    question: "task: Co je to target sign?",
+    answers: [
+      "perforace celé stěny tlustého střeva po endoskopické resekci",
+      "perforace muscularis propria po endoskopické resekci",
+      "termické poškození stěny střeva, bez přítomnosti perforace",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 142,
+    question:
+      "U kterých situací se doporučuje profylaktické podávání antibiotik před terapeutickou endoskopií?",
+    answers: [
+      "u pacientů na hemodialýze",
+      "u pacientů s implantovaným koronárním stentem (6 měsíců od",
+      "špatně",
+      "zavedení)",
+    ],
+    correctIndex: 3,
+    topics: [],
+  },
+  {
+    id: 143,
+    question:
+      "U nemocného s prokázanou alergickou reakcí na jodovou kontrastní látku:",
+    answers: [
+      "Musíme při vyšetření podávat menší množství jodové kontrastní",
+      "špatně",
+      "jakou měl pacient reakci.",
+      "Musíme pacienta před vyšetřením premedikovat.",
+      "Je podání jodové kontrastní látky kontraindikováno.",
+    ],
+    correctIndex: 4,
+    topics: [],
+  },
+  {
+    id: 144,
+    question: "Pro simulaci parietálnách buněk nelze použít:",
+    answers: ["histamin", "somatostatin", "gastrin", "inzulin"],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 145,
+    question: "Hyperacidita je stavem s koncentrací HCl:",
+    answers: [
+      "nad 400 mmol/l",
+      "pod 160 mmol/l",
+      "nad 800 mmol/l",
+      "nad 160 mmol/l",
+    ],
+    correctIndex: 3,
+    topics: [],
+  },
+  {
+    id: 146,
+    question: "Vodík je produkován bakteriemi:",
+    answers: [
+      "pouze v tenkém střevu",
+      "pouze v tlustém střevu",
+      "v tenkém i tlustém střevu",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 147,
+    question: "Koncentrace stabilního izotopu 13C v přírodě je:",
+    answers: ["1,1 %", "2,225 %", "0,11 %", "11,1 %"],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 148,
+    question: "Guajakový test na okultní krvácení:",
+    answers: [
+      "je citlivější než imunochemický test",
+      "reaguje pouze na lidský hemoglobin",
+      "nevyžaduje dietní omezení před testem",
+      "má nižší citlivost než imunochemický test",
+    ],
+    correctIndex: 3,
+    topics: [],
+  },
+  {
+    id: 149,
+    question: "Kvantitativní analýza FIT testu je vyjadřována:",
+    answers: [
+      "v μg Hb/g stolice",
+      "v μg Hb/ml pufru",
+      "v mg Hb/g stolice",
+      "v ng Hb/g pufru",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 150,
+    question: "Mezi testy střevní malasimilace nepatří:",
+    answers: [
+      "Schillingův test s vitaminem B12",
+      "sekretinový test s pentagastrinem",
+      "toleranční test s D-xylózou",
+      "tanovení elastázy ve stolici",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 151,
+    question: "Substrátem dechového testu pro malabsorpci může být:",
+    answers: ["C-urea", "C-aminopyrin", "C-laktóza", "C-glukóza"],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 152,
+    question: "Pro monitorování terapie IBD můžeme použít:",
+    answers: [
+      "etekci kalprotektinu nebo laktoferinu ve stolici",
+      "pouze detekci kalprotektinu ve stolici",
+      "stanovení elastázy ve stolici",
+      "detekci transferinu ve stolici",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 153,
+    question: "Normální koncentrace kalprotektinu ve stolici je:",
+    answers: [
+      "nad 30 μg/g stolice",
+      "nad 300 μg/g stolice",
+      "pod 300 μg/g stolice",
+      "mezi 10-20 μg/g stolice",
+    ],
+    correctIndex: 3,
+    topics: [],
+  },
+  {
+    id: 154,
+    question: "Laktulóza je v tenkém střevu absorbována:",
+    answers: [
+      "pasivní difuzí",
+      "facilitovanou difuzí",
+      "paracelulární absorpcí",
+      "aktivním transportem",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 155,
+    question: "Markerem pro hodnocení střevní permeability nemůže být:",
+    answers: [
+      "Cr-EDTA",
+      "kombinace laktulózy a manitolu",
+      "polyetyleneglykol",
+      "4-aminobenzoová kyselina",
+    ],
+    correctIndex: 3,
+    topics: [],
+  },
+  {
+    id: 156,
+    question: "Pro vyhodnocení exokrinní funkce pankreatu nelze použít:",
+    answers: [
+      "sekretin-cholecystokininový test",
+      "dechový test s 13C-mixed triacylglyceroly",
+      "stanovení pankreatické elastázy ve stolici",
+      "Schillingův test s vitaminem B<sub>12</sub>",
+    ],
+    correctIndex: 3,
+    topics: [],
+  },
+  {
+    id: 157,
+    question:
+      "task: Kde je lokalizován žaludeční pacemaker myoelektrické aktivity?",
+    answers: [
+      "na rozhraní distální a střední třetiny žaludku na velké",
+      "špatně",
+      "kurvatuře",
+      "v oblasti antra žaludku",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 158,
+    question:
+      "Jaký je normální bazální elektrický rytmus žaludeční stěny při elektrogastrografii?",
+    answers: [
+      "2,4–3,7 cyklů za minutu",
+      "1,5–2,5 cyklů za minutu",
+      "3,5–10 cyklů za minutu",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 159,
+    question:
+      "U kterých stavů dochází k ovlivnění bazálního elektrického rytmu žaludeční stěny?",
+    answers: [
+      "vředová choroba žaludku",
+      "adenokarcinom žaludku",
+      "diabetes mellitus 2. typu",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 160,
+    question: "Mezi somatoformní poruchy nepatří:",
+    answers: [
+      "somatizační poruchy",
+      "Münchhausenův syndrom",
+      "hypochondrické poruchy",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 161,
+    question:
+      "Tkáňové vzorky pro histologické vyšetření jsou standardně fixovány:",
+    answers: [
+      "v glutaraldehydu 48 hodin",
+      "ve formalínu 24 hodin",
+      "nejsou fixovány, jsou zpracovány nativně, ve zmrazených",
+      "špatně",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 162,
+    question: "Preanalytická fáze laboratorního vyšetřování zahrnuje:",
+    answers: [
+      "přípravu pacienta k odběru",
+      "interpretaci výsledků",
+      "indikace dalších laboratorních vyšetření",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 163,
+    question:
+      "Mezi biologické faktory, které můžeme ovlivnit pro laboratorní vyšetření, nepatří:",
+    answers: ["dieta", "biologické rytmy", "zevní prostředí"],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 164,
+    question: "Odběr nalačno znamená:",
+    answers: [
+      "jakýkoliv odběr ráno",
+      "odběr, kdy pacient standardně večeří a pak cca 10 hodin nejí",
+      "odběr kdy pacient nesnídá",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 165,
+    question: "POCT není:",
+    answers: [
+      "vyšetření u pacienta",
+      "vyšetření v laboratoři POCT",
+      "vyšetření v ambulanci gastroenterologa nebo praktického",
+      "špatně",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 166,
+    question: "task: Funkčním testem není",
+    answers: [
+      "dechový test s podáním laktózy",
+      "stanovení clearance alfa-amylázy",
+      "toleranční test s D-xylózou",
+      "Schillingův test s vitaminem B12",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 167,
+    question: "Screening celiakie se provádí:",
+    answers: [
+      "stanovením kalprotektinu v séru",
+      "detekcí protilátek ke tkáňové translutamináze",
+      "detekci Helicobacter pylori ve stolici",
+      "stanovením protilátek ke gastrinu",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 168,
+    question: "Markerem malabsorbce ve stolici může být:",
+    answers: ["haptoglobin", "pyruvátkináza M2-PK", "zonulin", "lysozym"],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 169,
+    question: "Analýza stolice nezahrnuje:",
+    answers: [
+      "stanovení pH stolice",
+      "koncentraci hemoglobinu v séru",
+      "analýzu pankreatické elastázy",
+      "detekci DNA mutací",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 170,
+    question: "Screening kolorektálního karcinomu umožňuje:",
+    answers: [
+      "stanovení koncentrace hemoglobinu v plasmě",
+      "stanovení koncentrace hemoglobinu ve stolici",
+      "stanovení koncentrace hemoglobinu v moči",
+      "stanovení koncentrace haptoglobinu ve stolici",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 171,
+    question: "Mikrobiologické metody rozdělujeme na:",
+    answers: [
+      "kultivaci a DNA detekci",
+      "přímé a nepřímé",
+      "sérologické a nesérologické",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 172,
+    question: "Mezi přímé metody detekce nepatří:",
+    answers: [
+      "kultivace mikroorganismů",
+      "hmotnostní spektrometrie",
+      "sérologie",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 173,
+    question:
+      "Přítomnost autoprotilátek proti tkáňové transglutamináze (anti-tTG) v třídě IgA je typicky nalézána u nemocných:",
+    answers: [
+      "s primární biliární cirhózou",
+      "s diabetes mellitus 1. typu",
+      "s celiakií",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 174,
+    question: "Cílovým antigenem autoprotilátek cANCA je:",
+    answers: ["proteináza 3", "granule mitochondrií", "myeloperoxidáza"],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 175,
+    question:
+      "U nemocných s aktivní celiakií jsou v rámci intraepitelových lymfocytů zmnoženy:",
+    answers: [
+      "T-lymfocyty exprimující receptor pro antigen TcRαβ",
+      "T-lymfocyty exprimující receptor pro antigen TcRγδ",
+      "B-lymfocyty s klonální restrikcí lehkých řetězců",
+      "špatně",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 176,
+    question:
+      "V tzv. IGRA testech se po specifické stimulaci antigeny odvozenými od Mycobacterium tuberculosis tvoří:",
+    answers: [
+      "interferon α v T-lymfocytech",
+      "interferon γ v T-lymfocytech",
+      "interferon γ v B-lymfocytech",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 177,
+    question: "Manometrii jícnu provádíme:",
+    answers: [
+      "obvykle v jedné pozici (vleže)",
+      "obvykle ve dvou pozicích (vsedě, vleže)",
+      "vždy ve dvou pozicích",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 178,
+    question: "Manometrii jícnu provádíme:",
+    answers: [
+      "obvykle v jedné pozici (vleže)",
+      "obvykle ve dvou pozicích (vsedě, vleže)",
+      "vždy ve dvou pozicích",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 179,
+    question: "Která jednotka již není součásti Chicagské klasifikace v.4:",
+    answers: [
+      "obstrukce GE junkce (EGJOO)",
+      "distální spazmus jícnu",
+      "jackhammer esophagus (kladivový jícen)",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 180,
+    question:
+      "name: GASTRO_MG_05 data: otázka číslo:6910 Termínem aneuploidie se označuje:",
+    answers: [
+      "jakákoli odchylka v počtu chromozomů",
+      "jakákoli odchylka v počtu genů",
+      "jakákoli odchylka v počtu nukleotidů",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 181,
+    question: "Které z následujících prohlášení je správně:",
+    answers: [
+      "genetika je nauka o přenosu dědičné informace mezi generacemi",
+      "genomika je nauka o přenosu dědičné informace mezi generacemi",
+      "genetika a genomika jsou synonyma označující nauku o struktuře a",
+      "špatně",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 182,
+    question:
+      "DNA mutace, která se vyskytuje ve všech buňkách těla, se označuje termínem:",
+    answers: ["zárodečná", "autosomální", "somatická"],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 183,
+    question: "Tumor supresor je:",
+    answers: [
+      "typ moderní onkologické léčby",
+      "enzym potlačující buněčné dělení",
+      "přírodní látka s antioxidačními účinky",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 184,
+    question: "Mikrosatelitová nestabilita je:",
+    answers: [
+      "součást mechanismu, kterým buňky opravují DNA mutace",
+      "laboratorní metoda detekce DNA mutací",
+      "projev nesprávného fungování systému oprav DNA mutací",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 185,
+    question: "Pojmem tekutá biopsie se označuje:",
+    answers: [
+      "zpracování homogenizovaných vzorků tkáně",
+      "vyšetření nádorových markerů ve vzorcích peroperační laváže",
+      "vyšetření DNA mutací uvolňovaných z nádoru v krevním oběhu",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 186,
+    question:
+      "data: otázka číslo:1 V porovnání s počtem lidských buněk je počet mikrobiálních buněk:",
+    answers: ["přibližně stejný", "tisíckrát větší", "tisíckrát menší"],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 187,
+    question:
+      "V porovnání s počtem lidských genů je počet unikátních genů střevního mikrobiomu:",
+    answers: ["přibližně stejný", "řádově větší", "řádově menší"],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 188,
+    question: "Střevní mikrobiota hraje důležitou roli:",
+    answers: [
+      "v metabolismu a nemá vliv na imunitní systém člověka",
+      "v získávání energie z potravy a v obraně proti patogenům",
+      "v obraně vůči patogenům, přičemž se nepodílí na metabolismu člověka",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 189,
+    question: "Nejčastějšími kmeny bakterií ve střevě člověka jsou:",
+    answers: [
+      "Verrucomicrobia, Proteobacteria a Euryarcheota",
+      "Bacteroidetes, Proteobacteria a Cyanobacteria",
+      "Firmicutes, Actinobacteria a Bacteroidetes",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 190,
+    question: "Množství střevních bakterií:",
+    answers: [
+      "vzrůstá směrem od žaludku po rektum",
+      "klesá směrem od žaludku po rektum",
+      "je v různých částech GIT stejné",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 191,
+    question: "Složení střevního mikrobiomu lze popsat pomocí:",
+    answers: [
+      "alfa-diverzity a beta-diverzity",
+      "alfa-, beta- a gama-diverzity",
+      "diverzity prvního a druhého stupně",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 192,
+    question: "Složení střevního lidského mikrobiomu závisí:",
+    answers: [
+      "na genetice hostitele v kombinaci s faktory vnějšího prostředí",
+      "zcela na genetice hostitele",
+      "zcela na vnějším prostředí hostitele, jako jsou dietetické návyky,",
+      "špatně",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 193,
+    question: "Zásadní vývoj střevního mikrobiomu probíhá:",
+    answers: [
+      "v průběhu těhotenství",
+      "v období prvních tří let vývoje jedince",
+      "do doby dosažení dospělosti, typicky do 18 let",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 194,
+    question: "Konzumace alkoholu vede k:",
+    answers: [
+      "homeostáze střevních mikroorganismů",
+      "střevní dysbióze",
+      "nárůstu diverzity střevní mikroflóry",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 195,
+    question:
+      "V současnosti jsou pro studium lidského střevního mikrobiomu používány:",
+    answers: [
+      "metody nezávislé na kultivaci mikroorganismů",
+      "kultivační a mikroskopické metody",
+      "sérologické metody",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 196,
+    question: "Amplifikace a sekvenace 16S rRNA genů se používá pro:",
+    answers: [
+      "studium funkčních vlastností mikrobiomu",
+      "základní taxonomickou charakterizaci střevních mikroorganismů",
+      "komplementaci predikcí odvozených z metagenomových dat",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 197,
+    question:
+      "data: otázka číslo:1 Součásti humorálních obranných mechanismů na sliznici trávicího traktu jsou:",
+    answers: [
+      "sekreční protilátky sIgM",
+      "sekreční protilátky sIgG",
+      "sekreční protilátky sIgA",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 198,
+    question:
+      "Populace intraepitelových lymfocytů střevní sliznice je tvořena převážně:",
+    answers: [
+      "T-lymfocyty CD8+ s receptorem pro antigen TcR αβ",
+      "T-lymfocyty CD8+ s receptorem pro antigen TcR γδ",
+      "T-lymfocyty CD4+ s receptorem pro antigen TcR γδ",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 199,
+    question:
+      "Obranné mechanismy sliznice gastrointestinálního traktu jsou regulovány:",
+    answers: [
+      "T-lymfocyty funkčně polarizovanými do subsetu Th17",
+      "T-lymfocyty funkčně polarizovanými do subsetu Th2",
+      "T-lymfocyty funkčně polarizovanými do subsetu Th1",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 200,
+    question:
+      "Osídlení gastrointestinálního traktu normální mikrobiotou je pro jeho funkci:",
+    answers: [
+      "bez významnějšího přínosu",
+      "naprosto nezbytné",
+      "významné pouze v časném ontogenetickém vývoji",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 201,
+    question:
+      "Indukční fáze specifické T a B lymfocytární odpovědi je asociována s:",
+    answers: [
+      "Peyerovými pláty tenkého střeva",
+      "Lieberkühnovými kryptami",
+      "Panethovými buňkami",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 202,
+    question:
+      "data: otázka číslo:1 Co vyjadřuje věkově nepřímo standardizovaná incidence (standardized incidence ratio, SIR):",
+    answers: [
+      "udává se v procentech a vyjadřuje, jak se skutečný počet",
+      "věkovém standardu",
+      "udává se v procentech a vyjadřuje, kolik procent tvoří nemocní z",
+      "špatně",
+      "špatně",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 203,
+    question: "Senzitivita diagnostického testu je:",
+    answers: [
+      "citlivost testu vyjadřovaná metrickými jednotkami, např. hranice",
+      "špatně",
+      "vyjadřuje pravděpodobnost, že test bude pozitivní u skutečně",
+      "správně",
+      "čase – vyjadřuje pravděpodobnost shody opakovaných měření",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 204,
+    question: "data: otázka číslo:1 Znak „double bubble“ je typický pro:",
+    answers: ["atrézii jícnu", "atrézii duodena", "atrézii kolon"],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 205,
+    question: "Substituce vitaminem B<sub>12</sub> je nezbytná u pacientů:",
+    answers: [
+      "po operaci atrézie jícnu",
+      "se založenou kolostomií",
+      "po resekci terminálního ilea",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 206,
+    question: "Nejčastějšími klinickými projevy Meckelova divertiklu jsou:",
+    answers: [
+      "krvácení a obstrukce",
+      "obstipace a peritonitida",
+      "krvácení a peritonitida",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 207,
+    question: "Volvulus středního střeva:",
+    answers: [
+      "se vyskytuje nejčastěji u dětí starších 3 let",
+      "se vždy projeví přítomností krve ve zvratcích",
+      "vyžaduje urgentní operaci",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 208,
+    question:
+      "Nejčastější příčinou přímé hyperbilirubinemie v prvních třech měsících života je:",
+    answers: [
+      "Gilbertův syndrom",
+      "atrézie žlučových cest",
+      "Dubinův –Johnsonův syndrom",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 209,
+    question: "data: otázka číslo:1 Etiologickým agens herpanginy je:",
+    answers: [
+      "betahemolytický streptokok",
+      "lidský herpes virus 6 (HHV 6)",
+      "coxsackie virus skupiny A",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 210,
+    question:
+      "V dutině ústní se ze systémových vaskulitid mohou typicky manifestovat:",
+    answers: [
+      "Behcetův syndrom",
+      "ANCA negativní vaskulitidy",
+      "systémový lupus erythematodes",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 211,
+    question: "Sialóza je:",
+    answers: [
+      "souhrnné označení pro onemocnění slinných žláz, charakterizované",
+      "slin",
+      "společné označení pro různá virové onemocnění slinných žláz",
+      "souhrnné označení pro konkrementy ve vývodech velkých slinných žláz",
+      "špatně",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 212,
+    question: "Nejčastější neoplazií slinných žláz je:",
+    answers: [
+      "folikulární B-lymfom",
+      "pleomorfní adenom",
+      "mukoepidermoidní karcinom",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 213,
+    question:
+      "name: GASTRO_MG_11 data: otázka číslo:7633 Do organické dyspepsie nepatří dyspepsie při:",
+    answers: ["Menétrierově nemoci", "Addisonově nemoci", "Crohnově nemoci"],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 214,
+    question: "Do sekundární dyspepsie nepatří dyspepsie při:",
+    answers: [
+      "cholelitiáze",
+      "chronickém srdečním selhání",
+      "léčbě p.o. preparáty železa",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 215,
+    question: "Klinická manifestace funkčních poruch bývá nejčastěji ve věku:",
+    answers: ["30–50 let", "50–70 let", "na věku nezáleží"],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 216,
+    question: "Ke klinickým příznakům globus pharyngeus nepatří:",
+    answers: ["pocit cizího tělesa v krku", "pocit sevření hrdla", "dysfagie"],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 217,
+    question: "Proptóza vzniká:",
+    answers: [
+      "na podkladě koordinované činnosti svalstva",
+      "na podkladě zvýšené plynatosti při bakteriálním přerůstání",
+      "při aerofagii",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 218,
+    question: "Po defekaci je úleva u:",
+    answers: ["spastické zácpy", "prosté zácpy", "dráždivého tračníku"],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 219,
+    question: "Do diagnostických kritérií funkční pyrózy nepatří:",
+    answers: [
+      "nepřítomnost eozinofilní ezofagitidy",
+      "adekvátní antisekretorická léčba nepřináší úlevu",
+      "adekvátní antisekretorická léčba přináší úlevu",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 220,
+    question: "Mezi příznaky postprandiálního distres syndromu nepatří:",
+    answers: [
+      "plnost po jídle ovlivňující obvyklé denní aktivity",
+      "zvracení po jídle",
+      "předčasná sytost neumožňující sníst obvyklou porci jídla",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 221,
+    question:
+      "Mařatkově funkční gastropatii dráždivý žaludek odpovídá v Římských kritériích:",
+    answers: [
+      "nespecifická dyspepsie",
+      "ulcer-like dyspepsie",
+      "dysmotility-like dyspepsie",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 222,
+    question:
+      "Při funkční dyspepsii z eradikce <i>Helicobacter pylori</i> dlouhodobě profituje:",
+    answers: ["5–10 % nemocných", "10–20 % nemocných", "20–30 % nemocných"],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 223,
+    question: "K rannímu debaklu u dráždivého tračníku nepatří:",
+    answers: [
+      "frekventní nutkavé stolice",
+      "samovolný odchod stolice",
+      "postupně se měnící konzistence stolice",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 224,
+    question: "Vysoký obsah FODMAP nemá:",
+    answers: ["cibule", "mrkev", "jogurt"],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 225,
+    question: "Prokázané riziko dlouhodobé restrikční FODMAP diety není:",
+    answers: [
+      "deficit minerálů a vitaminů",
+      "zvýšené riziko kolorektálního karcinomu",
+      "redukce probiotických střevních mikrobiot",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 226,
+    question:
+      "U funkčních gastrointestinálních poruch s bolestí břicha jsou vhodná:",
+    answers: [
+      "tricyklická antidepresiva",
+      "selektivní blokátory zpětného vychytávání serotoninu",
+      "prokinetika",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 227,
+    question:
+      "name: GASTRO_MG_12v data: otázka číslo:6972 Které tvrzení je pravdivé:",
+    answers: [
+      "Dilatace u pacientů s eozinofilní ezofagitidou jsou zatíženy",
+      "špatně",
+      "elementární dieta.",
+      "Eozinofilní ezofagitida je principiálně onemocnění asociované s",
+      "špatně",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 228,
+    question:
+      "Které potraviny nejsou nevhodné u pacienta s eozinofilní ezofagitidou:",
+    answers: ["ryby a mořské plody", "mrkev", "ořechy"],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 229,
+    question: "Sloughing esophagitis znamená:",
+    answers: [
+      "jiný název pro lymfocytární ezofagitidu",
+      "esophagitis dissecans superficialis",
+      "korozivní ezofagitidu",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 230,
+    question: "Esophagitis dissecans superficialis:",
+    answers: [
+      "jiný název pro lymfocytární ezofagitidu",
+      "esophagitis dissecans superficialis",
+      "korozivní ezofagitidu",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 231,
+    question: "Esophagitis dissecans superficialis:",
+    answers: [
+      "je charakterizovaná parakeratózou sliznice jícnu",
+      "je následkem korozivního poškození jícnu",
+      "se léčí zejména inhibitory protonové pumpy",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 232,
+    question: "K rozvoji radiační ezofagitidy nedochází:",
+    answers: [
+      "při ozáření protonovým svazkem",
+      "nepřesáhne-li celková radiační dávka 30 Gy",
+      "nepřesáhne-li celková radiační dávka 50 Gy",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 233,
+    question: "Které tvrzení je pravdivé:",
+    answers: [
+      "Riziko vzniku adenokarcinomu v terénu Barrettova jícnu bez",
+      "špatně",
+      "dysplazie je 0,2 %/rok.",
+      "Ze 100 pacientů s Barrettovým jícnem bez dysplazie onemocní",
+      "špatně",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 234,
+    question:
+      "Rizikovým faktorem vzniku karcinomu jícnu u pacienta s Barrettovým jícnem není:",
+    answers: ["kouření", "alkohol", "vřed"],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 235,
+    question:
+      "K chemoprevenci vzniku karcinomu se u pacientů s Barrettovým jícnem doporučují:",
+    answers: [
+      "žádná chemoprevence není rutinně indikovaná",
+      "kyselina acetylsalicylová",
+      "statiny",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 236,
+    question: "Barrettův jícen je:",
+    answers: [
+      "pojmenován podle britského chirurga",
+      "embryonálně vzniklá abnormalita",
+      "následek refluxu žluči do jícnu",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 237,
+    question:
+      "Nejčastější komplikací radiofrekvenční ablace jícnu je stenóza. Jaké je riziko jejího vzniku?",
+    answers: ["5 %", "8 %", "10 %"],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 238,
+    question: "Při radiofrekvenční ablaci systémem HALO 360:",
+    answers: [
+      "je nutná vždy kalibrace k výběru správné velikosti",
+      "špatně",
+      "špatně",
+      "s původními elektrodami je kalibrace nezbytná",
+    ],
+    correctIndex: 3,
+    topics: [],
+  },
+  {
+    id: 239,
+    question:
+      "Pacient s Barrettovým jícnem C0M3, s viditelnou lézí 15 mm 0-IIa",
+    answers: [
+      "odběr biopsií a další řešení podle výsledku",
+      "provedení endoskopické resekce/disekce a podle histopatologie",
+      "špatně",
+      "postup",
+    ],
+    correctIndex: 3,
+    topics: [],
+  },
+  {
+    id: 240,
+    question: "Jaké tvrzení je pravdivé:",
+    answers: [
+      "K diagnóze RCHJ je nejvíce přínosná přesná endoskopie.",
+      "Terapeutický test s inhibitory protonové pumpy není vhodnou",
+      "špatně",
+      "s impedancí.",
+    ],
+    correctIndex: 3,
+    topics: [],
+  },
+  {
+    id: 241,
+    question: "Pacient s refluxní ezofagitidou po POEM:",
+    answers: [
+      "má refluxní chorobu jícnu",
+      "nemá refluxní chorobu jícnu",
+      "má iatrogenně způsobenou refluxní chorobu jícnu",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 242,
+    question: "Mezi komplikace RCHJ nepatří:",
+    answers: ["striktura jícnu", "karcinom kardie", "krvácení"],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 243,
+    question: "Mezi doporučené léčebné metody RCHJ nepatří:",
+    answers: [
+      "radiofrekvenční ablace GE junkce",
+      "magnetický „náramek“ v oblasti GE junkce",
+      "antirefluxní mukosektomie (ARMS)",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 244,
+    question: "Mezi doporučené léčebné metody RCHJ patří:",
+    answers: [
+      "F-POEM",
+      "aplikace radiofrekvenční energie do oblasti GE junkce",
+      "antirefluxní mukosektomie (ARMS)",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 245,
+    question:
+      "Postfundoplikační dysfagie je komplikací fundoplikace. Podle evidence-based medicine – jaká léčba je účinná v její léčbě:",
+    answers: [
+      "pneumatická dilatace",
+      "hydraulická dilatace",
+      "žádná z obou výše zmíněných",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 246,
+    question: "Morgagniho kýla vzniká v oblasti:",
+    answers: [
+      "jícnového hiátu",
+      "lumbokostálních prostorů (foramina)",
+      "sternokostálních prostorů (foramina)",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 247,
+    question: "U vrozených bráničních kýl platí:",
+    answers: [
+      "novorozenec může v jejich důsledku zemřít",
+      "jsou vždy symptomatické",
+      "vyskytují se ve frekvenci 1 : 1 500 porodů",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 248,
+    question: "Difuzní glykogenní akantóza jícnu je typická pro:",
+    answers: [
+      "syndrom Cronkhite–Canada",
+      "papilomatózu jícnu",
+      "Cowdenův syndrom",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 249,
+    question: "Leiomyom jícnu:",
+    answers: [
+      "je negativní pro SMA (aktin)",
+      "je negativní pro CD117",
+      "je pozitivní pro CD34",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 250,
+    question: "Abrikossoffův nádor:",
+    answers: [
+      "vychází z m. propria",
+      "je pozitivní pro SMA a CD117",
+      "je charakteristický výskytem granulárních buněk",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 251,
+    question: "Abrikossoffův nádor:",
+    answers: [
+      "má často maligní potenciál",
+      "je kryt normální sliznicí",
+      "biopsie jsou diagnostickou metodou volby",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 252,
+    question:
+      "Pacient má tumor (adenokarcinom) kardie zasahující 3 cm distálně do žaludku:",
+    answers: [
+      "jedná se o nádor typu I podle Siewertovy klasifikace",
+      "jedná se o nádor typu II podle Siewertovy klasifikace",
+      "jedná se o nádor typu III podle Siewertovy klasifikace",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 253,
+    question:
+      "Rizikovým faktorem vzniku spinocelulárního karcinomu jícnu není:",
+    answers: ["pití horkých nápojů", "tylóza", "obezita"],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 254,
+    question:
+      "Porucha adheze epitelových buněk je nalézána u adenokarcinomu jícnu v důsledku:",
+    answers: ["mutace CDKN2A", "mutace p53", "mutace genu pro beta-catenin"],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 255,
+    question: "Které tvrzení platí:",
+    answers: [
+      "Časný spinocelulární karcinom by se měl vždy endoskopicky",
+      "kurativní).",
+      "Adenokarcinom je nezbytné vždy odstranit en bloc (aby",
+      "špatně",
+      "karcinom.",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 256,
+    question:
+      "Pacient s adenokarcinomem jícnu, endoskopicky odstraněným, střední diverenciace, sm1 invaze, R0 resekce, bez reziduálního Barrettova jícnu:",
+    answers: [
+      "pacient je vyléčen",
+      "je indikována zajišťovací radiofrekvenční ablace jícnu",
+      "pokud CT hrudi neukazuje lymfadenopatii, lze pacienta považovat",
+      "špatně",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 257,
+    question:
+      "Léčba lokálně pokročilého operabilního adenokarcinom jícnu (T3, T4) spočívá obvykle:",
+    answers: [
+      "v primární operaci",
+      "v neoadjuvantní chemoterapii a následné operaci",
+      "v perioperační chemoterapii a operaci",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 258,
+    question:
+      "Pacient s nádorem T3 v krčním jícnu, histologicky dlaždicobuněčný karcinom. Nejvhodnější léčba je:",
+    answers: [
+      "chemoradioterapie",
+      "neoadjuvantní chemoterapie a operace",
+      "radioterapie nejlépe protonovým svazkem",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 259,
+    question:
+      "Definitivní chemoradioterapie u dlaždicobuněčného karcinomu jícnu:",
+    answers: [
+      "může být kurativní",
+      "nemůže být následována chirurgickou resekcí",
+      "je vždy paliativního charakteru",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 260,
+    question: "Taxany jsou léčebnou možností u generalizovaného:",
+    answers: [
+      "dlaždicobuněčného karcinomu jícnu, jde o léčbu druhé linie",
+      "adenokarcinomu jícnu, jde o léčbu druhé linie",
+      "taxany se v terapii generalizovaného jícnu neužívají pro",
+      "špatně",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 261,
+    question: "Operace podle Ivor a Lewise:",
+    answers: [
+      "je typem transtorakální ezofagektomie",
+      "je typem transhiatální ezofagektomie",
+      "je typem operace, při níž se neotevírá hrudní dutina",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 262,
+    question: "Rozsah lymfadenektomie při resekci jícnu pro karcinom:",
+    answers: [
+      "respektuje postižení sentinelové uzliny",
+      "vždy je nezbytná abdominální disekce lymfatických uzlin",
+      "je nezbytné odebrat nejméně 10 lymfatických uzlin",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 263,
+    question: "Z následujících vzácných nádorů jícnu je nejagresivnější:",
+    answers: [
+      "verukózní karcinom",
+      "karcinom z Merkelových buněk",
+      "adenoskvamózní karcinom",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 264,
+    question:
+      "Mezi nejúčinnější metody prevence striktury jícnu po rozsáhlé ESD nepatří:",
+    answers: [
+      "časná dilatace nebo zavedení stentu",
+      "podávání léků tlumících fibrogenezi",
+      "lokální aplikace steroidů",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 265,
+    question: "Jaká metoda nepatří mezi standardní metody léčby achalazie:",
+    answers: [
+      "neumatická dilatace",
+      "POEM",
+      "zavedení stentu v refrakterních případech",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 266,
+    question: "Která jednotka již není součásti Chicagské klasifikace v.4:",
+    answers: [
+      "obstrukce GE junkce (EGJOO)",
+      "distální spazmus jícnu",
+      "difuzní spazmus jícnu",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 267,
+    question: "Prevalence Zenkerova divertiklu je v běžné populaci:",
+    answers: ["1 %", "3 %", "0,1 %"],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 268,
+    question: "K metodám tzv. submukózní endoskopie nepatří:",
+    answers: ["Z-POEM", "F-POEM", "EFTR (endoscopic full thickness resection)"],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 269,
+    question:
+      "Jaké je procento pacientů, kteří jsou po POEM (perorální endoskopická myotomie) léčeni antisekreční léčbou 2 roky po zákroku:",
+    answers: ["30 %", "40 %", "50 %"],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 270,
+    question: "Při achalazii platí:",
+    answers: [
+      "dolní svěrač jícnu je vždy hypertonní",
+      "dolní svěrač jícnu nikdy fyziologicky nerelaxuje",
+      "dolní svěrač jícnu je vždy hypertonní a fyziologicky",
+      "špatně",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 271,
+    question: "Jaký je nejčastější typ atrézie jícnu:",
+    answers: [
+      "samostatná atrézie (jícen není propojen, bez komunikace",
+      "špatně",
+      "s tracheou",
+      "H-typ píštěle (jícen je intaktní a je spojen",
+      "špatně",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 272,
+    question: "Pacienti se systémovou skerodermií jsou nejvíce limitováni:",
+    answers: ["dysfagií", "refluxem", "gastroparézou"],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 273,
+    question: "Refrakterní stenózu jícnu neléčíme:",
+    answers: [
+      "plastovými stenty",
+      "pokrytými metalickými stenty",
+      "pneumatickou dilatací",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 274,
+    question: "Jícnové membrány:",
+    answers: [
+      "jsou způsobeny refluxem",
+      "nezaujímají celou cirkumferenci jícnu",
+      "nepatří k obrazu Plummerova–Vinsonova syndromu",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 275,
+    question: "Osídlení jícnu mikrobiotou je:",
+    answers: ["105 g/ml", "10 g/ml", "102 g/ml"],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 276,
+    question: "Campylobacter concisus je:",
+    answers: [
+      "potenciální patogen v jícnu",
+      "symbiotický mikroorganismus",
+      "v jícnu se nevyskytuje",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 277,
+    question: "U zdravých jedinců se v jícnu nejčastěji vyskytuje:",
+    answers: ["Veillonella", "Porphyromonas gingivalis", "Streptococcus spp."],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 278,
+    question:
+      "name: GASTRO_MG_12p data: otázka číslo:7400 Mezi standardní léčebné postupy u pacientů s eozinofilní ezofagitidou nepatří:",
+    answers: ["dilatace", "bezlepková dieta", "inhibitory protonové pumpy"],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 279,
+    question: "Které tvrzení je pravdivé:",
+    answers: [
+      "eozinofilní ezofagitida je častější u žen",
+      "eozinofilní ezofagitida je častější u mužů",
+      "eozinofilní ezofagitida se vyskytuje u obou pohlaví stejně",
+      "špatně",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 280,
+    question:
+      "Pacient si stěžuje na váznutí sousta. Anamnesticky je alergik. Při endoskopii je přítomný normální nález na jícnu. Jaký je nejvhodnější další postup:",
+    answers: [
+      "odebrat biopsie z jícnu",
+      "indikovat manometrii jícnu",
+      "indikovat polykací akt (rtg)",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 281,
+    question: "Lymfocytární ezofagitida:",
+    answers: [
+      "je častější u mužů",
+      "se nejčastěji projevuje bolestí na hrudi",
+      "může být asociována s Crohnovou nemocí",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 282,
+    question: "Stenózy jícnu při chronické radiační ezofagitidě:",
+    answers: [
+      "vyžadují endoskopickou dispenzarizaci vzhledem",
+      "špatně",
+      "pacienty endoskopicky sledovat",
+      "nejsou spojeny s rizikem vzniku karcinomu jícnu",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 283,
+    question: "Kaustická ezofagitida, stupeň postižení IV, značí:",
+    answers: [
+      "hluboké a mnohočetné vředy s černou spodinou",
+      "ulcerace s jakoukoli spodinou po celém obvodu jícnu",
+      "perforaci jícnu",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 284,
+    question: "task: V léčbě těžké kaustické ezofagitidy (mimo perforaci)",
+    answers: [
+      "kortikosteroidy nepodáváme, antibiotika podáváme",
+      "kortikosteroidy podáváme, antibiotika podáváme",
+      "kortikoidy podáváme, antibiotika nepodáváme",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 285,
+    question: "Je popsán Barrettův jícen C3M5. Celkové délka segmentu BJ je:",
+    answers: ["8 cm", "5 cm", "3 cm"],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 286,
+    question:
+      "45letý pacient s Barrettovým jícnem C10M10, provedena high-resolution endoskopie s chromodiagnostikou (bez léze), odebrány biopsie podle Seattle protokolu. Počet biopsií je",
+    answers: ["15", "20", "40"],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 287,
+    question:
+      "45letý pacient s letitou diagnózou Barrettova jícnu C8M10, na léčbě inhibitory protonové pumpy, provedena plánovaná dispenzární endoskopie s chromodiagnostikou (bez léze), odebrány biopsie podle Seattle protokolu. Biopsie neukazují dysplazii. Další nejvhodnější postup je:",
+    answers: [
+      "kontrolní endoskopie za 5 let",
+      "kontrolní endoskopie za 12 měsíců",
+      "kontrolní endoskopie za 2–3 roky",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 288,
+    question: "U pacientů s Barrettovým jícnem je doporučena:",
+    answers: [
+      "chromodiagnostika metylenovou modří",
+      "chromodiagnostika indigokarmínem",
+      "chromodiagnostika kyselinou octovou",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 289,
+    question: "Radiofrekvenční ablace Barrettova jícnu je indikována:",
+    answers: [
+      "u pacientů bez viditelné léze s high-grade dysplazií",
+      "u pacientů s viditelnou lézí s low-grade dysplazií",
+      "u pacientů bez viditelné léze s karcinomem",
+      "špatně",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 290,
+    question:
+      "Mezi standardní léčebné postupy u refluxní choroby jícnu (RCHJ) s aerofagií patří:",
+    answers: [
+      "fyzioterapie – nácvik diafragmatického dýchání",
+      "podávání H2-blokátorů",
+      "fundoplikace",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 291,
+    question:
+      "Pacient s refluxní ezofagitidou Los Angeles C, vyhojenou po 8 týdnech podávání esomeprazolu 2×40 mg. Jaký je nejvhodnější postup:",
+    answers: [
+      "Fundoplikace, dlouhodobé podávání inhibitorů protonové pumpy",
+      "špatně",
+      "v dávce 1×40 mg nebo 2×20 mg) jsou shodně účinnými",
+      "je pacienti s RCHJ dlouhodobě neužívali.",
+      "Fundoplikace nebo jako alternativa je vhodné přejít na",
+      "s takovými riziky jako PPI",
+    ],
+    correctIndex: 3,
+    topics: [],
+  },
+  {
+    id: 292,
+    question: "Co je nejčastější příčinou vzniku RCHJ:",
+    answers: [
+      "hiatová hernie",
+      "hypotonní dolní jícnový svěrač",
+      "tranzientní relaxace dolního svěrače jícnu",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 293,
+    question: "pH-metrii (s impedancí) většinou neindikujeme:",
+    answers: [
+      "v případě refluxní ezofagitidy",
+      "u pacientů s atypickými příznaky refluxu",
+      "u pacienta bez refluxní ezofagitidy před fundoplikací",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 294,
+    question: "Pacient s dlouhotrvající (léta) pyrózou 2–3krát týdně:",
+    answers: [
+      "nemá zvýšené riziko karcinomu jícnu",
+      "má 10krát zvýšené riziko adenokarcinomu jícnu",
+      "má 40krát zvýšené riziko adenokarcinomu jícnu",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 295,
+    question:
+      "Pacient s atypickými příznaky (kašel, laryngitidy), neodpovídající na léčbu inhibitory protonové pumpy, s pozitivní pH-metrií (DeMester skóre 32):",
+    answers: [
+      "je vhodným kandidátem fundoplikace",
+      "fundoplikace je nevhodná",
+      "fundoplikace je kontraindikovaná",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 296,
+    question: "Jaká je účinná léčba dlouhotrvající postfundoplikační dysfagie:",
+    answers: ["reoperace", "dilatace", "injekce botulotoxinu"],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 297,
+    question: "Morgagniho kýla:",
+    answers: [
+      "je možná pouze vlevo skrze foramen sternocostalis",
+      "je možná pouze vpravo skrze foramen lumbocostalis",
+      "je možná oboustranně",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 298,
+    question: "Bochdalekova kýla vzniká v oblasti:",
+    answers: [
+      "jícnového hiátu",
+      "lumbokostálních prostorů (foramina)",
+      "sternokostálních prostorů (foramina)",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 299,
+    question: "Hiátová hernie II. typu:",
+    answers: [
+      "jde o čistě skluznou hernii",
+      "jde o paraezofageální hernii",
+      "jde o vrozenou hernii",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 300,
+    question: "Leiomyom jícnu léčíme:",
+    answers: [
+      "pokud je velký",
+      "pokud má podle výsledku biopsie/FNB maligní potenciál",
+      "pokud je symptomatický",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 301,
+    question:
+      "Pacient má tumor (adenokarcinom) kardie zasahující 1,5 cm distálně do žaludku:",
+    answers: [
+      "jedná se o nádor typu I podle Siewertovy klasifikace",
+      "jedná se o nádor typu II podle Siewertovy klasifikace",
+      "jedná se o nádor typu III podle Siewertovy klasifikace",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 302,
+    question: "Nádory typu III podle Siewertovy klasifikace se léčí:",
+    answers: [
+      "jako adenokarcinom jícnu",
+      "jako karcinom žaludku",
+      "specificky",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 303,
+    question:
+      "Výskyt mutací a dalších genetických abnormalit progresivně stoupá od low-grade dysplazie přes high grade dysplazii až ke karcinomu:",
+    answers: [
+      "platí pro adenokarcinom i dlaždicobuněčný karcinom",
+      "platí jen pro adenokarcinom",
+      "platí jen pro dlaždicobuněčný karcinom",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 304,
+    question: "Základní stagingové vyšetření u karcinomu jícnu je:",
+    answers: ["endosonografie", "CT", "PET-CT"],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 305,
+    question: "GIST jícnu velikosti 15 mm:",
+    answers: [
+      "by se měl vždy odstranit, nejlépe endoskopicky",
+      "by se měl odstranit jen v případě příznaků, nejlépe",
+      "špatně",
+      "(endoskopické) v případě růstu",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 306,
+    question: "Pacienty s achalazií po úspěšné léčbě:",
+    answers: [
+      "nedispenzarizujeme",
+      "dispenzarizujeme pro vyšší riziko karcinomu jícnu",
+      "dispenzarizujeme vzhledem k častým relapsům",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 307,
+    question: "Hlavní metoda diagnózy achalázie je:",
+    answers: ["impedanční planimetrie", "rtg", "manometrie jícnu"],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 308,
+    question: "Distální spazmus jícnu je charakterizován:",
+    answers: [
+      "elevací IRP (integrovaný relaxační tlak)",
+      "hyperkontraktilní peristaltikou",
+      "předčasnými kontrakcemi",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 309,
+    question: "Zenkerův divertikl je:",
+    answers: ["pravý divertikl", "nepravý divertikl", "trakční divertikl"],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 310,
+    question: "Jaká je metoda 1. volby léčby Zenkerova divertiklu:",
+    answers: [
+      "laserová myotomie rigidním přístrojem",
+      "chirurgická myotomie s resekcí vaku",
+      "endoskopická septotomie",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 311,
+    question: "Nejvíce refrakterní na léčbu je:",
+    answers: ["achalasie I. typu", "achalasie II. typu", "achalasie III. typu"],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 312,
+    question: "G-POEM:",
+    answers: [
+      "je léčebnou metodou vhodnou pro všechny pacienty",
+      "špatně",
+      "diabetickou gastroparézou",
+      "je jednou z několika možností léčby gastroparézy",
+    ],
+    correctIndex: 3,
+    topics: [],
+  },
+  {
+    id: 313,
+    question:
+      "Pacient má bolesti na hrudi a významnou pyrózu. Jako první provedeme:",
+    answers: [
+      "vyloučíme kardiologickou příčinu",
+      "indikujeme gastroskopii",
+      "indikujeme pH-metrii",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 314,
+    question: "Nejčastější příčinou nekardiální bolesti na hrudi je:",
+    answers: [
+      "spastické poruchy jícnu včetně achalazie",
+      "gastroezofageální reflux",
+      "mukoskeletální příčiny",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 315,
+    question: "„Inlet patch“ proximálního jícnu:",
+    answers: [
+      "je vždy asymptomatický",
+      "z jeho terénu nemůže vyrůst adenokarcinom",
+      "může být asociován s tzv. globem",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 316,
+    question: "Dysphagia lusoria je způsobena:",
+    answers: [
+      "aberantní cévou odstupující z aorty",
+      "aberantní cévou odstupující z levé a. carotis communis a",
+      "špatně",
+      "špatně",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 317,
+    question: "Forestierova choroba:",
+    answers: [
+      "je většinou spojena s dysfagií",
+      "dysfagii působí výjimečně",
+      "postihuje častěji ženy a osoby s cukrovkou 1. typu",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 318,
+    question: "Boerhaaveův syndrom:",
+    answers: [
+      "je častější u pacientů s eozinofilní ezofagitidou",
+      "je vždy fatální",
+      "nelze léčit endoskopicky",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 319,
+    question: "Spontánní ruptura jícnu:",
+    answers: [
+      "k ruptuře nejčastěji dochází ve střední třetině",
+      "dochází k ní při prudkém snížení nitrobřišního a",
+      "špatně",
+      "v mediastinu)",
+    ],
+    correctIndex: 3,
+    topics: [],
+  },
+  {
+    id: 320,
+    question:
+      "name: GASTRO_MG_13 data: otázka číslo:7647 <i>Helicobacter pylori</i> je:",
+    answers: [
+      "mikroaerofilní grampozitivní bakterie",
+      "mikroaerofilní gramnegativní bakterie",
+      "mikroaerofilní bakterie negativní barvením Warthin–Starry",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 321,
+    question:
+      "Prevalence infekce <i>Helicobacter pylori</i> v České republice (v roce 2020) je:",
+    answers: ["10–15 %", "20–25 %", "30–35 %"],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 322,
+    question: "Rizikovým faktorem infekce <i>Helicobacter pylori</i> je:",
+    answers: [
+      "nízký socioekonomický statut",
+      "vysoký socioekonomický statut",
+      "krevní skupina A",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 323,
+    question:
+      "Ve střední Evropě je <i>Helicobacter pylori</i> téměř ve 100 % citlivý na:",
+    answers: ["azitromycin", "metronidazol", "amoxicilin"],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 324,
+    question: "Kyselina chlorovodíková je v žaludku secernována:",
+    answers: [
+      "parietálními buňkami",
+      "hlavními buňkami",
+      "enterochromafinními buňkami",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 325,
+    question: "Chronická gastritida:",
+    answers: [
+      "je bezpříznaková (asymptomatická)",
+      "je typicky spojena s bolestmi v nadbřišku nalačno",
+      "je typicky spojena s bolestmi v nadbřišku krátce po najedení",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 326,
+    question: "Reverzibilní inhibitor protonové pumpy je:",
+    answers: ["ezomeprazol", "rabeprazol", "lansoprazol"],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 327,
+    question: "Pro Zollingerův–Ellisonův syndrom je mimo jiné typická:",
+    answers: [
+      "nádorová nadprodukce somatostatinu",
+      "nádorová nadprodukce inzulinu",
+      "nádorová nadprodukce gastrinu",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 328,
+    question:
+      "Mezi typické charakteristiky GAPPS (gastrický adenokarcinom a proximální polypóza žaludku) patří:",
+    answers: [
+      "klinicky se manifestuje u osob vysokého věku",
+      "infekce <i>Helicobacter pylori</i> je hlavním rizikovým faktorem",
+      "špatně",
+      "antrum postiženo není",
+    ],
+    correctIndex: 3,
+    topics: [],
+  },
+  {
+    id: 329,
+    question:
+      "Ve srovnání s ostatními krevními skupinami mají o 20 % vyšší riziko karcinomu žaludku (především difuzního typu) nositelé krevní skupiny:",
+    answers: ["A", "B", "0"],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 330,
+    question: "Při poleptání žaludku je první pomocí:",
+    answers: [
+      "okamžité p.o. podání velkého objemu vody",
+      "okamžité podání emetik",
+      "bezodkladné zavedení nazogastrické sondy",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 331,
+    question: "task: Co je typické pro Ménétrierovu chorobu ?",
+    answers: [
+      "postihuje častěji ženy",
+      "asociace s infekcí <i>H. pylori</i> je vzácná",
+      "jedná se o prekancerózu",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 332,
+    question: "task: Co patří mezi typické projevy antrální cévní ektázie?",
+    answers: [
+      "život ohrožující krvácení",
+      "mikrocytární anémie",
+      "normocytární anémie",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 333,
+    question: "task: Co je podkladem Dieulafoyovy nemoci?",
+    answers: [
+      "cévní malformace charakteru podslizničního hemangiomu",
+      "cévní malformace charakteru angiektázie",
+      "cévní malformace charakteru dilatované podslizniční arterioly",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 334,
+    question:
+      "Které dva základní typy funkční dyspepsie horního typu rozlišuje Mařatkova koncepce?",
+    answers: [
+      "dráždivý (hyperstenický) a chabý (astenický) žaludek",
+      "postprandiální distress syndrom a syndrom epigastrické",
+      "špatně",
+      "špatně",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 335,
+    question:
+      "task: Co je základním a nejčastějším symptomem funkční poruchy žaludku?",
+    answers: [
+      "postprandiální plnost",
+      "nauzea a zvracení",
+      "epigastrická bolest",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 336,
+    question: "task: Co je podstatou přímého účinku NSA na žaludeční sliznici?",
+    answers: [
+      "působí jako slabé kyseliny",
+      "působí jako slabé zásady",
+      "nepůsobí přímým účinkem",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 337,
+    question:
+      "Čím se odlišuje peptický vřed indukovaný NSA od vředu indukovaného <i>H. pylori</i>?",
+    answers: [
+      "je častěji lokalizovaný ve dvanáctníku",
+      "okolní sliznice je se zánětlivou infiltrací",
+      "okolní sliznice je s normálním nálezem",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 338,
+    question:
+      "task: Co je cílovým poškozeným orgánem při chronické formě GVHD?",
+    answers: ["žaludek", "tenké a tlusté střevo", "jícen"],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 339,
+    question: "task: Jaký je histologický nález v případě akutní GVHD?",
+    answers: [
+      "zvýšená lymfocytární infiltrace",
+      "zvýšené ukládání kolagenu ve tkáních",
+      "zvýšená eozinofilní infiltrace",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 340,
+    question:
+      "Kterou část žaludku postihuje chronická autoimunitní atrofická gastritida?",
+    answers: ["tělo žaludku", "antrum žaludku", "multifokálně"],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 341,
+    question:
+      "task: Co je zlatým standardem diagnostiky diabetické gastroparézy?",
+    answers: [
+      "skiaskopická pasáž kontrastní látky žaludkem",
+      "elektrogastrografie",
+      "scintigrafie",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 342,
+    question: "Vyberte správné tvrzení:",
+    answers: [
+      "při kaustickém poranění žaludku jsou indikována emetika",
+      "při kaustickém poranění žaludku je indikováno podání systémových",
+      "špatně",
+      "(do 24 hodin)",
+    ],
+    correctIndex: 3,
+    topics: [],
+  },
+  {
+    id: 343,
+    question:
+      "Který stupeň Zargarovy klasifikace poleptání jícnu vyžaduje plnou parenterální výživu?",
+    answers: ["2A", "2B", "1"],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 344,
+    question: "Vyberte nesprávné tvrzení:",
+    answers: [
+      "cizí tělesa velikosti 2–2,5 cm mají malou pravděpodobnost",
+      "špatně",
+      "v oblasti duodenálního ohbí",
+      "u cizích těles v GIT je v 10–20 % případů vyžadována",
+      "špatně",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 345,
+    question: "Jaký je správný postup při pasáži diskové baterie do žaludku?",
+    answers: [
+      "je indikována urgentní endoskopická extrakce",
+      "endoskopická extrakce je indikována v případě perzistence",
+      "špatně",
+      "v žaludku déle než 48 hodin",
+    ],
+    correctIndex: 3,
+    topics: [],
+  },
+  {
+    id: 346,
+    question:
+      "Který z uvedených parametrů není zahrnutý v Glasgow-Blatchford skóre?",
+    answers: ["hodnota hemoglobinu", "věk", "systolický krevní tlak"],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 347,
+    question:
+      "U kterého typu žaludečních varixů lze k endoskopickému ošetření akutního krvácení použít metodu endoskopické ligace?",
+    answers: [
+      "gastroezofagealní varixy 2. typu (GOV2)",
+      "izolované gastrické varixy fundu žaludku (IGV1)",
+      "gastroezofageální varixy 1. typu (GOV1)",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 348,
+    question:
+      "Co je indikováno při selhání endoskopické léčby krvácení ze žaludečních varixů?",
+    answers: [
+      "Dedikovaný jícnový stent (Danišův stent)",
+      "Sengstaken-Blakemorová balonková sonda",
+      "TIPS",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 349,
+    question:
+      "name: GASTRO_MG_14 data: otázka číslo:7689 Musculus puborectalis při defekaci:",
+    answers: ["relaxuje", "kontrahuje se", "defekace se neúčastní"],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 350,
+    question:
+      "Pacient trpící zácpou má během vyšetření diagnostikováno zúžení sigmatu při divertikulóze. Jeho zácpa je:",
+    answers: ["primární", "sekundární", "organická"],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 351,
+    question:
+      "V Londýnské klasifikaci funkčních anorektálních poruch jsou na základě patofyziologického mechanismu definovány:",
+    answers: [
+      "čtyři skupiny onemocnění",
+      "tři skupiny onemocnění",
+      "dvě skupiny onemocnění",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 352,
+    question: "Funkční megarektum znamená:",
+    answers: [
+      "hyposenzitivitu rekta",
+      "hypersenzitivitu rekta",
+      "dilataci rekta",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 353,
+    question: "Funkční mikrorektum mají často:",
+    answers: [
+      "pacienti s funkční zácpou",
+      "pacienti s habituální zácpou",
+      "pacienti se syndromem dráždivého tračníku",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 354,
+    question: "Obstrukční defekační syndrom není způsoben:",
+    answers: ["intususcepcí", "hemoroidy", "rektokélou"],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 355,
+    question: "Nejúčinnější léčba obstrukčního defekačního (ODS) je:",
+    answers: ["chirurgická", "fyzioterapie a manipulace", "laxativa"],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 356,
+    question: "Typ 3 dyssynergie pánevního dna značí:",
+    answers: [
+      "adekvátní propulze, absence relaxace svěračů",
+      "neadekvátní propulze, absence či neúplná relaxace svěračů",
+      "adekvátní propulze, paradoxní kontrakce svěračů",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 357,
+    question: "Nejúčinnější léčbou dyssynergie pánevního dna je:",
+    answers: [
+      "chirurgie",
+      "fyzioterapie – posilování pánevního dna",
+      "fyzioterapie – biofeedback",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 358,
+    question: "Typ 1 dyssynergie pánevního dna značí:",
+    answers: [
+      "adekvátní propulze, absence relaxace svěračů",
+      "neadekvátní propulze, absence či neúplná relaxace svěračů",
+      "adekvátní propulze, paradoxní kontrakce svěračů",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 359,
+    question: "Typ 2 dyssynergie pánevního dna značí:",
+    answers: [
+      "adekvátní propulze, absence relaxace svěračů",
+      "neadekvátní propulze, paradoxní kontrakce svěračů",
+      "neadekvátní propulze, absence či neúplná relaxace svěračů",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 360,
+    question: "Při defekaci se anorektální úhel:",
+    answers: ["zmenšuje", "zvětšuje", "nemění se"],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 361,
+    question: "Anální hypertenze patří podle Londýnské klasifikace k:",
+    answers: [
+      "zásadním patologickým stavům",
+      "„minor“ patologickým stavům",
+      "nespecifickým patologiím",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 362,
+    question: "Anální hypokontraktilita patří podle Londýnské klasifikace k:",
+    answers: [
+      "zásadním patologickým stavům",
+      "„minor“ patologickým stavům",
+      "nespecifickým patologiím",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 363,
+    question: "PAMORA:",
+    answers: [
+      "se v léčbě zácpy nepoužívají",
+      "patří mezi laxativa",
+      "jsou indikovány u zácpy způsobené konkrétní skupinou léků",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 364,
+    question: "U pacienta se syndromem líného střeva:",
+    answers: [
+      "trvá tranzit ústa–konečník více než 50 hodin",
+      "trvá tranzit ústa–konečník více než 60 hodin",
+      "trvá tranzit ústa–konečník více než 72 hodin",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 365,
+    question: "Defekografie:",
+    answers: [
+      "patří mezi základní diagnostické metody u pacientů se zácpou",
+      "patří mezi pomocné diagnostické metody u pacientů se zácpou",
+      "je určena jen pro pacienty se suspektní terminální zácpou",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 366,
+    question: "Nejvíce vlákniny obsahuje:",
+    answers: ["ovesné vločky", "fíky", "lněné semínko"],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 367,
+    question: "Doporučený denní příjem vlákniny má být:",
+    answers: ["20 g", "25 g", "30 g"],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 368,
+    question: "Lubiproston se používá u pacientů se zácpou. Patří mezi:",
+    answers: [
+      "prokinetika",
+      "aktivátory chloridového kanálu",
+      "agonisty 5-HT<sub>4</sub>",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 369,
+    question: "V léčbě zácpy není účinný:",
+    answers: ["kolchicin", "misoprostol", "itoprid"],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 370,
+    question: "Nácvik defekačního reflexu u pacientů se zácpou:",
+    answers: ["doporučujeme", "nedoporučujeme", "doporučujeme jen u dětí"],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 371,
+    question: "Glycerol patří mezi:",
+    answers: ["stimulační laxativa", "osmotická laxativa", "objemová laxativa"],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 372,
+    question: "Pikosíran sodný:",
+    answers: [
+      "působí přímo na střevní stěnu",
+      "štěpí se na difenol, který působí promotilitně",
+      "působí závislost, proto by se neměl používat dlouhodobě",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 373,
+    question: "Prevalence inkontinence stolice v populaci je:",
+    answers: ["1 %", "6 %", "20 %"],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 374,
+    question: "K léčbě inkontinence stolice se nevyužívá:",
+    answers: ["transpozice m. gracilis", "fyzioterapie", "pikosíran sodný"],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 375,
+    question:
+      "Akutní průjem podle nejčastěji uznávané definice netrvá déle než:",
+    answers: ["7 dní", "14 dní", "30 dní"],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 376,
+    question:
+      "Jedním z mechanismů vstřebání sodíku ve střevě je absorpce sodíkovým kanálem regulovatelným aldosteronem. K tomuto typu absorpce dochází:",
+    answers: ["v distálním tračníku", "v ileu", "v jejunu"],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 377,
+    question:
+      "Ke vstřebání vitaminu B<sub>12</sub> a žlučových kyselin dochází:",
+    answers: ["v jejunu", "v ileu", "v duodenu"],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 378,
+    question: "Průjem u cholery je typem:",
+    answers: ["osmotického průjmu", "sekrečního průjmu", "smíšeného průjmu"],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 379,
+    question: "Co je to brefeldin A:",
+    answers: [
+      "látka blokující vstřebání sodíku, čímž způsobuje průjem",
+      "látka inhibující zpětné vychytávání žlučových kyselin a tím",
+      "špatně",
+      "rekikula ke Golgiho aparátu",
+    ],
+    correctIndex: 3,
+    topics: [],
+  },
+  {
+    id: 380,
+    question: "Při lačnění rychle odezní:",
+    answers: ["sekreční průjem", "osmotický průjem", "smíšený průjem"],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 381,
+    question: "Mezi léky s protiprůjmovým účinkem patří:",
+    answers: ["cholestyramin", "lubiproston", "prukalprid"],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 382,
+    question:
+      "name: GASTRO_MG_15 data: otázka číslo:7729 Brunnerovy žlázky secernují:",
+    answers: [
+      "alkalický mukoprotein",
+      "kyselý polysacharid",
+      "enzym štěpící bílkoviny",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 383,
+    question: "Peyerovy plaky jsou:",
+    answers: [
+      "shluky lymfatických foliklů",
+      "nakupené M-buňky",
+      "shluky endokrinních buněk",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 384,
+    question: "O vitaminu B<sub>12</sub> platí:",
+    answers: [
+      "vnitřní faktor je produkován parietálními buňkami",
+      "váže se na vnitřní faktor v žaludku při pH nižším než 3",
+      "komplex vnitřního faktoru a kobalaminu se vstřebává",
+      "špatně",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 385,
+    question: "V terminálním ileu se vstřebává:",
+    answers: [
+      "mléčná bílkovina",
+      "tukové micely a aminokyseliny",
+      "žlučové kyseliny",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 386,
+    question: "Mezi onemocnění spojená s celiakií nepatří:",
+    answers: [
+      "lupus erythematodes",
+      "primární sklerozující cholangitida",
+      "thymom",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 387,
+    question: "Celiakii označíme jako neodpovídající na dietu:",
+    answers: [
+      "po 3 měsících diety",
+      "po 6 měsících diety",
+      "po 12 měsících diety",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 388,
+    question:
+      "Zánětlivý infiltrát ve sliznici duodena je u celiakie tvořen převážně:",
+    answers: [
+      "eozinofily",
+      "neutrofily a žírnými buňkami",
+      "lymfocyty a plazmatickými buňkami",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 389,
+    question: "task: Které viry se mohou uplatnit v patogenezi celiakie?",
+    answers: [
+      "chřipka a covid-19",
+      "rotaviry a adenoviry",
+      "spalničky a zarděnky",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 390,
+    question: "Který druh mouky obsahuje gluten:",
+    answers: ["sójová", "kukuřičná", "ječná"],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 391,
+    question: "Polékovou enteropatii vídáme:",
+    answers: [
+      "po betablokátorech",
+      "po blokátorech kalciových kanálů",
+      "po sartanech",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 392,
+    question:
+      "Syndrom bakteriálního přerůstání v tenkém střevě negativně ovlivňují:",
+    answers: ["betablokátory", "inhibitory protonové pumpy", "projímadla"],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 393,
+    question: "Do obrazu malabsorpčního syndromu nepatří:",
+    answers: ["anémie", "paličkovité prsty", "ztráta podkožního tuku"],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 394,
+    question: "Nejnápadnějším znakem steatorey je:",
+    answers: [
+      "řídká konzistence",
+      "penetrantní zápach",
+      "stolice plave v míse",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 395,
+    question: "Jedním z hlavních příznaků syndromu slepé kličky je:",
+    answers: ["makrocytární anémie", "žaludeční hypersekrece", "tetanie"],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 396,
+    question:
+      "Syndrom bakteriálního přerůstání v tenkém střevě (SIBO) je spojen:",
+    answers: [
+      "se Zollingerovým–Ellisonovým syndromem",
+      "se syndromem dráždivého tračníku",
+      "s familiární adenomovou polypózou",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 397,
+    question:
+      "Mikrobiální přerůstání a kontaminace tenkého střeva kolickou flórou se vyskytuje častěji:",
+    answers: [
+      "při střevní hypermotilitě",
+      "v pokročilém věku",
+      "při karcinoidovém syndromu",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 398,
+    question: "Ložisko při Zollingerově–Ellisonově syndromu nejlépe zobrazíme:",
+    answers: ["CT břicha a ERCP", "ERCP a EUS", "oktreotidový sken a EUS"],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 399,
+    question: "Akutní radiační enteritida se obvykle projevuje:",
+    answers: [
+      "dyspepsií se zvracením a průjmem",
+      "bolestí břicha",
+      "náhlou příhodou břišní (perforace, ileus)",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 400,
+    question: "Nejčastější příčinou subileózního stavu u dospělých je:",
+    answers: ["Crohnova choroba", "srůsty v peritoneální dutině", "malignita"],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 401,
+    question: "U adaptace GIT po rozsáhlé resekci tenkého střeva neplatí:",
+    answers: [
+      "projeví se za 3–4 měsíce, nejpozději do 2 let",
+      "probíhá lépe u mladších jedinců",
+      "probíhá rychleji při parenterální výživě",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 402,
+    question: "O divertiklech tenkého střeva neplatí:",
+    answers: [
+      "mohou být pravé i nepravé",
+      "asto se vyskytují v okolí Vaterovy papily",
+      "perforace jsou častou komplikací",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 403,
+    question: "Meckelův divertikl – zatrhni nesprávnou odpověď:",
+    answers: [
+      "je nejčastějším divertiklem jejuna a ilea",
+      "může obsahovat heterotopii žaludeční sliznice a pankreatu",
+      "je častější u žen",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 404,
+    question: "Nádory tenkého střeva:",
+    answers: [
+      "jsou častější než nádory tračníku",
+      "projevují se časně krvácením",
+      "jsou často nalezeny náhodně",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 405,
+    question: "Obávanou komplikací balonové enteroskopie je:",
+    answers: [
+      "akutní pankreatitida",
+      "zhmoždění střeva",
+      "nekróza části tenkého střeva",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 406,
+    question: "Léčba oktreotidem u karcinoidu:",
+    answers: [
+      "snižuje plazmatickou koncentraci serotoninu",
+      "zmírňuje karcinoidové příznaky pacienta",
+      "zvyšuje vylučování kyseliny 5-hydroxyindoloctové močí",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 407,
+    question: "Gastrinom je charakterizován:",
+    answers: [
+      "vzestupem gastrinemie po podání sekretinu i.v.",
+      "poklesem gastrinemie během infuze kalcia",
+      "poklesem gastrinemie při podání pentagastrinu",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 408,
+    question:
+      "Patognomickým histologickým tenkostřevním nálezem u Whippleovy choroby jsou:",
+    answers: [
+      "intraepiteliální leukocyty",
+      "PAS-pozitivní pěnovité makrofágy",
+      "kryptové abscesy",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 409,
+    question: "O Whippleově chorobě neplatí:",
+    answers: [
+      "je způsobena grampozitivní tyčinkou",
+      "postihuje kterýkoli systém v těle",
+      "léčí se krátkodobým podáváním antibiotik",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 410,
+    question: "O Peutzově–Jeghersově syndromu neplatí:",
+    answers: [
+      "jedná se o hamartomatózu s autosomálně dominantní",
+      "špatně",
+      "špatně",
+      "nikoli malignitou",
+    ],
+    correctIndex: 3,
+    topics: [],
+  },
+  {
+    id: 411,
+    question: "K léčebným metodám Peutzova–Jeghersova syndromu patří zejména:",
+    answers: [
+      "lapslová enteroskopie",
+      "device-assisted enteroskopie (např. DBE)",
+      "chirurgie",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 412,
+    question:
+      "name: GASTRO_MG_16v data: otázka číslo:7763 Délka tlustého střeva dospělého člověka je:",
+    answers: ["100–120 cm", "150–170 cm", "200–220 cm"],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 413,
+    question: "Ténie jsou:",
+    answers: [
+      "podélné bělavé pruhy ztluštělé longitudinální svaloviny",
+      "vyklenutí stěny colon, vždy ve vzdálenosti 5–7 cm od sebe",
+      "stopkaté ploché výběžky serózy vyplněné subserózním tukovým",
+      "špatně",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 414,
+    question: "Pro pravou část tračníku jsou charakteristické:",
+    answers: [
+      "konstantní cirkulární kontrakce",
+      "peristaltické kontrakce",
+      "rytmická peristaltika",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 415,
+    question:
+      "Pro Crohnovu chorobu je charakteristická vyšší sérová koncentrace:",
+    answers: ["IgG1a IgG3", "IgG2", "IgG4"],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 416,
+    question: "Tofacitinib je:",
+    answers: [
+      "parenterální inhibitor integrinu ?4?7",
+      "orální inhibitor Janus-kináz 1, 2 a 3",
+      "orální inhibitor kalmodulinu",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 417,
+    question: "Udržovací léčba golimumabu je:",
+    answers: [
+      "40 mg s.c. jednou za 14 dnů (při váze pacienta &lt; 80 kg",
+      "100 mg s.c. jednou za 4 týdny (při váze pacienta &gt; 80 kg)",
+      "300 mg v i.v. infuzi jednou za 8 týdnů (při váze pacienta &lt; 80",
+      "špatně",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 418,
+    question: "Mikroskopickou lymfocytární kolitidu může indukovat:",
+    answers: ["cyklofosfamid", "lansoprazol", "propranolol"],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 419,
+    question: "Neutropenickou enterokolitidu může indukovat:",
+    answers: ["sildenafil", "oktreotid", "paklitaxel"],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 420,
+    question: "Pro Laneův syndrom:",
+    answers: [
+      "je charakteristický urychlený střevní tranzit a motorický",
+      "špatně",
+      "špatně",
+      "tračníku",
+    ],
+    correctIndex: 3,
+    topics: [],
+  },
+  {
+    id: 421,
+    question:
+      "Epidemiologické trendy kolorektálního karcinomu v ČR – za posledních 10 let došlo k poklesu incidence:",
+    answers: ["o 6,4 %", "o 14,6 %", "o 21,1 %"],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 422,
+    question:
+      "Epidemiologické trendy kolorektálního karcinomu v ČR – za posledních 10 let došlo k poklesu mortality:",
+    answers: ["o 19,7 %", "o 28,5 %", "o 31,2 %"],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 423,
+    question:
+      "Není správným tvrzením, že mezi endogenní rizikové faktory vzniku kolorektálního karcinomu patří:",
+    answers: [
+      "věk nad 60 let",
+      "idiopatické střevní záněty",
+      "hereditární formy kolorektálního karcinomu",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 424,
+    question:
+      "Není správným tvrzením, že mezi exogenní rizikové faktory patří:",
+    answers: [
+      "obezita",
+      "potraviny bohaté na polyfenolické látky",
+      "kuchyňská sůl",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 425,
+    question: "Mezi hereditární formy kolorektálního karcinomu nepatří:",
+    answers: [
+      "hereditární smíšený polypózní syndrom (HMPS)",
+      "syndrom Cronkhiteův–Canadaové",
+      "Turcotův syndrom",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 426,
+    question:
+      "Amsterdamská kritéria indentifikují nemocné a rodiny s Lynchovým syndromem:",
+    answers: [
+      "podle klinických kritérií",
+      "vyšetřením na mikrosatelitovou nestabilitu",
+      "podle klinických kritérií a vyšetření na mikrosatelitovou",
+      "špatně",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 427,
+    question:
+      "Mezi rizikové faktory kolorektálního karcinomu asociovaného s idiopatickými střevními záněty nepatří:",
+    answers: [
+      "věk nad 50 let",
+      "primární sklerozující cholangitida",
+      "jakýkoli stupeň dysplazie v posledních 5 letech",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 428,
+    question:
+      "Podle klasifikace kolorektálních neoplazií v terénu idiopatických střevních zánětů (modifikovaná Pařížská klasifikace SCENIC) mezi polypoidní léze nepatří:",
+    answers: ["stopkatá", "povrchně vyvýšená", "sesilní"],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 429,
+    question:
+      "Tumor-supresorové geny a jejich produkty kontrolují normální buněčnou proliferaci a diferenciaci. Při selhání této kontroly dochází k diferenciaci normálních kolonocytů do nádorové transformace. Ztráta funkce supresorových genů představuje základní krok v kancerogenezi kolorektálního karcinomu. Mezi tyto geny nepatří",
+    answers: ["gen p53", "gen K-ras", "gen APC"],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 430,
+    question:
+      "Ke stanovení stadia onemocnění kolorektálním karcinomem je nutno provést:",
+    answers: [
+      "CT břicha, malé pánve a hrudníku",
+      "PET/CT",
+      "CT břicha a malé pánve",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 431,
+    question: "Magnetická rezonance je indikována:",
+    answers: [
+      "u všech stadií karcinomu rekta",
+      "k dovyšetření tlustého střeva po inkompletní koloskopii",
+      "ke stanovení lokálního T-stadia neoplazií tlustého střeva",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 432,
+    question:
+      "Chirurgická léčba kolorektálního karcinomu zahrnuje odstranění mezorekta a mezokolon se zachováním fascia propia. Proč?",
+    answers: [
+      "Mezokolon a mezorektum jsou bohaté na síť lymfatik, úplné",
+      "postižený embryonálně založený prostor.",
+      "Mezokolon a mezorektum jsou anatomicky spřízněné s kolorektem,",
+      "špatně",
+      "proto je nutné tyto anatomické části dutiny břišní odstranit.",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 433,
+    question:
+      "Medián onkologické léčby metastazujícícho kolorektálního karcinomu je:",
+    answers: ["14–18 měsíců", "24–28 měsíců", "40–42 měsíců"],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 434,
+    question: "Primární lymfomy tlustého střeva převážně tvoří:",
+    answers: ["Hodgkinův lymfom", "T-buněčný lymfom", "non-Hodgkinovy lymfomy"],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 435,
+    question: "Za původce všech forem Kaposiho sarkomu je považován:",
+    answers: [
+      "virus Epsteina–Barrové (EBV)",
+      "lidský herpetický virus 8 (HHV-8)",
+      "cytomegalovirus (CMV)",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 436,
+    question:
+      "Metastázy do tlustého střeva jsou méně časté a obvykle pocházejí:",
+    answers: ["z karcinomu prsu", "z karcinomu plic", "z karcinomu žaludku"],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 437,
+    question:
+      "Nejčastěji používaná strikturoplastika k léčbě stenózy ilea při Crohnově chorobě je:",
+    answers: [
+      "strikturoplastika typu Heineke–Mikulicz",
+      "trikturoplastika typu Finney",
+      "strikturoplastika se na tenkém střevě neprovádí",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 438,
+    question:
+      "Jaké části kolon jsou nejvíce ohroženy při hypoperfuzi a ischemii?",
+    answers: [
+      "cékum, lienální flexura a rektosigmoideum",
+      "kolon transversum a rektum",
+      "lienální flexura a colon ascendens",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 439,
+    question: "task: Je rozdíl mezi divertikulitidou mladších a starších osob?",
+    answers: [
+      "není",
+      "u mladších bývá agresivnější",
+      "mladší mají méně komplikací",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 440,
+    question:
+      "task: Jaké je základní laboratorní vyšetření při divertikulitidě?",
+    answers: ["CRP", "leukocyty (KO)", "leukocyty (KO)"],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 441,
+    question: "Koloskopii v diagnostice akutní divertikulitidy:",
+    answers: [
+      "provést vždy, je to základní vyšetření",
+      "neprovádět nikdy",
+      "provést jen výběrově",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 442,
+    question: "Divertikulitida s perforací – možnosti chirurgické léčby:",
+    answers: [
+      "resekce s anastomózou nebo bez anastomózy",
+      "pouze stomie",
+      "pouze drenáž",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 443,
+    question: "Divertikulární stenóza – možnosti léčby:",
+    answers: [
+      "<ol><li>zavedení stentu</li></ol>",
+      "dlouhodobě antibiotika, dieta",
+      "endoskopická dilatace, nelze-li, resekce",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 444,
+    question: "Způsoby diagnostiky a léčby divertikulárního krvácení:",
+    answers: [
+      "vyčkat, lze předpokládat spontánní zástav",
+      "koloskopie, angiografie, případně embolizace",
+      "scintigrafická lokalizace a operace",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 445,
+    question: "Při virtuální chromoendoskopii je využívána:",
+    answers: [
+      "WASP klasifikace pro adenomové polypy",
+      "NICE klasifikace a BASIC klasifikace u systému s NBI",
+      "NICE klasifikace a JNET klasifikace u systému s NBI",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 446,
+    question: "Intervalové polypy jsou diagnostikovány:",
+    answers: [
+      "při první koloskopii",
+      "při doporučeném intervalu koloskopie",
+      "mimo doporučený interval koloskopie",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 447,
+    question: "Colitis cystica profunda:",
+    answers: [
+      "postihuje pouze oblast konečníku",
+      "je závažné, protože epitel výstelky cysty vykazuje dysplastické",
+      "špatně",
+      "rektálního vředu",
+    ],
+    correctIndex: 3,
+    topics: [],
+  },
+  {
+    id: 448,
+    question: "task: Jak rozdělujeme megakolon?",
+    answers: [
+      "obstrukční a neobstrukční",
+      "infekční a neinfekční",
+      "toxické a netoxické",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 449,
+    question: "task: Co je Ogilvieho syndrom?",
+    answers: [
+      "akutní střevní pseudoobstrukce",
+      "chronická obstipace",
+      "paralytický ileus kolon",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 450,
+    question: "task: Co je nejčastější příčinou toxického megakolon?",
+    answers: [
+      "pseudomembranózní kolitida",
+      "fulminantně probíhající ulcerózní kolitida",
+      "ischemická kolitida",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 451,
+    question: "Hirschsprungova choroba je:",
+    answers: [
+      "vrozená dilatace tlustého střeva",
+      "vrozená střevní aganglionóza",
+      "neurodegenerativní onemocnění střeva neznámé etiologie",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 452,
+    question: "Hirschsprungova choroba převážně postihuje:",
+    answers: ["tenké střevo", "celé střevo", "rektum a colon sigmoideum"],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 453,
+    question: "Hirschsprungova choroba se ve většině případů projevuje:",
+    answers: [
+      "v předškolním věku",
+      "u novorozenců",
+      "kdykoli v dětství",
+      "shuffleodpovědi: false",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 454,
+    question:
+      "Typický klinický obraz Hirschsprungovy choroby v dětském věku zahrnuje:",
+    answers: [
+      "subileózní stav se zvracením u novorozence",
+      "ozdní odchod smolky (po 48 hodinách)",
+      "obě možnosti jsou správně",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 455,
+    question: "Nejzávažnější komplikací Hirschsprungovy choroby je:",
+    answers: [
+      "chronická zácpa s perforací tlustého střeva",
+      "volvulus colon sigmoideum",
+      "HAEC ( Hirschsprung?s associated enterocolitis)",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 456,
+    question: "Projevem Hirschsprungovy choroby v dospělém věku může být:",
+    answers: [
+      "krytá perforace tlustého střeva naplněného skybaly",
+      "volvulus colon sigmoideum",
+      "obě možnosti jsou správně",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 457,
+    question:
+      "Léčení klasické, rektosigmoideální formy Hirschsprungovy choroby spočívá:",
+    answers: [
+      "v zařazení vlákniny do stravy",
+      "v podání střevních prokinetik",
+      "v odstranění aganglionárního úseku rektosigmoidea, parciální",
+      "anastomóze",
+    ],
+    correctIndex: 3,
+    topics: [],
+  },
+  {
+    id: 458,
+    question: "Hirschsprungova choroba u dospělých se vyskytuje:",
+    answers: [
+      "až v 10 % případů chronické zácpy",
+      "raritně",
+      "může se vyskytnout u mladých žen s poruchou funkce štítné",
+      "špatně",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 459,
+    question:
+      "Nejčastějším histopatologickým typem malignity v oblasti anu je:",
+    answers: ["adenokarcinom", "dlaždicobuněčný karcinom", "maligní melanom"],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 460,
+    question:
+      "U nemocných s análním karcinomem je ze zobrazovacích metod ke stanovení předléčebného stagingu, plánování léčby, posouzení výsledků léčby, dispenzarizaci a odhadu prognózy nevhodnější opakované:",
+    answers: ["MR pánve", "PET-CT", "CT břicha a pánve"],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 461,
+    question:
+      "Infekce podílející se na vzniku anální intraepitelové neoplazie a perianálních kondylomat ve více než 90 % je:",
+    answers: [
+      "HIV (human immunodeficiecy virus)",
+      "HPV (human papilloma virus)",
+      "HSV (herpes simplex virus)",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 462,
+    question:
+      "V kolika procentech případů je popisována progrese z HGAIN na karcinom anu?",
+    answers: ["až 9 %", "až 18 %", "až 35 %"],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 463,
+    question: "revencí chorob způsobenými HPV je:",
+    answers: [
+      "důsledná hygiena anogenitálních partií",
+      "vakcinace",
+      "opakované cytologické vyšetření",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 464,
+    question:
+      "Jaký je rozdíl mezi neuroendokrinním tumorem a neuroendokrinním karcinomem?",
+    answers: [
+      "Žádný, jde o různé názvy stejných nádorů.",
+      "Neuroendokrinní tumory jsou diferencované nádory, mají méně",
+      "a agresivně rostoucí nádory.",
+      "Základem léčby metastáz neuroendokrinních tumorů je protinádorová",
+      "karcinomu je metodou volby resekce, pokud je to technicky možné.",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 465,
+    question: "Kalprotektin je:",
+    answers: [
+      "komplex proteinů S100A a S100P",
+      "komplex proteinů S100A8 a S100A9",
+      "označení pro S100A4 (jeden ze skupiny proteinů vázajících",
+      "špatně",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 466,
+    question:
+      "Pro ulcerózní kolitidu je charakteristická vyšší sérová koncentrace:",
+    answers: ["IgG1 a IgG3", "IgG2", "IgG4"],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 467,
+    question: "Mikroskopickou kolagenní kolitidu může indukovat:",
+    answers: ["nesteroidní antiflogistikum", "kolchicin", "6-merkaptopurin"],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 468,
+    question: "Chronická radiací indukovaná proktopatie vzniká zpravidla za:",
+    answers: [
+      "6–18 měsíců po dokončení iradiace",
+      "6–9 týdnů po dokončení iradiace",
+      "3–6 týdnů po dokončení iradiace",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 469,
+    question: "Diagnózu endometriózy podporuje:",
+    answers: [
+      "vysoká koncentrace CA125 v krvi",
+      "nízká hodnota bazálního kortizolu",
+      "makrocytární megaloblastová anémie",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 470,
+    question:
+      "V současné době jsou známy tři základní cesty vedoucí ke genomické nestabilitě. Která z nich vede ke vzniku hereditárního nepolypózního kolorektálního karcinomu (Lynchův syndrom)?",
+    answers: [
+      "klasická cesta adenom-karcinom",
+      "mikrosatelitová nestabilita",
+      "hypermetylace CpG ostrůvků",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 471,
+    question: "Riziko kolorektálního karcinomu je:",
+    answers: [
+      "u Crohnovy choroby nižší než u ulcerózní kolitidy",
+      "u ulcerózní kolitidy nižší než u Crohnovy choroby",
+      "stejné u Crohnovy choroby jako u ulcerózní kolitidy",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 472,
+    question:
+      "V léčbě gastrointestinálního stromálního tumoru (GIST) tlustého střeva a konečníku platí pravidlo, že má být resekován každý GIST větší než:",
+    answers: ["2 cm", "3 cm", "5 cm"],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 473,
+    question:
+      "Jak se označuje nejčastější klinický projev ischemie tlustého střeva?",
+    answers: ["hemoragická kolitida", "ischemická kolitida", "infarzace kolon"],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 474,
+    question: "task: Liší se symptomy při divertikulóze a divertikulitidě?",
+    answers: [
+      "symptomy se neliší",
+      "jedná se o různé střevní záněty",
+      "divertikulóza je asymptomatická",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 475,
+    question: "task: Je třeba léčit asymptomatickou divertikulózu?",
+    answers: [
+      "ne",
+      "vždy, je to prevence komplikací",
+      "ne, pouze doporučení režimu a dietních opatření",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 476,
+    question: "Hyperplastické polypy řadíme mezi:",
+    answers: [
+      "submukózní léze",
+      "benigní adenomové polypy",
+      "pilovité (serátní) léze",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 477,
+    question: "Familiární adenomatózní polypóza:",
+    answers: [
+      "zodpovídá přibližně za 5–10 % kolorektálních karcinomů",
+      "je autosomálně dominantně dědičné onemocnění",
+      "postihuje celou trávicí trubici s výjimkou duodena",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 478,
+    question: "Mutace genu <i>APC</i> se vyskytuje na počátku maligní přeměny:",
+    answers: [
+      "u hereditárního nepolypózního kolorektálního karcinomu (Lynchův",
+      "špatně",
+      "záněty",
+      "u sporadické formy kolorektálního karcinomu",
+    ],
+    correctIndex: 3,
+    topics: [],
+  },
+  {
+    id: 479,
+    question:
+      "name: GASTRO_MG_17 data: otázka číslo:7801 task: Jaká je obvyklá vyvolávající příčina akutní apendicitidy?",
+    answers: ["koprolity", "obstrukce lumen", "infekce"],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 480,
+    question:
+      "Kdy lze při podezření na akutní apendicitidu zvažovat konzervativní postup?",
+    answers: [
+      "při ohraničeném periapendikulárním infiltrátu",
+      "při nepřítomnosti peritoneálních příznaků",
+      "při negativním CT vyšetření",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 481,
+    question:
+      "task: Kdy je nutné myslet na atypický průběh akutní apendicitidy?",
+    answers: ["u mužů", "v těhotenství", "v zimních měsících"],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 482,
+    question: "task: Jaký je nejčastější nádor apendixu?",
+    answers: ["lymfom", "neuroendokrinní tumor", "sarkom"],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 483,
+    question: "task: Co je mukokéla apendixu?",
+    answers: [
+      "benigní nádor apendixu",
+      "cysta apendixu",
+      "nahromadění mucinu při obstrukci lumen apendixu",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 484,
+    question:
+      "name: GASTRO_MG_18 data: otázka číslo:7807 Pokud jde o etiologii, bývá těžká pankreatitida zejména:",
+    answers: ["traumatická", "biliární", "poléková"],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 485,
+    question: "Po ERCP se pankreatitida vyskytuje:",
+    answers: ["nad 10 %", "pod 1 %", "3–5 %"],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 486,
+    question: "U akutní biliární pankreatitidy je indikace k ERCP:",
+    answers: [
+      "při známkách biliární obstrukce",
+      "absolutní",
+      "při průkazu choledocholitiázy",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 487,
+    question:
+      "Encefalopatie bývá součástí klinického obrazu u akutní pankreatitidy:",
+    answers: ["vždy", "u těžké formy", "u alkoholické etiologie"],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 488,
+    question: "Tíži pankreatitidy signalizuje nejspíš:",
+    answers: ["výše amylázy v séru", "anémie", "známky renální insuficience"],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 489,
+    question: "V posouzení tíže pankreatitidy se nejvíce využívá:",
+    answers: [
+      "revidovaná Atlantská klasifikace",
+      "Balthasarovo skóre",
+      "Ransonova klasifikace",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 490,
+    question:
+      "V morfologické diagnostice se z metod CT, MR a EUS má upřednostnit:",
+    answers: ["MR", "jejich komplementarita", "EUS"],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 491,
+    question:
+      "Při terapeutické rehydrataci se za vhodný marker dávkování považuje:",
+    answers: ["hematokrit", "albumin", "urea"],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 492,
+    question: "Antibiotika jsou absolutní indikací:",
+    answers: [
+      "u pankreatitidy po ERCP",
+      "u těžké pankreatitidy",
+      "u traumatické pankreatitidy",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 493,
+    question: "Poměr intervencí nechirurgických a chirurgických je:",
+    answers: ["10 : 1", "3 : 1", "1 : 1"],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 494,
+    question: "Pětileté přežití karcinomu pankreatu je:",
+    answers: ["3–5 %", "8–10 %", "20–22 %"],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 495,
+    question:
+      "Pro vznik a vývoj karcinomu pankreatu považujeme za nejvíce rizikový faktor zevního prostředí:",
+    answers: ["kouření", "zvýšenou konzumaci červeného masa", "alkohol"],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 496,
+    question: "Mezi rizikové nádorové syndromy karcinomu pankreatu nepatří:",
+    answers: [
+      "Peutzův–Jeghersův syndrom",
+      "Lynchův syndrom",
+      "syndrom Cronkhiteův–Canadaové",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 497,
+    question:
+      "Mezi Pankreatické intraepiteliální neoplazie (PanIN) prekurzorové léze s těžkým stupněm dysplazie (high-grade) nepatří:",
+    answers: ["PanIN-1B", "PanIN-2", "PanIN-3"],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 498,
+    question: "Porucha glukozové tolerance nebo diabetes jsou přítomny:",
+    answers: [
+      "u více než 70 % pacientů s karcinomem pankreatu",
+      "u více než 50 % pacientů s karcinomem pankreatu",
+      "u více než 90 % pacientů s karcinomem pankreatu",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 499,
+    question: "Perineurální nádorová infiltrace je charaktiristická pro:",
+    answers: [
+      "adenokarcinom pankreatu",
+      "cystickou mucinózní neoplazii",
+      "ampulární adenokarcinom",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 500,
+    question: "Courvoisierovo znamení značí:",
+    answers: [
+      "zvětšený žlučník při akutní cholangitidě",
+      "zvětšený žlučník při stenóze choledochodu",
+      "zvětšený žlučník při akalkulózní cholecystitidě",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 501,
+    question:
+      "Základní stagingová zobrazovací metoda pro karcinom pankreatu je:",
+    answers: ["CT vyšetření", "endoskopická ultrasonografie", "MR vyšetření"],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 502,
+    question:
+      "Mezi cystické léze pankreatu tvořené epiteliálními nádory nepatří:",
+    answers: [
+      "intraduktální papilární neoplazie",
+      "cystický neuroendokrinní tumor",
+      "lymfangiom pankreatu",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 503,
+    question: "Mezi mucinózní cystické léze pankreatu nepatří:",
+    answers: [
+      "intraduktální papilární neoplazie",
+      "mucinózní cystická neoplazie",
+      "solidní pseudopapilární neoplazie",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 504,
+    question: "Velmi nízký maligní potenciál má:",
+    answers: [
+      "mucinózní cystická neoplazie",
+      "serózní cystická neoplazie",
+      "intraduktální papilární neoplazie",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 505,
+    question: "Syndrom hypersekrece lipázy se vyskytuje:",
+    answers: [
+      "u adenokarcinomu pankreatu",
+      "u mucinózní cystické neoplazie",
+      "u karcinomu pankreatu z acinárních buněk",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 506,
+    question: "Metastázy do slinivky břišní představují:",
+    answers: [
+      "10 % všech nádorů slinivky břišní",
+      "5–7 % všech nádorů slinivky břišní",
+      "3–5 % všech nádorů slinivky břišní",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 507,
+    question: "<strong>Amplulom II. typu má:</strong>",
+    answers: [
+      "nízkou adenomatózní komponentu (9 %)",
+      "průměrnou adenomatózní komponentu (30 %)",
+      "vysokou adenomatózní komponentu (80 %)",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 508,
+    question: "Nádory Vaterovy papily způsobují obstrukci žlučového systému:",
+    answers: ["u 5–10 % případů", "u 10–15 % případů", "u 15–20 % případů"],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 509,
+    question:
+      "Sporadický ampulární karcinom se vyskytuje u familiární adenomatózní polypózy:",
+    answers: [
+      "200–300krát častěji než u běžné populace",
+      "100krát častěji než u běžné populace",
+      "stejně jako u běžné populace",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 510,
+    question:
+      "Makroskopicky mohou být ampulomy polypózní (zevně prominující), papilární (intramukozálně prominující) a ulcerózní. Nejlepší prognózu má forma:",
+    answers: ["ulcerózní", "polypózní", "papilární"],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 511,
+    question:
+      "Rozsah invaze závisí u ampulomu na velikosti (˂ 3 cm, D3), typu invaze a hloubce invaze. Lokální T-staging ampulomů vychází nejpřesněji:",
+    answers: [
+      "z CT detailů infiltrace",
+      "z EUS detailů infiltrace",
+      "z MR detailů infiltrace",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 512,
+    question: "Pro posouzení operability ampulomu má zásadní význam:",
+    answers: ["CT vyšetření", "EUS vyšetření", "MR/MRCP vyšetření"],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 513,
+    question: "Mezi geny asociované s chronickou pankreatitidou patří:",
+    answers: [
+      "<i>PRSS1</i>",
+      "<i>SPINK1</i>",
+      "<i>CFTR</i>",
+      "všechny výše uvedené",
+    ],
+    correctIndex: 3,
+    topics: [],
+  },
+  {
+    id: 514,
+    question: "Mezi etiologické faktory pankreatitidy nepatří:",
+    answers: ["alkohol", "kouření", "věk", "hyperkalcemie"],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 515,
+    question: "Mezi typické příznaky chronické pankreatitidy nepatří:",
+    answers: ["bolest", "maldigesce", "diabetes", "elevace sérové amylázy"],
+    correctIndex: 3,
+    topics: [],
+  },
+  {
+    id: 516,
+    question: "V léčbě bolesti se u chronické pankreatitidy mohou uplatnit:",
+    answers: [
+      "pankreatické enzymy v enterosolventní formě",
+      "pankreatické enzymy bez enterosolventní formy",
+      "prokinetika",
+      "inhibitory protonové pumpy",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 517,
+    question:
+      "Při léčbě stenózy choledochu při chronické pankreatitidě se nepoužívá:",
+    answers: [
+      "zavedení jednoho plastikového biliárního stentu",
+      "zavedení vícečetných plastikových biliárních stentů",
+      "zavedení metalického stentu",
+      "chirurgická resekce či anastomóza",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 518,
+    question: "Původní termín „karcinoid“ je dnes pro označení NEN:",
+    answers: [
+      "používán pouze u nádorů pankreatu",
+      "používán pouze u nádorů benigních",
+      "považován za obsoletní",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 519,
+    question:
+      "Mezi peptidové hormony, které mohou být produkovány NEN, nepatří:",
+    answers: ["somatostatin", "gastrin", "serotonin"],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 520,
+    question: "Neuroendokrinní tumor (NET)je:",
+    answers: [
+      "dobře diferencovaný neuroendokrinní nádor",
+      "nediferencovaný neuroendokrinní nádor",
+      "vřetenobuněčný neuroendokrinní nádor",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 521,
+    question: "Neuroendokrinní tumor z enterochromafinních (EC) buněk:",
+    answers: [
+      "je nejčastěji lokalizován v oblasti „středního střeva“",
+      "nikdy není vícečetný",
+      "v rektu se často vyskytuje u dětí",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 522,
+    question: "Ke karcinoidovému syndromu nepatří:",
+    answers: ["průjmy", "mióza", "bronchospazmy"],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 523,
+    question: "Pro glukagonom je charakteristický:",
+    answers: [
+      "flush",
+      "migrující nekrolytický exantém",
+      "výskyt mnohočetných bércových ulcerací",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 524,
+    question: "U mnohočetné endokrinní neoplazie typu 1 se nevyskytuje:",
+    answers: ["maligní melanom", "NET pankreatu", "primární hyperparatyreóza"],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 525,
+    question:
+      "Do typického klinického obrazu neléčeného Zollingerova–Ellisonova syndromu nepatří:",
+    answers: ["průjmy", "zácpa", "indukované zvracení"],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 526,
+    question:
+      "U Zollingerova–Ellisonova syndromu je v 90 % případů nádor lokalizován:",
+    answers: [
+      "v kaudě pankreatu",
+      "ve stěně žaludku, na velké kurvatuře na přechodu žaludečního těla",
+      "špatně",
+      "a přechodem mezi hlavou a tělem pankreatu",
+    ],
+    correctIndex: 3,
+    topics: [],
+  },
+  {
+    id: 527,
+    question:
+      "Nestimulovaná sekrece HCl u neléčeného Zollingerova–Ellisonova syndromu:",
+    answers: [
+      "je snížena (pod 0,15 mmol/h)",
+      "může dosáhnout hodnot až 150 mmol/h",
+      "může dosáhnout hodnot až 15 mmol/h",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 528,
+    question:
+      "U neléčeného Zollingerova–Ellisonova syndromu je sérový gastrin nalačno:",
+    answers: ["snížen", "zvýšen", "normální"],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 529,
+    question:
+      "U neléčeného Zollingerova–Ellisonova syndromu je chromogranin A:",
+    answers: ["snížen", "zvýšen", "normální"],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 530,
+    question: "K diagnostice Zollingerova–Ellisonova syndromu se používá:",
+    answers: [
+      "stimulační test s i.v. infuzí calcium gluconicum",
+      "inhibiční dexametazonový test",
+      "Lundhův test (se standardizovaným stimulačním pokrmem)",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 531,
+    question: "K průkazu somatostatinových receptorů se využívá:",
+    answers: ["18F-fluorodeoxyglukóza", "99mTc-pertechnetát", "68Ga-DOTATATE"],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 532,
+    question:
+      "Ke klinicky dostatečné supresi sekrece kyseliny chlorovodíkové u Zollingerova–Ellisonova syndromu zpravidla postačí denní dávka:",
+    answers: ["20 mg omeprazolu", "40 mg omeprazolu", "120 mg omeprazolu"],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 533,
+    question: "Karcinoid (neuroendokrinní karcinom) nejčastěji postihuje:",
+    answers: ["ileum (45 %)", "pankreas (90 %)", "žaludek (75 %)"],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 534,
+    question: "Středně diferencovaný karcinoid (grade 2) má:",
+    answers: [
+      "mitotickou aktivitu 2–20 mitóz/10 zorných polí a index Ki67 &gt;",
+      "špatně",
+      "%",
+      "vysokou mitotickou aktivitu (&gt; 20/10 zorných polí) a nízký",
+      "špatně",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 535,
+    question:
+      "Karcinoidy vycházející embryologicky ze středního střeva (mesenteron):",
+    answers: [
+      "jsou neuroendokrinní karcinomy tenkého střeva a apendixu",
+      "jsou neuroendokrinní karcinomy kolon",
+      "jsou neuroendokrinní karcinomy pankreatu",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 536,
+    question: "V diagnostice karcinoidu je důležité vyšetření:",
+    answers: [
+      "kyseliny 5-hydroxyindoloctové v moči",
+      "kyseliny delta-aminolevulové v moči",
+      "beta-hydroxy-beta-metylbutyrátu v moči",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 537,
+    question:
+      "name: GASTRO_MG_20 data: otázka číslo:7885 Primární žlučovou kyselinou je:",
+    answers: [
+      "kyselina litocholová",
+      "kyselina cholová",
+      "kyselina deoxycholová",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 538,
+    question: "Za fyziologických podmínek jsou denní ztráty žlučových kyselin:",
+    answers: ["0,5 g", "5 g", "50 g"],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 539,
+    question: "K nekomplikované cholecystitidě nepatří:",
+    answers: ["Murphyho příznak", "neustupující bolest", "ikterus"],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 540,
+    question: "task: Rentgen-kontrastní žlučové konkrementy jsou nejčastěji",
+    answers: ["cholesterolové", "hnědé", "černé"],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 541,
+    question: "Vznik cholesterolové litiázy nesouvisí:",
+    answers: [
+      "s cholesterolovou hypersaturací žluče",
+      "s urychlenou nukleací",
+      "s bakteriální infekcí žluče",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 542,
+    question:
+      "Ke snížení rizika opak. biliárních kolik před cholecystektomií se používá:",
+    answers: [
+      "hymekromon",
+      "ursodeoxycholová kyselina",
+      "kombinace metamizolu a pitofenonu",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 543,
+    question: "Do středně těžké akutní cholecystitidy nepatří:",
+    answers: [
+      "leukocyty v krvi &gt; 18∙109/l",
+      "gangrenózní cholecystitida s podjaterním abscesem",
+      "oběhová dysfunkce s nutností podávání noradrenalinu",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 544,
+    question:
+      "Největší riziko komplikací při diagnostice choledocholitiázy má:",
+    answers: ["EUS", "ERCP", "MRCP"],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 545,
+    question: "Bouveretův syndrom znamená:",
+    answers: [
+      "žlučový kámen zaklíněný v ileu",
+      "žlučový kámen zaklíněný v duodenu",
+      "žlučový kámen v cystiku působící obstrukční ikterus",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 546,
+    question: "Do Rieglerovy triády při biliárním ileu nepatří nález:",
+    answers: ["aerobilie", "jaterního abscesu", "intestinální obstrukce"],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 547,
+    question:
+      "Středně těžká akutní cholangitida podle Tokijské klasifikace je při věku:",
+    answers: ["≥ 65 let", "≥ 75 let", "≥ 85 let"],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 548,
+    question: "U akutní akalkulózní cholecystitidy je vysoké riziko:",
+    answers: ["perforace žlučníku", "jaterního abscesu", "empyému"],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 549,
+    question: "ERCP není indikované u dysfunkce Oddiho svěrače:",
+    answers: ["I. typu", "II. typu", "III. typu"],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 550,
+    question: "Do histologického obrazu IgG4 cholangitidy nepatří:",
+    answers: [
+      "storiformní fibróza",
+      "obliterující flebitida",
+      "eozinofilní infiltrát",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 551,
+    question: "Nejčastější polypy žlučníku jsou:",
+    answers: ["adenomyomy", "cholesterolové", "zánětlivé"],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 552,
+    question: "Pro intraduktální papilární neoplazii není typická:",
+    answers: ["produkce hlenu", "kalcifikace", "choledocholitiáza"],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 553,
+    question: "Největším rizikovým faktorem cholangiogenního karcinomu je:",
+    answers: [
+      "metabolický syndrom",
+      "primární sklerozující cholangitida",
+      "Lynchův syndrom",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 554,
+    question:
+      "V diferenciální diagnostice hilové stenózy žlučových cest je vhodné vyšetřit:",
+    answers: ["sérologii na hepatitidy", "IgG4", "ceruloplazmin"],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 555,
+    question: "Největší riziko při ERCP u hilových stenóz představuje:",
+    answers: ["krvácení po papilotomii", "perforace", "hnisavá cholangitida"],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 556,
+    question:
+      "Embolizace portální žíly před resekcí jater se používá z důvodu:",
+    answers: [
+      "zmenšení nádoru",
+      "kompenzatorní hypertrofie jater",
+      "snižuje riziko metastáz",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 557,
+    question: "Největším rizikovým faktorem karcinomu žlučníku jsou:",
+    answers: [
+      "biliární cysty",
+      "velká cholecystolitiáza (&gt; 3 cm)",
+      "obezita",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 558,
+    question: "Největším rizikovým faktorem pro karcinom Vaterovy papily je:",
+    answers: [
+      "kolorektální karcinom",
+      "familiární adenomová polypóza",
+      "rekurující choledocholitiáza",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 559,
+    question:
+      "Endoskopická ampulektomie neoplazie Vaterovy papily není dostačující při:",
+    answers: [
+      "nálezu těžké dysplazie",
+      "růstu do distálního choleodochu",
+      "nálezu invazivního adenokarcinomu",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 560,
+    question: "Do Caroliho nemoci nepatří:",
+    answers: [
+      "mnohočetná segmentální dilatace nitrojaterních žlučových cest",
+      "kongenitální jaterní fibróza",
+      "zvýšené riziko cholangiogenního karcinomu",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 561,
+    question: "Portální biliopatie bývá při:",
+    answers: [
+      "akutní trombóze portální žíly",
+      "trombóze lienální žíly",
+      "chronické trombóze portální žíly",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 562,
+    question: "ERCP u portální biliopatie má význam pro:",
+    answers: [
+      "stanovení diagnózy",
+      "extrakci litiázy a léčbu stenóz",
+      "zástavu krvácení z varixů",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 563,
+    question: "Leak z cystiku po cholecystektomii (Strasberg A) se léčí:",
+    answers: [
+      "konzervativně",
+      "ERCP s papilotomií a/nebo duodenobiliární drenáží",
+      "perkutánní drenáží žlučových cest",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 564,
+    question: "name: GASTRO_MG_21 data: otázka číslo:7915 Gilbertův syndrom:",
+    answers: [
+      "je indikací k jaterní biopsii",
+      "je chronickým jaterním onemocněním vedoucím k jaterní",
+      "špatně",
+      "fibróze a cirhóze",
+    ],
+    correctIndex: 3,
+    topics: [],
+  },
+  {
+    id: 565,
+    question: "Nealkoholové ztukovatění jater je:",
+    answers: [
+      "jaterní manifestací metabolického syndromu",
+      "nezávažným projevem jiných jaterních onemocnění",
+      "dobře léčitelným onemocněním",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 566,
+    question:
+      "Odlišit prostou steatózu jater a nealkoholovou steatohepatitidu:",
+    answers: [
+      "umožňuje výpočetní tomografie",
+      "nelze",
+      "umožňuje pouze histologické hodnocení jaterní biopsie",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 567,
+    question:
+      "Změna životního stylu, redukce hmotnosti a zvýšení aerobní zátěže:",
+    answers: [
+      "je základním léčebným opatřením u NAFLD",
+      "je zcela zbytečným postupem u NAFLD",
+      "nemá smysl bez současného bariatrického výkonu (endoskopického či",
+      "špatně",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 568,
+    question: "Maddreyho diskriminační skóre u alkoholové hepatitidy:",
+    answers: [
+      "koreluje s krátkodobou prognózou nemocných",
+      "nelze použít jako diskriminátor osob s alkoholovou",
+      "efekt",
+      "nepoužívá se",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 569,
+    question: "Kapilarizace jaterních sinusoid je:",
+    answers: [
+      "jedním ze základních procesů fibrogeneze",
+      "jedním z typických nálezů v normální jaterní tkáni",
+      "předchází rozvoji jaterního kapilárního hemangiomu",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 570,
+    question: "Jaterní cirhóza:",
+    answers: [
+      "může regredovat",
+      "nikdy neregreduje",
+      "může regredovat po podání kolchicinu",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 571,
+    question: "Pokročilost jaterní fibrózy posuzujeme nejlépe:",
+    answers: [
+      "podle klinických projevů",
+      "měřením jaterní tuhosti",
+      "podle poměru sérové aktivity ALT/AST",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 572,
+    question:
+      "Za klinicky významnou portální hypertenzi považujeme stav, kdy je portosystémový gradient (HVPG):",
+    answers: ["&gt; 10 mmHg", "&lt; 10 mmHg", "&gt; 5 mmHg"],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 573,
+    question: "Esenciální fosfolipidy jsou:",
+    answers: [
+      "základním lékem jaterních onemocnění",
+      "placebem",
+      "léčbou zabraňující rozvoji portální hypertenze",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 574,
+    question: "K posouzení funkčního stavu jaterní cirhózy se nehodí:",
+    answers: ["Child-Pugh klasifikace", "Ransonovo skóre", "MELD skóre"],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 575,
+    question:
+      "Při levostranné (segmentární) portální hypertenzi jsou typickým endoskopickým nálezem:",
+    answers: ["jícnové varixy", "fundální varixy", "varixy horního jícnu"],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 576,
+    question:
+      "Léčebnou odpovědí při sekundární prevenci krvácení z jícnových varixů je:",
+    answers: [
+      "pokles HVPG pod 12 mmHg nebo o 40 % proti původní hodnotě",
+      "pokles HVPG pod 10 mmHg nebo o 20 % proti původní hodnotě",
+      "pokles HVPG pod 12 mmHg nebo o 20 % proti původní hodnotě",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 577,
+    question:
+      "task: Diagnostickým kriteriem spontánní bakteriální peritonitidy je",
+    answers: [
+      "počet granulocytů v ascitu",
+      "počet granulocytů v krvi",
+      "počet granulocytů v krvi a ascitu",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 578,
+    question: "Hepatorenální syndrom 1. typu:",
+    answers: [
+      "je prostým poklesem renálních funkcí u pacientů s jaterní",
+      "špatně",
+      "infekci virem hepatitidy B",
+      "patogeneticky souvisí s portální hypertenzí",
+    ],
+    correctIndex: 3,
+    topics: [],
+  },
+  {
+    id: 579,
+    question: "Virová hepatitida A:",
+    answers: [
+      "je chronické jaterní onemocnění",
+      "je vakcinací preventabilní onemocnění",
+      "se v Evropě nevyskytuje",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 580,
+    question:
+      "Pravidelná vakcinace proti virové hepatitidě B od roku 2001 by měla vést k úplnému proočkování občanů ČR narozených po roce:",
+    answers: ["1985", "1989", "1995"],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 581,
+    question: "Virus hepatitidy B:",
+    answers: ["je tzv. cytopatickým virem", "obsahuje DNA", "obsahuje RNA"],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 582,
+    question: "Imunosuprimované neočkované dospělé osoby jsou:",
+    answers: [
+      "při expozici HBV ve vysokém riziku rozvoje chronické infekce",
+      "ohroženi fulminantní hepatitidou B",
+      "indikováni k preventivnímu dlouhodobému podání",
+      "špatně",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 583,
+    question:
+      "Prokazatelná pozitivita povrchového antigenu viru hepatitidy B (HBsAg) v séru:",
+    answers: [
+      "znamená akutní infekci virem hepatitidy B a je indikací",
+      "špatně",
+      "v organismu",
+      "znamená prodělanou infekci virem hepatitidy B – virus v těle",
+      "špatně",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 584,
+    question: "Sérová koncentrace virové HBV DNA:",
+    answers: [
+      "je ukazatelem úrovně virové replikace HBV",
+      "je ukazatelem akutní virové infekce HBV",
+      "je ukazatelem chronické virové infekce HBV",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 585,
+    question:
+      "Hlavní cestou šíření infekce viru hepatitidy C (HCV) je v současnosti v České republice:",
+    answers: [
+      "vertikální přenos – z HCV-pozitivní matky na plod",
+      "sexuální přenos – mezi heterosexuálními partnery",
+      "krevní cesta – mezi osobami zneužívajícími drogy",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 586,
+    question:
+      "Genetickou povahu viru hepatitidy C (HCV) vystihuje nejlépe následující tvrzení:",
+    answers: [
+      "virus obsahuje RNA, je geneticky stabilní",
+      "virus obsahuje DNA, je geneticky nestabilní",
+      "virus obsahuje RNA, je geneticky nestabilní",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 587,
+    question: "Chronická infekce virem hepatitidy C (HCV):",
+    answers: [
+      "je v Evropě vzácnou příčinou chronického jaterního",
+      "špatně",
+      "onemocnění virové etiologie",
+      "je v Evropě méně častá než chronická virová hepatitida B",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 588,
+    question: "Setrvalá virologická odpověď je:",
+    answers: [
+      "kritériem vyléčení akutní i chronické HCV infekce",
+      "kritériem rezistence na léčbu HCV infekce",
+      "kritériem pro ukončení dispenzarizace nemocných s jaterní",
+      "špatně",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 589,
+    question: "Infekce virem hepatitidy D (HDV):",
+    answers: [
+      "je indikací k podání sofosbuviru",
+      "je indikací k podání pegylovaného interferonu α",
+      "je indikací k podání sofosbuviru v kombinaci",
+      "špatně",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 590,
+    question: "Při chronické infekci virem hepatitidy C (HCV):",
+    answers: [
+      "je jaterní biopsie kontraindikovaná",
+      "je jaterní biopsie základní součástí vyšetřovacího procesu",
+      "je jaterní biopsie nezbytná pouze výjimečně",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 591,
+    question: "Autoimunitní hepatitida je klinicky charakterizována:",
+    answers: [
+      "remitujícím průběhem",
+      "minimální a pomalou progresí fibrózy",
+      "časným rozvojem komplikací (portální hypertenze, hepatocelulární",
+      "špatně",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 592,
+    question:
+      "Diagnostickým testem při podezření na autoimunitní hepatitidu je:",
+    answers: [
+      "vyšetření autoprotilátek",
+      "jaterní biopsie",
+      "žádný takový test neexistuje",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 593,
+    question: "Primární sklerozující cholangitida:",
+    answers: [
+      "je často komplikována rozvojem cholangiocelulárního karcinomu",
+      "je kontraindikací k transplantaci jater bez ohledu na průkaz",
+      "špatně",
+      "průkazu intrahepatálního cholangiocelulárního karcinomu",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 594,
+    question: "Při HFE hereditární hemochromatóze je vysoké riziko rozvoje:",
+    answers: [
+      "akutního jaterního selhání",
+      "hepatocelulárního karcinomu",
+      "duktálního karcinomu pankreatu",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 595,
+    question:
+      "Nejdůležitějším diagnostickým testem při podezření na Wilsonovu chorobu (jaterní formu) je:",
+    answers: [
+      "průkaz Kayserova–Fleischerova prstence",
+      "obsah mědi v jaterní sušině",
+      "nízká sérová koncentrace ceruloplazminu",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 596,
+    question: "Ze všech porfyrií se v ČR nejčastěji vyskytuje:",
+    answers: [
+      "porfyria cutanea tarda",
+      "porfyria variegata",
+      "hereditární koproporfyrie",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 597,
+    question: "Příčinou akutního jaterního selhání je:",
+    answers: [
+      "jaterní cirhóza",
+      "otrava muchomůrkou zelenou",
+      "akutní intermitentní porfyrie",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 598,
+    question: "Primární afunkce štěpu po transplantaci:",
+    answers: [
+      "je indikací k retransplantaci",
+      "je indikací k retransplantaci při splnění tzv. Kingʾs",
+      "špatně",
+      "na imunosupresivní léčbu",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 599,
+    question: "Hepatocelulární karcinom:",
+    answers: [
+      "vzniká nejčastěji v jaterní cirhóze",
+      "vzniká nejčastěji u osob s jaterní fibrózou",
+      "vzniká nejčastěji u osob bez jaterního onemocnění",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 600,
+    question:
+      "Standardním klasifikačním systémem pro hepatocelulární karcinom je:",
+    answers: ["GETCH", "CUPI", "BCLC"],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 601,
+    question:
+      "Základní léčebnou metodou pro pacienty s hepatocelulárním karcinomem stadia BCLC B je:",
+    answers: [
+      "transarteriální chemoembolizace (TACE)",
+      "transarteriální radioembolizace (TARE)",
+      "radiofrekvenční ablace (RFA)",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 602,
+    question: "Nejvyšší specificitu pro diagnostiku hemangiomů jater má:",
+    answers: [
+      "abdominální ultrasonografie",
+      "magnetická rezonance",
+      "výpočetní tomografie",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 603,
+    question: "Fokální nodulární hyperplázie:",
+    answers: [
+      "nemá maligní potenciál",
+      "má maligní potenciál",
+      "je prekancerózou",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 604,
+    question: "Hormonální antikoncepce zvyšuje riziko vzniku:",
+    answers: [
+      "hemangiomu jater",
+      "hepatocelulárního adenomu",
+      "fokální nodulární hyperplazie",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 605,
+    question: "Wilsonova choroba je:",
+    answers: [
+      "geneticky podmíněná porucha metabolismu mědi",
+      "získaná porucha metabolismu mědi",
+      "geneticky podmíněná porucha metabolismu mědi a železa",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 606,
+    question:
+      "name: GASTRO_MG_22p data: otázka číslo:7212 Prekancerózu definujeme jako:",
+    answers: [
+      "onemocnění či léze s významně častějším vznikem malignit",
+      "maligní onemocnění omezené pouze na sliznici a submukózu",
+      "onemocnění, které – pokud není adekvátně léčené – vede vždy ke",
+      "špatně",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 607,
+    question: "Mezi prekancerózní stavy mohou patřit:",
+    answers: [
+      "metaplazie, dysplazie",
+      "chronické záněty, karcinom in situ",
+      "chronické záněty, metaplazie",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 608,
+    question: "Jako prekancerózní léze lze označit:",
+    answers: [
+      "maligní onemocnění omezené pouze na sliznici a submukózu",
+      "pouze slizniční polypy (adenomy, pilovité léze)",
+      "genové a fenotypové změny tkání, které mohou vykazovat určité",
+      "(dysplazie, intraepiteliální neoplazie)",
+    ],
+    correctIndex: 3,
+    topics: [],
+  },
+  {
+    id: 609,
+    question: "Dysplazie:",
+    answers: [
+      "patří mezi takzvané prekancerózní stavy",
+      "patří mezi takzvané prekancerózní léze",
+      "není prekancerózou",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 610,
+    question: "Mezi základní funkce protoonkogenů patří:",
+    answers: [
+      "stimulace buněčného dělení a růstu",
+      "opravy buněčného genomu",
+      "identifikace a oprava chyb párování bází během replikace",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 611,
+    question: "Při přeměně protoonkogenů v onkogeny dochází k jejich:",
+    answers: ["inaktivaci", "dočasné inaktivaci", "aktivaci"],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 612,
+    question: "Při karcinogenezi může docházet:",
+    answers: [
+      "k trvalé inaktivaci i aktivaci protoonkogenů, tumor-supresorových",
+      "špatně",
+      "genů a inaktivaci tzv. DNA mismatch repair genů",
+      "k trvalé aktivaci protoonkogenů, aktivaci tumor-supresorových",
+      "špatně",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 613,
+    question: "Mikrosatelitová nestabilita je definována jako:",
+    answers: [
+      "aktivace i inaktivace protoonkogenů a vznik onkogenů",
+      "inaktivace tumor-supresorových genů (tzv. mikrosatelitů)",
+      "změna délky specifických oblastí DNA s periodickým",
+      "replikaci náchylné ke vzniku náhodných chyb",
+    ],
+    correctIndex: 3,
+    topics: [],
+  },
+  {
+    id: 614,
+    question:
+      "Biomarker, v současnosti prakticky využívaný k odlišení zánětlivých změn a dysplazií v terénu Barrettova jícnu, je:",
+    answers: ["protein p53", "E-kadherin", "CD3 a CD8"],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 615,
+    question: "V kancerogenezi karcinomu žaludku intestinálního typu dominuje:",
+    answers: [
+      "chromozomální nestabilita",
+      "nestabilita mikrosatelitů",
+      "porucha regulačních mechanismů na bázi metylací DNA",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 616,
+    question: "Častěji jsou u adenokarcinomu tenkého střeva nacházeny mutace:",
+    answers: [
+      "v genu <i>CDH1</i>",
+      "v genu <i>BRAF1</i>",
+      "v genech <i>RAS</i> (<i>KRAS</i> nebo <i>NRAS</i>)",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 617,
+    question:
+      "Ve většině případů (až v 70 %) je progrese neoplastických změn u sporadického kolorektálního karcinomu spojena:",
+    answers: [
+      "s chromozomální nestabilitou",
+      "s nestabilitou mikrosatelitů",
+      "s extenzivní metylací DNA",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 618,
+    question:
+      "Nestabilita mikrosatelitů je v kancerogenezi kolorektálního karcinomu spojena:",
+    answers: [
+      "se ztrátou funkce tumor supresorových genů (<i>APC</i>,",
+      "špatně",
+      "špatně",
+      "<i>MSH2</i>, <i>MSH6</i>, <i>PMS2</i>)",
+    ],
+    correctIndex: 3,
+    topics: [],
+  },
+  {
+    id: 619,
+    question:
+      "Kancerogeneze kolorektálního karcinomu spojená s chromozomální nestabilitou se projevuje mimo jiné:",
+    answers: [
+      "ztrátou funkce MMR (mismatch repair) genů (<i>MLH1</i>,",
+      "špatně",
+      "tumor -supresorových genů (např. <i>APC</i>)",
+      "inaktivací exprese homeoboxových CDX genů (<i>CDX 1</i> a",
+      "špatně",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 620,
+    question:
+      "Pilovitá cesta kancerogeneze kolorektálního karcinomu (vycházející ze sesilní pilovité léze) je založena na:",
+    answers: [
+      "extenzivní metylaci DNA a mutacích v promotoru <i>APC</i>",
+      "špatně",
+      "špatně",
+      "nestabilitě mikrosatelitů",
+    ],
+    correctIndex: 3,
+    topics: [],
+  },
+  {
+    id: 621,
+    question:
+      "Kancerogeneze karcinomu pankreatu vycházející z mucinózní cystické neoplazie je spojena:",
+    answers: [
+      "v časné fázi s mutacemi onkogenů (<i>KRAS</i>),",
+      "pozdní změnou",
+      "v časné fázi s inaktivací tumor-supresorových genů",
+      "výjimečná",
+      "v časné fázi s inaktivací tumor-supresorových genů",
+      "přechodu do karcinomu",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 622,
+    question:
+      "Vývoj cholangiokarcinomu na podkladě biliární intraepiteliální neoplazie (BilIN) je častěji spojen:",
+    answers: [
+      "s mutací genu <i>CDH1</i> a v pokročilých fázích také s",
+      "špatně",
+      "mutací tumor-supresorového genu <i>TP53</i>",
+      "s časnou mutací tumor-supresorového genu <i>TP53</i>",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 623,
+    question:
+      "Rizikové faktory významné pro vznik dlaždicobuněčného karcinomu jícnu jsou především:",
+    answers: [
+      "konzumace mykotoxinů",
+      "alkalický gastroezofageální reflux",
+      "konzumace alkoholu, kouření tabáku, malnutrice",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 624,
+    question:
+      "Rizikové faktory významné pro vznik adenokarcinomu jícnu jsou především:",
+    answers: [
+      "patologický gastroezofageální reflux, konzumace mykotoxinů a pití",
+      "špatně",
+      "centrálního typu",
+      "konzumace destilátů, kouření a kyselý gastroezofageální",
+      "špatně",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 625,
+    question: "Prekancerózní léze jsou v dlaždicobuněčném epitelu jícnu:",
+    answers: [
+      "papilomy jícnu",
+      "ložisko dysplazie / intraepiteliální neoplazie",
+      "eroze a ulcerace",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 626,
+    question:
+      "Mezi nejčastější prekancerózní stavy adenokarcinomu jícnu patří:",
+    answers: [
+      "Barrettův jícen",
+      "achalazie jícnu",
+      "gastrická metaplazie sliznice jícnu",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 627,
+    question:
+      "Rizikovými faktory kancerogeneze v Barrettově jícnu jsou především:",
+    answers: [
+      "kouření, konzumace alkoholu a délka segmentu intestinální",
+      "špatně",
+      "ulcerace (přes terapii)",
+      "přítomnost stenózy a intenzita zánětlivých změn",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 628,
+    question:
+      "Pacienti s Barrettovým jícnem do délky metaplastického segmentu 3 cm jsou po dvou úvodních endoskopiích (bez dysplazie) indikováni k endoskopické kontrole:",
+    answers: ["každých 3–5 let", "každé 2–3 roky", "každých 6 let"],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 629,
+    question:
+      "Pacienti s Barrettovým jícnem a metaplastickým segmentem delším než 3 cm jsou po dvou negativních endoskopiích (bez dysplazie) indikováni k endoskopickým kontrolám:",
+    answers: ["každý rok", "každý 1–2 roky", "každé 2–3 roky"],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 630,
+    question: "Endoskopická dispenzarizace Barrettova jícnu je založena na:",
+    answers: [
+      "cílených biopsiích identifikovaných lézí spolu s náhodnými",
+      "intervalech 2 cm)",
+      "cílených biopsiích identifikovaných lézí bez náhodných",
+      "špatně",
+      "biopsie v intervalech 2 cm)",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 631,
+    question:
+      "Rizikové faktory intestinálního typu adenokarcinomu žaludku zahrnují (mimo jiné):",
+    answers: [
+      "abúzus amfetaminů, konzumaci kofeinu",
+      "pití destilátů, kouření doutníků, dietu bohatou na jednoduché",
+      "špatně",
+      "obezitu",
+    ],
+    correctIndex: 3,
+    topics: [],
+  },
+  {
+    id: 632,
+    question: "Šipky na obrázku 22.21 označují pravděpodobně:",
+    answers: [
+      "časný karcinom žaludku",
+      "ložiska intestinální metaplazie",
+      "ložiska atrofie sliznice",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 633,
+    question: "Mezi nejčastější polypy žaludku patří:",
+    answers: [
+      "hyperplastické polypy (70 %) a polypy z fundických žlázek",
+      "špatně",
+      "(40 %)",
+      "adenomy (50 %) a polypy z fundických žlázek (40 %)",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 634,
+    question: "Při identifikaci polypu žaludku:",
+    answers: [
+      "odbíráme biopsii a adenomy či větší polypy resekujeme",
+      "odebíráme biopsii pouze při endoskopické suspekci na adenom",
+      "odebíráme biopsii pouze při endoskopické suspekci na karcinom",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 635,
+    question: "Eradikace <i>H. pylori</i> u MALT lymfomu žaludku:",
+    answers: [
+      "je indikována a může vést k regresi nádoru",
+      "je indikována před chemoterapií, sama o sobě k regresi",
+      "špatně",
+      "špatně",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 636,
+    question:
+      "Spigelmanova klasifikace postižení duodena u familiární adenomatózní polypózy hodnotí:",
+    answers: [
+      "počet a velikost polypů duodena, histologický nález, dysplazii,",
+      "špatně",
+      "špatně",
+      "dysplazii",
+    ],
+    correctIndex: 3,
+    topics: [],
+  },
+  {
+    id: 637,
+    question: "Nejčastější lokalizace lymfomů GIT zahrnuje:",
+    answers: ["jícen, žaludek", "žaludek, tenké střevo", "žaludek, tračník"],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 638,
+    question:
+      "EATL (enteropathy-associated T-cell lymphoma) je nejčastěji spojen:",
+    answers: [
+      "s celiakií",
+      "s refrakterní celiakií",
+      "s Crohnovou chorobou tenkého střeva",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 639,
+    question:
+      "Celoživotní riziko vzniku kolorektálního karcinomu se u nemocných s Lynchovým syndromem pohybuje mezi:",
+    answers: ["20 a 40 %", "40 a 50 %", "70 a 90 %"],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 640,
+    question: "Lynchův syndrom je způsoben:",
+    answers: [
+      "mutací onkogenu <i>KRAS</i> a inaktivací tumor-supresorového genu",
+      "špatně",
+      "<i>DCC</i>, <i>SMAD4</i>)",
+      "zárodečnou mutací MMR (mismatch repair) genů (<i>MLH1</i>,",
+      "mikrosatelitů",
+    ],
+    correctIndex: 4,
+    topics: [],
+  },
+  {
+    id: 641,
+    question:
+      "Prekancerozní lézí tračníku je u nemocných s idiopatickými střevními záněty:",
+    answers: [
+      "plochá léze tračníku (adenom nebo sesilní pilovitá léze)",
+      "ložisko dysplazie",
+      "ložisko gastrické metaplazie",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 642,
+    question: "Prekancerózní léze kolorektálního karcinomu zahrnují:",
+    answers: [
+      "adenomy, sesilní pilovité léze, tradiční pilovité adenomy",
+      "adenomy, sesilní pilovité léze, hyperplastické polypy",
+      "adenomy, všechny pilovité léze tračníku",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 643,
+    question:
+      "Obrázek 22.29B4 – zařaďte zobrazenou neoplastickou lézi podle Pařížské klasifikace:",
+    answers: ["0-Is", "0-IIa", "0-IIc"],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 644,
+    question:
+      "Obrázek 22.29B7 – zařaďte zobrazenou neoplastickou lézi podle Pařížské klasifikace:",
+    answers: ["0-Is", "0-IIa+c", "0-IIa"],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 645,
+    question:
+      "Obrázek 22.29B1 – zařaďte zobrazenou neoplastickou lézi podle Pařížské klasifikace:",
+    answers: ["0-Is", "0-IIa", "0-Ip"],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 646,
+    question: "Pilovitá léze tračníku je definována:",
+    answers: [
+      "morfologicky, pilovitým uspořádáním epitelu",
+      "morfologicky, přítomností tzv. pilovité dysplazie",
+      "morfologicky, pilovitým uspořádáním epitelu a imunohistochemickou",
+      "špatně",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 647,
+    question: "Mezi tzv. pokročilé pilovité léze patří:",
+    answers: [
+      "léze &gt; 10 mm, dysplastické sesilní pilovité léze",
+      "léze &gt; 10 mm, dysplastické pilovité léze",
+      "léze &gt; 10 mm",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 648,
+    question:
+      "Doporučený interval koloskopie je po odstranění 1–4 adenomů &lt; 10 mm s dysplazií nízkého stupně nebo jakékoli pilovité léze bez dysplazie &lt; 10 mm:",
+    answers: ["10 let", "5 let", "3 roky"],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 649,
+    question:
+      "Doporučený interval koloskopie je po odstranění většího adenomu / pilovité léze (&gt; 10 mm), adenomu s dysplazií vysokého stupně, pilovité léze s jakoukoli dysplazií nebo vícečetných adenomů (≥ 5):",
+    answers: ["10 let", "5 let", "3 roky"],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 650,
+    question: "Nejvýznamnější rizikové faktory karcinomu pankreatu zahrnují:",
+    answers: [
+      "věk, kouření cigaret, diabetes mellitus a obezitu",
+      "věk, kouření cigaret, konzumaci alkoholu a mykotoxinů",
+      "kouření cigaret, diabetes mellitus a konzumaci soli",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 651,
+    question: "Pankreatické intraepiteliální neoplazie jsou:",
+    answers: [
+      "cystické tumory tvořené buňkami produkujícími hlen, lokalizované",
+      "špatně",
+      "menších vývodů pankreatu",
+      "ploché či papilární léze složené z buněk produkujících mucin v",
+      "špatně",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 652,
+    question: "Pankreatické intraepiteliální neoplazie jsou:",
+    answers: [
+      "zcela benigní léze s nulovým maligním potenciálem",
+      "léze dobře identifikovatelné v průběhu ERCP",
+      "podkladem vzniku většiny duktálních adenokarcinomů pankreatu",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 653,
+    question: "Mucinózní cystická neoplazie (MCN) je:",
+    answers: [
+      "cystický tumor pankreatu tvořený buňkami produkujícími hlen se",
+      "vývodem",
+      "plochá či papilární léze složená z buněk produkujících mucin,",
+      "špatně",
+      "menších vývodů pankreatu",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 654,
+    question: "Vnější rizikové faktory hepatocelulárního karcinomu zahrnují:",
+    answers: [
+      "aflatoxin, kontaminaci pitné vody mikrocystinem",
+      "kouření cigaret a doutníků",
+      "konzumaci jednoduchých cukrů",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 655,
+    question: "Chronická infekce virem hepatitidy B je prekancerózním stavem:",
+    answers: [
+      "ještě před vznikem jaterní cirhózy",
+      "teprve po vzniku jaterní cirhózy",
+      "u pokročilé jaterní cirhózy",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 656,
+    question: "Biliární intraepiteliální neoplazie je tvořena:",
+    answers: [
+      "vilózními či papilárními masami vyplňujícími lumen žlučovodů",
+      "drobnými (&lt; 3 mm) plochými či (mikro)papilárními lézemi",
+      "cystickými lézemi v oblasti intrahepatických žlučovodů",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 657,
+    question:
+      "Primární prevence nádorových onemocnění gastrointestinálního traktu je:",
+    answers: [
+      "předcházení vzniku nádorů eliminací rizikových faktorů",
+      "souhrn opatření (metod ), jejichž cílem je včasný́ záchyt",
+      "špatně",
+      "onemocnění v jakémkoli stadiu onemocnění",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 658,
+    question:
+      "Sekundární prevence nádorových onemocnění gastrointestinálního traktu zahrnuje:",
+    answers: [
+      "screening a dispenzartizaci",
+      "screening a depistáž",
+      "dispenzarizaci a surveillance",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 659,
+    question: "Časná diagnostika nádorů:",
+    answers: [
+      "má stejné cíle jako screening, ale jde o vyšetření pacientů",
+      "testem",
+      "má stejné cíle jako screening, ale jde o vyšetření vysoce",
+      "špatně",
+      "screeningovým testem",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 660,
+    question:
+      "Účast cílové populace ve screeningových programech by měla zahrnovat minimálně:",
+    answers: ["45 %", "20 %", "90 %"],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 661,
+    question: "Intervalový karcinom je definován jako:",
+    answers: [
+      "neoplazie, která je diagnostikována v intervalu mezi dvěma",
+      "onemocnění (včetně vyšetření mimo screeningové programy)",
+      "neoplazie, které jsou diagnostikovány v intervalu mezi vstupním",
+      "programu",
+      "karcinom nově diagnostikovaný v rámci plánovaného",
+      "špatně",
+    ],
+    correctIndex: 3,
+    topics: [],
+  },
+  {
+    id: 662,
+    question:
+      "Mezi výhody imunochemických testů stolice na okultní krvácení patří:",
+    answers: [
+      "nižší cena a všeobecná dostupnost testů",
+      "vyšší senzitivita při obdobné specificitě v porovnání",
+      "cílové populace",
+      "vyšší specificita a jednotné hodnoty cut-off (pozitivní hodnota",
+      "špatně",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 663,
+    question:
+      "Zlatý standard diagnostiky i screeningu kolorektálního karcinomu je:",
+    answers: ["kapslová koloskopie", "CT kolografie", "(optická) koloskopie"],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 664,
+    question: "Kouření cigaret:",
+    answers: [
+      "v ČR kouří více než 30 % populace nad 15 let",
+      "díky intenzivním protikuřáckým opatřením dochází ke snížení",
+      "špatně",
+      "špatně",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 665,
+    question: "Hereditární nádorové syndromy postihující GIT:",
+    answers: [
+      "jsou častější u starších osob kvůli akumulaci genetických",
+      "špatně",
+      "syndromem",
+      "mutace <i>BRCA1</i> bývá spojena s karcinomem žaludku",
+    ],
+    correctIndex: 3,
+    topics: [],
+  },
+  {
+    id: 666,
+    question: "Screening kolorektálního karcinomu:",
+    answers: [
+      "základní metodou je testování stolice, zejména nádorové DNA ve",
+      "špatně",
+      "kolorektálního karcinomu o 80–90 %",
+      "CT kolografie je běžně akceptovaná alternativou ke screeningové",
+      "špatně",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 667,
+    question: "Hereditární difuzní karcinom žaludku je geneticky podmíněn:",
+    answers: [
+      "germinální mutací v genu <i>STK11</i>",
+      "germinální mutací v genu <i>CDH1</i>",
+      "mutací genů <i>MLH1</i>, <i>MSH2</i> a <i>MSH6</i>",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 668,
+    question:
+      "GAPPS (gastrický adenokarcinom a proximální polypóza žaludku) je geneticky podmíněn:",
+    answers: [
+      "mutacemi v promotoru <i>APC</i> genu",
+      "mutacemi v <i>APC</i> genu",
+      "mutacemi genů <i>BRCA1</i> a <i>BRCA2</i>",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 669,
+    question:
+      "Mutace genu <i>TP53</i> se v kancerogenezi kolorektálního karcinomu objevuje:",
+    answers: [
+      "časně, při vzniku adenomů a pilovitých lézí",
+      "pozdně, při progresi dysplazie v adenom",
+      "naprosto raritně u Lynchova syndromu",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 670,
+    question:
+      "Mezi prekancerozní stavy dlaždicobuněčného karcinomu jícnu patří:",
+    answers: [
+      "chronický zánět sliznice",
+      "intestinální metaplazie",
+      "gastrická metaplazie",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 671,
+    question:
+      "Mezi prekancerózní stavy dlaždicobuněčného karcinomu jícnu patří především:",
+    answers: [
+      "achalazie jícnu, <i>H. pylori</i> indukovaná gastritida,",
+      "špatně",
+      "špatně",
+      "syndrom, Howelův–Evansův syndrom",
+    ],
+    correctIndex: 3,
+    topics: [],
+  },
+  {
+    id: 672,
+    question:
+      "Roční riziko vzniku adenokarcinomu v Barrettově jícnu se pohybuje:",
+    answers: ["mezi 1 a 3 %", "mezi 0,1 a 0,3 %", "mezi 2 a 5 %"],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 673,
+    question: "Obrázek 22.17B Barrettův jícen – šipky označují nejspíše:",
+    answers: [
+      "okrsek zánětlivých změn",
+      "invazivní adenokarcinom jícnu",
+      "ložisko dysplazie / intraepiteliální neoplazie",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 674,
+    question: "Mezi prekancerózní stavy adenokarcinomu žaludku nepatří:",
+    answers: [
+      "stavy po částečné resekci žaludku",
+      "Ménétrierova choroba",
+      "gastropatie z nesteroidních antiflogistik",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 675,
+    question:
+      "Roční riziko vzniku chronické atrofické gastritidy se u nemocných infikovaných <i>H. pylori</i> pohybuje okolo:",
+    answers: ["3 %", "10 %", "30 %"],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 676,
+    question:
+      "Riziko vzniku adenokarcinomu žaludku se u <i>H. pylori</i> indukované multifokální atrofické gastritidy pohybuje okolo:",
+    answers: ["10 %", "0,1 %", "1 %"],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 677,
+    question: "Dysplazie sliznice žaludku může spontánně regredovat:",
+    answers: [
+      "ano, obvykle při intenzivní antisekreční terapii",
+      "ne",
+      "někdy, v případě dysplazie nízkého stupně",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 678,
+    question:
+      "Intestinální metaplazie je při endoskopickém zobrazení v bílém světle charakterizována:",
+    answers: [
+      "mapovitými okrsky intenzivně zarudlé sliznice",
+      "mapovitými okrsky bělavé, mírně vyvýšené sliznice",
+      "pruhovitými okrsky sliznice s výrazněji prosvítající",
+      "špatně",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 679,
+    question:
+      "Endoskopická dispenzarizace nemocných s chronickou atrofickou gastritidou je doporučena:",
+    answers: [
+      "u minimálně střední atrofie sliznice nebo intestinální metaplazie",
+      "metaplazie spojené s dalšími rizikovými faktory (inkompletní typ",
+      "anamnéza, autoimunitní atrofická gastritida)",
+      "u těžké intestinální metaplazie v těle i antru žaludku (OLGIM",
+      "špatně",
+      "pylori</i> nebo u autoimunitní atrofické gastritidy",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 680,
+    question: "Mezi prekancerózní stavy adenokarcinomu tenkého střeva nepatří:",
+    answers: [
+      "Crohnova choroba a celiakie",
+      "Whippleova choroba",
+      "ileální konduit, ileostomie a ileální pouch",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 681,
+    question: "Mezi rizikové faktory adenokarcinomu tračníku nepatří:",
+    answers: [
+      "infekce EBV",
+      "nižší fyzická aktivita, obezita, diabetes mellitus 2. typu",
+      "dlouhodobá konzumace červeného nebo rizikovým způsobem",
+      "fermentace) a živočišných tuků",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 682,
+    question: "Mezi polypózní syndromy s postižením tračníku nepatří:",
+    answers: [
+      "Peutzův–Jeghersův syndrom",
+      "GAPPS",
+      "syndrom Cronkhiteův–Canadové",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 683,
+    question:
+      "Ke stavům se zvýšeným rizikem vzniku kolorektálního karcinomu nepatří:",
+    answers: ["ureteroileostomie", "portální kolopatie", "cystická fibróza"],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 684,
+    question: "Mezi pilovité léze tračníku nepatří:",
+    answers: [
+      "hyperplastické polypy",
+      "zánětlivé polypy",
+      "tradiční pilovitý adenom",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 685,
+    question: "Pilovité léze tračníku jsou prekurzorem vzniku:",
+    answers: [
+      "20 % kolorektálních karcinomů",
+      "50 % kolorektálních karcinomů",
+      "70 % kolorektálních karcinomů",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 686,
+    question: "Mezi familiární prekancerózy karcinomu pankreatu nepatří:",
+    answers: [
+      "Peutzův–Jeghersův syndrom",
+      "syndrom hereditárního karcinomu prsu a ovárií",
+      "Ménétrierova choroba",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 687,
+    question:
+      "Screening a dispenzarizaci karcinomu pankreatu pomocí endosonografie nebo MR je potřeba zvažovat především:",
+    answers: [
+      "u pacientů s diabetes mellitus 2. typu",
+      "u pacientů s blízkými příbuznými s karcinomem pankreatu,",
+      "karcinomu slinivky břišní",
+      "u pacientů s chronickou pankreatitidou",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 688,
+    question: "Prekancerózním stavem hepatocelulárního karcinomu není:",
+    answers: [
+      "chronická virová hepatitida B a C",
+      "jaterní cirhóza bez ohledu na etiologii",
+      "polycystická nemoc jater",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 689,
+    question: "Prekancerózní lézí hepatocelulárního karcinomu není:",
+    answers: [
+      "dysplastický nodulus",
+      "dysplastický fokus",
+      "prostá jaterní cysta",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 690,
+    question: "Mezi prekancerózní stavy cholangiogenního karcinomu nepatří:",
+    answers: ["biliární papilomatóza", "chronická virová hepatitida", "GAPPS"],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 691,
+    question: "Mezi prekancerózní léze karcinomu žlučníku nepatří:",
+    answers: [
+      "adenom z pylorických žlázek",
+      "fokální kalcifikace stěny žlučníku",
+      "intracholecystická papilární neoplazie",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 692,
+    question:
+      "Mezi významné exogenní rizikové faktory nádorových onemocnění nepatří:",
+    answers: [
+      "kouření tabáku, konzumace alkoholu,",
+      "vyšší kalorický příjem, nízká fyzická aktivita",
+      "pití kávy",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 693,
+    question: "Mezi endogenní rizikové faktory nádorového onemocnění nepatří:",
+    answers: [
+      "věk",
+      "hereditární nádorové syndromy",
+      "konzumace červeného masa",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 694,
+    question: "Oportunní (neorganizovaný́) screening je prováděn :",
+    answers: [
+      "přímo na žádost konkrétního jedince, na základě doporučení",
+      "onemocnění",
+      "na základě nařízení ministerstva zdravotnictví nebo odborných",
+      "špatně",
+      "špatně",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 695,
+    question:
+      "Mezi hlavní nevýhody guajakových testů stolice na okultní krvácení patří:",
+    answers: [
+      "vysoká cena a termolabilita",
+      "nízká specificita, riziko falešné negativity (po užití vitaminu C",
+      "špatně",
+      "živočišné potravě nebo při krvácení z horní části",
+      "C nebo jiných antioxidantů)",
+    ],
+    correctIndex: 4,
+    topics: [],
+  },
+  {
+    id: 696,
+    question:
+      "name: GASTRO_MG_23 data: otázka číslo:7656 Charakteristickými příznaky kampylobakterové střevní infekce jsou:",
+    answers: [
+      "horečka a průjem s příměsí krve",
+      "horečka a syndrom pravé jámy kyčelní",
+      "horečka, zvracení a vodnatý průjem",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 697,
+    question: "Norovirová střevní infekce:",
+    answers: [
+      "probíhá lehce u dospělých",
+      "je vysoce infekční – má vysoký index nakažlivosti",
+      "nepostihuje dospělé",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 698,
+    question: "Alimentární intoxikace se nejčastěji projevuje:",
+    answers: [
+      "horečkou a zvracením",
+      "afebrilním průběhem a zvracením",
+      "horečkou a průjmem",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 699,
+    question: "Kandidová ezofagitida u HIV-pozitivního pacienta je:",
+    answers: [
+      "přítomna ve stadiu B infekce HIV",
+      "indikativní chorobou stadia AIDS",
+      "nacházena ve všech stadiích infekce HIV",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 700,
+    question: "Nejčastější střevní parazitózou u nás je:",
+    answers: ["askarióza", "tenióza", "enterobióza"],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 701,
+    question: "Gastrointestinální příznaky covid-19 jsou asociovány:",
+    answers: [
+      "s fatálním průběhem infekce SARS-CoV-2",
+      "s příznivým průběhem infekce SARS-CoV-2",
+      "s léčbou remdesivirem",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 702,
+    question: "name: GASTRO_MG_24 data: otázka číslo:7622 Peritoneum:",
+    answers: [
+      "je tenká serózní membrána, která vystýlá dutinu břišní",
+      "s plochou téměř 3,8 m2 představuje největší serózní",
+      "špatně",
+      "vytvořením pleuroperitoneální membrány a transverzálního septa k",
+      "špatně",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 703,
+    question: "Cévní zásobení parietálního peritonea zajišťují:",
+    answers: [
+      "tepny břišní stěny",
+      "žilní krev je odváděna do vena portae",
+      "žilní krev viscerálního peritonea je odváděna do vena cava",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 704,
+    question:
+      "Pro některé maligní tumory je charakteristická přítomnost nádorových depozit (metastáz) na povrchu peritonea.",
+    answers: [
+      "Tento stav je označován jako peritoneální karcinom.",
+      "Představuje pozdní stadium manifestace nemoci a je obecně",
+      "postižení je medián přežití bez léčby udáván v rozmezí 24–32",
+      "špatně",
+      "epitelové tumory, jako je karcinom ovaria, kolorektální karcinom,",
+      "prsu, vzácně pak sarkomy a lymfomy.",
+    ],
+    correctIndex: 5,
+    topics: [],
+  },
+  {
+    id: 705,
+    question:
+      "Ve střední Evropě je nejčastější potravinovou alergií u dětí alergie na:",
+    answers: ["kravské mléko", "slepičí vejce", "arašídy"],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 706,
+    question:
+      "Ve střední Evropě je nejčastější potravinovou alergií u dospělých alergie na:",
+    answers: ["kravské mléko", "slepičí vejce", "arašídy"],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 707,
+    question: "Riziko potravinové alergie zvyšuje:",
+    answers: [
+      "dlouhodobá léčba alopurinolem",
+      "dlouhodobá léčba inhibitory protonové pumpy",
+      "dlouhodobá léčba sartany",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 708,
+    question: "U potravinové alergie mají solubilní antigeny:",
+    answers: [
+      "nižší alergenicitu",
+      "vyšší alergenicitu",
+      "na úroveň alergenicity zcela minimální vliv",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 709,
+    question:
+      "Osoby s alergií na roztoče mají vyšší riziko potravinové alergie na:",
+    answers: ["ovoce z čeledi růžovitých", "korýše a měkkýše", "arašídy"],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 710,
+    question:
+      "Osoby s alergií na kočku mají vyšší riziko potravinové alergie na:",
+    answers: ["maso tresky a makrely", "hovězí maso", "vepřové maso"],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 711,
+    question:
+      "Osoby s alergií na pyly břízy mají vyšší riziko potravinové alergie na:",
+    answers: ["ovoce z čeledi růžovitých", "arašídy", "rajčata"],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 712,
+    question:
+      "Heinerův syndrom (recidivující pneumonické infiltráty) je projevem potravinové alergie na:",
+    answers: [
+      "kravské mléko nebo slepičí vejce",
+      "celer a některá koření (pepř, hořčice, kmín, fenykl)",
+      "papriky a rajčata",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 713,
+    question: "Alfa-gal alergie je pozdní potravinová alergie na:",
+    answers: ["slepičí vejce", "červené maso", "kamut"],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 714,
+    question:
+      "name: GASTRO_MG_26 data: otázka číslo:7516 Lékové poškození gastrointestinálního ústrojí nebo jater souvisí s mechanismem účinku léku:",
+    answers: ["vždy", "nikdy", "někdy"],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 715,
+    question:
+      "Typickým nežádoucím účinkem antibiotik nebo např. kolchicinu je:",
+    answers: ["exantém", "průjem", "zácpa"],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 716,
+    question:
+      "Nejvzácnější etáží gastrointestinálního traktu postiženou nadbytečným užíváním NSA je:",
+    answers: ["jícen", "žaludek", "tenké střevo"],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 717,
+    question:
+      "Pseudomembranózní kolitida je typickým endoskopickým nálezem při:",
+    answers: [
+      "cestovatelském průjmu",
+      "Crohnově nemoci",
+      "kolitidě vyvolané infekcí <i>Clostridium difficile</i>",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 718,
+    question:
+      "Při těžkém průběhu infekce <i>Clostridium difficile</i> nebo v případě, že není dosaženo efektu podáváním metronidazole, je postupem volby:",
+    answers: [
+      "parenterální podání vankomycinu",
+      "perorální podání vankomycinu",
+      "parenterální podání klindamycinu",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 719,
+    question: "Obrazem polékového poškození jater paracetamolem může být:",
+    answers: [
+      "akutní jaterní selhání",
+      "rozvoj jaterní cirhózy",
+      "retence tekutin",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 720,
+    question: "Léková toxicita metotrexátu je charakteristická:",
+    answers: [
+      "kumulativní toxickou dávkou pro poškození jater",
+      "kumulativní toxickou dávkou pro poškození jícnu a žaludku",
+      "kumulativní toxickou dávkou pro poškození tračníku",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 721,
+    question: "Predikovatelným poškození jater je:",
+    answers: [
+      "toxicita paracetamolu",
+      "toxicita amoxicilinu",
+      "toxicita infliximabu",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 722,
+    question: "Histologickým podkladem Reyova syndromu u dětí je:",
+    answers: [
+      "smíšená steatóza jater",
+      "steatohepatitida",
+      "mikrovezikulární steatóza",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 723,
+    question:
+      "name: GASTRO_MG_27 data: otázka číslo:7501 Prognóza tzv. hyperemesis gravidarum je:",
+    answers: [
+      "infaustní",
+      "nejistá, vždy vyžaduje hospitalizaci",
+      "příznivá, hospitalizace je indikována v menšině případů",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 724,
+    question: "Litogenita žluči v graviditě:",
+    answers: ["stoupá", "klesá", "nemění se"],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 725,
+    question:
+      "Podání postexpoziční profylaxe přenosu viru hepatitidy B u novorozence HBsAg-pozitivní matky:",
+    answers: [
+      "závisí na rozhodnutí porodníka nebo neonatologa",
+      "je povinná a je definována Věstníkem MZ ČR",
+      "závisí na rozhodnutí matky či otce norovozence",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 726,
+    question:
+      "Přenos viru hepatitidy C (HCV) na novorozence z HCV-RNA-pozitivní matky:",
+    answers: [
+      "nastává vždy",
+      "závisí na způsobu porodu",
+      "významně narůstá při duální infekci HIV/HCV u matky",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 727,
+    question:
+      "U dítěte HCV-RNA-pozitivní matky v okamžiku porodu je indikace k vyšetření:",
+    answers: [
+      "anti-HCV a HCV-RNA ihned po porodu",
+      "anti-HCV ve 30. dnu po porodu",
+      "HCV-RNA v 18. měsíci věku (a později)",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 728,
+    question: "Autoimunitní hepatitida:",
+    answers: [
+      "je kontraindikací početí",
+      "amenorea může být její první manifestací",
+      "nemá vliv na plodnost",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 729,
+    question: "U pacientek s Wilsonovou nemocí v graviditě:",
+    answers: [
+      "musí pokračovat léčba cheláty",
+      "dochází ke zrychlení progrese jaterní fibrózy",
+      "dochází ke zvýšení rizika rozvoje hepatocelulárního karcinomu",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 730,
+    question: "Intrahepatální cholestáza těhotných (IHCG):",
+    answers: [
+      "je geneticky podmíněné onemocnění s fatálním průběhem ve většině",
+      "špatně",
+      "manifestující se většinou ve 3. trimestru",
+      "je geneticky podmíněné onemocnění s benigním průběhem",
+      "špatně",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 731,
+    question:
+      "Ve kterém gestačním týdnu u IBD ve stadiu remise je podle evropských doporučení vhodné přerušení léčby anti-TNF-α?",
+    answers: ["16.–20. týden.", "24.–26. týden.", "30.–34. týden."],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 732,
+    question:
+      "O kolik měsíců je nutné odložit očkování živými vakcínami u novorozenců s vysokou koncentrací biologika v pupečníkové krvi (infliximab &gt; 3 μg/ml)?",
+    answers: [
+      "Nejméně o 2 měsíce.",
+      "Nejméně o 4 měsíce.",
+      "Nejméně o 6 měsíců.",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 733,
+    question: "task: Jaké postavení má léčba azathioprinem u IBD v graviditě?",
+    answers: [
+      "Lze zahájit léčbu azathioprinem v případě potřeby.",
+      "Léčba je bezpečná v případě již zavedené léčby azathioprinem.",
+      "Nedoporučuje se užívání azathioprinu v období gravidity.",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 734,
+    question:
+      "Který léčivý přípravek u IBD pacientů má negativní vliv na fertilitu?",
+    answers: ["Mesalazin.", "Sulfasalazin.", "Azathioprin."],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 735,
+    question:
+      "name: GASTRO_MG_28 data: otázka číslo:7467 Ke zhodnocení závažnosti u pacientů s nevarikózním krvácením do horní části gastrointestinálního traktu používáme:",
+    answers: [
+      "Glasgow–Blatchfordovo skóre",
+      "APACHE II skóre",
+      "Ransonovo skóre",
+      "žádné z uvedených",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 736,
+    question:
+      "Cílová hodnota hemoglobinu u pacientů s krvácením do horní části gastrointestinálního traktu v případě absence závažných kardiovaskulárních komorbidit je:",
+    answers: ["70–90 g/l", "50–70 g/l", "90–100 g/l", "100–120 g/l"],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 737,
+    question:
+      "Prokinetikem volby ke zlepšení přehlednosti žaludku v případě krvácení do horní části gastrointestinálního traktu je:",
+    answers: ["metoklopramid", "itoprid", "erytromycin", "ondansetron"],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 738,
+    question:
+      "Endoskopické ošetření krvácejícího vředu je indikované v případě:",
+    answers: [
+      "Forrest Ia",
+      "Forrest Ib",
+      "Forrest IIa",
+      "všechny odpovědi jsou správné",
+    ],
+    correctIndex: 3,
+    topics: [],
+  },
+  {
+    id: 739,
+    question:
+      "Inhibitory protonové pumpy u pacientů s nevarikózním krvácením podáváme:",
+    answers: [
+      "vždy perorálně",
+      "parenterálně nebo perorálně ve vysoké dávce",
+      "pouze parenterálně ve vysoké dávce",
+      "pouze parenterálně v jakékoli dávce",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 740,
+    question:
+      "name: GASTRO_MG_29 data: otázka číslo:7348 Při pouhém podezření na možnost náhlé příhody břišní (NPB) musí lékař:",
+    answers: [
+      "zachovat se tak, jako by se o NPB jednalo",
+      "pacienta vyšetřit, uklidnit a při bolesti podat analgetika",
+      "pacienta objednat ke kontrole v průběhu následujících 2–3",
+      "špatně",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 741,
+    question: "Neúrazové náhlé příhody břišní je možné rozdělit na:",
+    answers: [
+      "zánětlivé, ileózní, spastické, prudké krvácení do GIT a",
+      "špatně",
+      "gynekologického nebo urologického původu",
+      "zánětlivé, nezánětlivé, perforační, penetrační, prudké krvácení",
+      "špatně",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 742,
+    question: "Princip „5 P“ znamená:",
+    answers: [
+      "pohled, pohmat povrchní a hluboký, poslech a per rectum",
+      "poklep, pohmat, prohmat, poslech a per rectum",
+      "pohled, poklep, pohmat, poslech a per rectum",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 743,
+    question: "Septický šok jako nejtěžší forma sepse u NPB vzniká:",
+    answers: [
+      "uvolňováním endotoxinu, nejčastěji při infekci gramnegativních",
+      "<i>Proteus</i> sp. a <i>Pseudomonas</i> <i>aeruginosa</i>",
+      "uvolňováním endotoxinu, nejčastěji při infekci grampozitivních",
+      "<i>Proteus</i> sp. a <i>Pseudomonas aeruginosa</i>",
+      "uvolňováním bakteriálních těl, nejčastěji při infekci",
+      "(ve 30 %), <i>Klebsiella</i> sp., <i>Proteus</i> sp.",
+      "špatně",
+    ],
+    correctIndex: 3,
+    topics: [],
+  },
+  {
+    id: 744,
+    question:
+      "<strong>Pojem peritonitida představuje souhrnný výraz pro:</strong>",
+    answers: [
+      "etiologicky, morfologicky i klinicky nejednotnou skupinu",
+      "dosahovaných různými léčebnými postupy",
+      "etiologicky, morfologicky i klinicky poměrně jednotnou",
+      "a srovnat výsledky různých léčebných postupů",
+      "etiologicky, morfologicky i klinicky nejednotnou skupinu",
+      "jednoduchou klasifikaci a jednotný léčebný postup",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 745,
+    question: "Ve zdravé stěně žaludku při rutinní gastroskopii k perforaci:",
+    answers: [
+      "dojít prakticky nemůže",
+      "může dojít, ale bezpříznakově",
+      "může dojít, a to při ztrátě orientace endoskopisty",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 746,
+    question: "Akutní cholecystitida:",
+    answers: [
+      "v klinickém obraze dominuje typická náhlá bolest v pravém",
+      "probíhající biliární koliku",
+      "vyznačuje se pozvolným začátkem a bolestí v nadbřišku",
+      "má fulminantní průběh, hrozí perforací stěny žlučníku",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 747,
+    question: "Které tvrzení neplatí:",
+    answers: [
+      "epitelové nádory jsou karcinomy",
+      "mesodermální nádory jsou sarkomy",
+      "žlázové nádory jsou adenokarcinomy",
+      "žlázové nádory jsou sarkomy",
+    ],
+    correctIndex: 3,
+    topics: [],
+  },
+  {
+    id: 748,
+    question: "Mezi fáze buněčného cyklu nepatří:",
+    answers: ["interfáze", "M fáze", "G3 fáze", "G1 fáze"],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 749,
+    question: "Hlavními regulátory buněčného cyklu jsou:",
+    answers: [
+      "růstové faktory",
+      "cykliny a cyklin-dependentní kinázy",
+      "receptory růstových faktorů",
+      "všechny výše uvedené",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 750,
+    question:
+      "Které z následujících tvrzení platí pro koncovku u protinádorových léků:",
+    answers: [
+      "koncovka -mab znamená antiangiogenní léky",
+      "koncovka -nib znamená kinázové inhibitory",
+      "koncovka -mab znamená kinázové inhibitory",
+      "koncovka -nib znamená monoklonální protilátky",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 751,
+    question: "Mezi geny uplatňující se při opravě DNA patří:",
+    answers: [
+      "<i>KRAS</i>",
+      "<i>BRAF</i>",
+      "<i>BRCA2</i>",
+      "žádný z výše uvedených",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 752,
+    question: "Screening spinocelulárního karcinomu jícnu:",
+    answers: [
+      "se provádí v pravidelných intervalech u všech pacientů",
+      "špatně",
+      "s Barrettovým jícnem",
+      "se v Evropě neprovádí",
+      "se provádí u všech pacientů se spinocelulárním karcinomem",
+      "špatně",
+    ],
+    correctIndex: 3,
+    topics: [],
+  },
+  {
+    id: 753,
+    question: "Grading dysplastických lézí gastrointestinálního traktu je:",
+    answers: [
+      "trojstupňový, zahrnující low-grade, intermediate-grade a",
+      "špatně",
+      "diferencovanou a nediferencovanou",
+      "dvoustupňový, zahrnující low-grade a high-grade dysplazie",
+    ],
+    correctIndex: 3,
+    topics: [],
+  },
+  {
+    id: 754,
+    question:
+      "Imunohistochemické vyšetření umožňuje detekci různých typů tkáňových antigenů pomocí protilátek a:",
+    answers: [
+      "má význam diagnostický, prognostický i prediktivní",
+      "uplatňuje se pouze při typingu nádorového infiltrátu stanovením",
+      "špatně",
+      "špatně",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 755,
+    question: "Při hodnocené efektu onkologické léčby je vhodné:",
+    answers: [
+      "používat vždy PET-CT",
+      "lepší než CT je využívat MR vyšetření",
+      "hodnotit efekt léčby vždy pomocí RECIST kritérií",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 756,
+    question: "task: Které tvrzení je pravdivé?",
+    answers: [
+      "CT a MR jsou vhodné metody k vyloučení tumoru v dutině",
+      "špatně",
+      "jistotu doplnit CT vyšetření, MR vyšetření a pokud je i MR vyšetření",
+      "špatně",
+      "odpovědět.",
+    ],
+    correctIndex: 4,
+    topics: [],
+  },
+  {
+    id: 757,
+    question:
+      "Standardem léčby první linie metastazujícího onemocněni u nemocných s karcinomem slinivky břišní v dobrém výkonnostním stavu (PS 0/1) jsou kombinované režimy chemoterapie nab-paklitaxel/gemcitabin nebo FOLFIRINOX. Standardem adjuvantní léčby u časných stadií u nemocných v dobrém výkonnostním stavu je:",
+    answers: [
+      "monochemoterapie gemcitabinem po dobu 1 roku",
+      "kombinovaná chemoterapie FOLFIRINOX po dobu 6 měsíců",
+      "kombinovaná chemoterapie nab-paklitaxel/gemcitabin po dobu 6",
+      "špatně",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 758,
+    question:
+      "Hlavní kurativní léčebnou metodou spinocelulárního karcinomu anu bez vzdálených metastáz je:",
+    answers: [
+      "konkomitantní radiochemoterapie",
+      "abdominoperineální amputace anorekta",
+      "předoperační radioterapie s následným chirurgickým",
+      "špatně",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 759,
+    question: "Cetuximab a panitumumab jsou monoklonální protilátky cílené:",
+    answers: [
+      "proti receptoru pro epidermální růstový faktor (EGFR)",
+      "proti onkogenu<i> KRAS</i>",
+      "nejedná se o monoklonální protilátky",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 760,
+    question: "Komplikace laparoskopie:",
+    answers: [
+      "současné komplikace laparoskopie jsou frekvencí vázány spíše na",
+      "mohou být podobné či totožné",
+      "stoupající počet laparoskopických výkonů pochopitelně znamená",
+      "score: 33.33",
+      "kdy bývají nejčastěji poraněné cévy (až 5 % komplikací) a střevo (až",
+      "score: 33.33",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 761,
+    question: "Výzkum v gastroenterologii:",
+    answers: [
+      "lze rozlišit na experimentální a klinický",
+      "gastroenterologie se překvapivě podílí z 35 % na výzkumu",
+      "špatně",
+      "metodologii, pouze kvalitativní přístupy (tzv. tvrdou vědu)",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 762,
+    question:
+      "Abdominální distribuce tukové tkáně neovlivňuje již zdravotní rizika:",
+    answers: ["nadváhy", "obezity I. stupně", "obezity II. a III. stupně"],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 763,
+    question: "Monogenně podmíněné obezity mají zpravidla dědičnost:",
+    answers: ["autosomálně dominantní", "polygenní", "autosomálně recesivní"],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 764,
+    question: "Mezi monogenně podmíněné obezity patří:",
+    answers: [
+      "obezita asociovaná se syndromem polycystických ovarií",
+      "obezita způsobená mutací leptinového receptoru (LEPR)",
+      "obezita u Praderova–Williho syndromu",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 765,
+    question: "Obezita podmíněná farmakoterapií se nevyskytuje při léčbě:",
+    answers: ["metforminem a glifloziny", "glukokortikoidy", "β-blokátory"],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 766,
+    question: "Mezi hormony zvyšující energetický výdej organismu nepatří:",
+    answers: ["α-MSH a leptin", "adiponektin", "STH"],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 767,
+    question: "Termín „paradox nadváhy a obezity“ označuje/charakterizuje:",
+    answers: [
+      "stav, kdy redukce hmotnosti je spojena s vyšší morbiditou a",
+      "špatně",
+      "prognózu než ne-obézní jedinci se stejnou chorobou",
+      "stavy, u kterých nadváha/obezita je protektivním faktorem pro",
+      "špatně",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 768,
+    question:
+      "name: GASTRO_MG_32 data: otázka číslo:7147 K bariatrii – chirurgické léčbě obezity – jsou indikováni pacienti ve věku:",
+    answers: ["18–60 let", "20–40 let", "18–80 let"],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 769,
+    question: "Mezi restriktivní bariatrické operace nepatří:",
+    answers: ["žaludeční bandáž", "žaludeční bypass", "tubulizace žaludku"],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 770,
+    question: "Mezi malabsorpční operace nepatří:",
+    answers: [
+      "žaludeční bypass",
+      "tubulizace žaludku",
+      "biliopankreatická diverze",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 771,
+    question:
+      "name: GASTRO_MG_33 data: otázka číslo:7123 Stimulem sekrece ghrelinu je:",
+    answers: ["příjem velkého množství potravy", "hladovění", "zvracení"],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 772,
+    question: "U zdravého člověka leptin:",
+    answers: [
+      "omezuje příjem potravy a zvyšuje energetický výdej",
+      "snižuje klidový energetický výdej",
+      "stimuluje příjem potravy a neovlivňuje energetický výdej",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 773,
+    question: "U mentální anorexie je leptin:",
+    answers: ["snížen", "zvýšen", "normální"],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 774,
+    question: "U mentální anorexie je klidový energetický výdej:",
+    answers: ["snížen", "zvýšen", "normální"],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 775,
+    question: "Pro mentální anorexii je charakteristický:",
+    answers: [
+      "významně zvýšený výdej natria močí",
+      "velmi nízký výdej natria močí",
+      "velmi vysoký výdej chloridů močí",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 776,
+    question:
+      "Alarmujícím EKG znakem ohrožení arytmickou smrtí je u mentální anorexie:",
+    answers: [
+      "prodlužující se PQ interval",
+      "zkracující se QT interval",
+      "prodlužující se QT interval",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 777,
+    question: "Pica syndrom znamená:",
+    answers: [
+      "syndrom nočního jedení s následným indukovaným zvracením",
+      "syndrom záchvatovitého přejídání (binge eating)",
+      "pojídání nepotravinových látek (hlína, omítka, uhlí)",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 778,
+    question:
+      'Označení pro pica syndrom pochází ze středověké latiny, slovo "pica" znamená:',
+    answers: [
+      "milíř (pro výrobu dřevěného uhlí)",
+      "duševně chorý člověk",
+      "straka",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 779,
+    question:
+      "name: GASTRO_MG_34 data: otázka číslo:6958 Klidový energetický výdej je možno odhadnout podle:",
+    answers: [
+      "Harrisova–Benedictova vzorce",
+      "Weirových rovnic",
+      "Ferranniniho rovnic",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 780,
+    question:
+      "Energetická potřeba zdravého dospělého normostenika se střední fyzickou aktivitou je zhruba:",
+    answers: [
+      "75 kJ/kg/den pro muže a 60 kJ/kg/den pro ženu",
+      "100 kJ/kg/den pro muže a 95 kJ/kg/den pro ženu",
+      "200 kJ/kg/den pro muže a 175 kJ/kg/den pro ženu",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 781,
+    question:
+      "Tuky v potravě by u zdravého dospělého normostenika měly krýt zhruba:",
+    answers: [
+      "10–15 % denního energetického příjmu",
+      "20–25 % denního energetického příjmu",
+      "30–35 % denního energetického příjmu",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 782,
+    question: "Denní potřeba bílkovin přijatých potravou je zhruba:",
+    answers: [
+      "6,5–6,8 g/MJ celkového energetického příjmu",
+      "7,5–7,8 g/MJ celkového energetického příjmu",
+      "8,5–8,8 g/MJ celkového energetického příjmu",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 783,
+    question:
+      "Zvýšení tělesné teploty o jeden stupeň (nad 37,0 ºC) zvyšuje klidový energetický výdej:",
+    answers: ["o 10 %", "o 20 %", "o 30 %"],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 784,
+    question:
+      "Doporučený poměr neproteinové energie a dusíku aminokyselin (N) pro nízké a střední katabolické stavy je:",
+    answers: ["1 000 kJ/g N", "750 kJ/g N", "550 kJ/g N"],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 785,
+    question: "Biologický poločas sérového prealbuminu je:",
+    answers: ["2 hodiny", "2 dny", "2 týdny"],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 786,
+    question: "Při akutní otravě metanolem je v časné fázi lékem volby:",
+    answers: ["N-acetylcystein", "febuxostat", "fomepizol"],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 787,
+    question: "Mezi větvené aminokyseliny nepatří:",
+    answers: ["valin", "izoleucin", "tryptofan"],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 788,
+    question: "Laboratorním ukazatelem závažného realimentačního syndromu je:",
+    answers: ["hyperkalemie", "hyperfosfatemie", "hypofosfatemie"],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 789,
+    question: "Anamorelin (analog ghrelinu):",
+    answers: [
+      "snižuje pocit hladu, využívá se v terapii morbidní obezity",
+      "zvyšuje chuť k jídlu (u onkologicky nemocných)",
+      "vede k úpravě ztráty čichu u onemocnění covid-19",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 790,
+    question: "Selen je klíčovým prvkem:",
+    answers: [
+      "glutathionperoxidázy",
+      "alkalické fosfatázy",
+      "pankreatického izoenzymu amylázy",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 791,
+    question: "Zinek je klíčovým prvkem:",
+    answers: [
+      "glutathionperoxidázy",
+      "alkalické fosfatázy",
+      "pankreatického izoenzymu amylázy",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 792,
+    question: "Feltyho syndrom je kombinací:",
+    answers: [
+      "neuropenie, splenomegalie a těžké ravmatoidní artritidy",
+      "neuropenie, hepatosplenomegalie a trombózy portální žíly",
+      "eozinofilie, hepatosplenomegalie a revmatoidní artritidy",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 793,
+    question: "Mezi extraintestinální příznaky revmatoidní artritidy nepatří:",
+    answers: [
+      "Feltyho syndrom",
+      "AA amyloidóza",
+      "SIBO – syndrom bakteriálního přerůstání v tenkém střevě",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 794,
+    question: "Mezi klinické projevy systémové sklerodermie nepatří:",
+    answers: [
+      "tuhnutí kůže (skleroderma)",
+      "Raynaudův fenomén",
+      "zrychlené vyprazdňování žaludku",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 795,
+    question: "Mezi klinické projevy Sjörgenova syndromu nepatří:",
+    answers: ["xerostomie", "ezofageální dysmotilita", "vaskulitida"],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 796,
+    question: "Mezi klinické příznaky systémového lupus erythematodes nepatří:",
+    answers: [
+      "exokrinní pankreatická insuficience",
+      "enteritida",
+      "sklerozující cholangitida",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 797,
+    question: "V terapii metabolické kostní nemoci se využívá:",
+    answers: [
+      "pembrolizumab (monoklonální protilátka anti-PD1)",
+      "erlotinib (inhibitor receptorových tyrozinkináz)",
+      "denosumab (monoklonální protilátka proti RANKL)",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 798,
+    question:
+      "V terapii melanomu metastazujícího do gastrointestinálního traktu se využívá:",
+    answers: [
+      "pembrolizumab (monoklonální protilátka anti-PD-1)",
+      "erlotinib (inhibitor receptorových tyrozinkináz)",
+      "denosumab (monoklonální protilátka proti RANKL)",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 799,
+    question:
+      "Charakteristickým gastroenterologickým příznakem neléčeného mnohočetného myelomu je:",
+    answers: ["průjem", "zácpa", "malabsorpce žlučových kyselin"],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 800,
+    question:
+      "Mezi charakteristické gastroenterologické znaky Waldenströmovy makroglobulinemie patří:",
+    answers: [
+      "malasimilační syndrom",
+      "mnohočetné ulcerace žaludku",
+      "tenezmy",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 801,
+    question:
+      "Mezi charakteristické gastroenterologické znaky akutní reakce štěpu proti hostiteli po transplantaci progenitorových krvetvorných buněk patří:",
+    answers: ["malabsorpce žlučových kyselin", "zácpa", "vodnaté průjmy"],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 802,
+    question:
+      "Mezi charakteristické gastroenterologické znaky chronické reakce štěpu proti hostiteli po transplantaci progenitorových krvetvorných buněk patří:",
+    answers: [
+      "malabsorpce žlučových kyselin",
+      "zácpa",
+      "maldigesce v důsledku atrofické gastritidy",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 803,
+    question:
+      "Charakteristickým laboratorním znakem sarkoidózy postihující gastrointestinální trakt je:",
+    answers: ["hyperkalcemie", "hypokalcemie", "hyperfosfatemie"],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 804,
+    question:
+      "Charakteristickým klinickým příznakem sarkoidózy postihující gastrointestinální trakt je:",
+    answers: [
+      "dysfagie dolního typu, připomínající achalazii",
+      "intestinální pseudoobstrukce",
+      "průjem (v důsledku hypokalcemie)",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 805,
+    question:
+      "Charakteristickým gastroskopickým nálezem u sarkoidózy postihující žaludek jsou:",
+    answers: [
+      "GAVE (gastrické antrální venózní ektázie)",
+      "objemné řasy žaludečního těla (giant folds)",
+      "polypy z fundických žlázek (postihující žaludeční tělo,",
+      "špatně",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 806,
+    question:
+      "Závažnou komplikací granulomatózy s polyangiitidou (Wegenerovy choroby) je:",
+    answers: [
+      "gastroparéza",
+      "fulminantní jaterní selhání",
+      "perforace tenkého střeva",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 807,
+    question:
+      "Nejzávažnější gastrointestinální komplikací eozinofilní granulomatózy s polyangiitidou (syndrom Churgův–Straussové) je:",
+    answers: [
+      "krvácení a/nebo perforace tenkého střeva",
+      "intestinální selhání (small intestinal failure)",
+      "fulminatní jaterní selhání",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 808,
+    question: "Melkerssonův–Rosenthalův syndrom je označení pro:",
+    answers: [
+      "granulomatózní hepatitidu",
+      "granulomatózní cheilitidu",
+      "segmentální granulomatózní enteritidu",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 809,
+    question: "Pro familiární kombinovanou hyperlipidemii je typická:",
+    answers: [
+      "elevace lipoproteinů VLDL a LDL",
+      "elevace lipoproteinu VLDL a opačné změny koncentrace lipoproteinu",
+      "špatně",
+      "špatně",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 810,
+    question: "Přítomnosti lipoproteinu X (Lp-X) v plazmě je typická pro:",
+    answers: [
+      "chronický abúzus alkoholu",
+      "intra- a extrahepatální cholestázu",
+      "Gaucherovu chorobu",
+    ],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 811,
+    question: "Tangierská choroba má dědičnost:",
+    answers: ["autosomálně dominantní", "polygenní", "autosomálně recesivní"],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 812,
+    question: "Aterogenní dyslipidemie charakterizuje:",
+    answers: [
+      "hypertriglyceridemie, pokles koncentrace HDL-cholesterolu a",
+      "špatně",
+      "přítomnost malých denzních LDL",
+      "hypertriglyceridemie, pokles koncentrace HDL-cholesterolu a",
+      "špatně",
+    ],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 813,
+    question: "Abdominální angina se projevuje:",
+    answers: [
+      "bolestmi břicha nalačno",
+      "nauzeou a zvracením",
+      "poruchou polykání",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 814,
+    question: "Mezi klinické příznaky abdominální epilepsie nepatří:",
+    answers: ["bolest břicha", "letargie/zmatenost", "gastroparéza"],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 815,
+    question: "Mezi gastrointestinální projevy Parkinsonovy choroby nepatří:",
+    answers: ["dysfagie", "zhoršené vyprazdňování žaludku", "průjem"],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 816,
+    question: "Mezi gastrointestinální projevy Huntingtonovy choroby nepatří:",
+    answers: ["orofaryngeální dysfagie", "gastritida", "kolitida"],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 817,
+    question: "Běžným klinickým stavem u pacientů na JIP je:",
+    answers: [
+      "akutní stresová gastropatie",
+      "akutní apendicitida",
+      "akutní ezofagitida",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 818,
+    question:
+      "V rámci enterohepatálního oběhu se žlučové kyseliny vstřebávají:",
+    answers: ["v duodenu", "v jejunu", "v ileu"],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 819,
+    question: "Symptomem typickým pro malabsorpci žlučových kyselin je:",
+    answers: ["zácpa", "průjem", "střídání průjmu a zácpy"],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 820,
+    question: "Zlatým standardem diagnostiky malabsorpce žlučových kyselin je:",
+    answers: ["PET/CT", "MR tenkého střeva", "SeHCAT test"],
+    correctIndex: 2,
+    topics: [],
+  },
+  {
+    id: 821,
+    question: "Základní léčbou malabsorpce žlučových kyselin je:",
+    answers: [
+      "cholestyramin v kombinaci s dietní intervencí",
+      "kyselina ursodeoxycholová",
+      "antibiotika",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 822,
+    question:
+      "name: GASTRO_MG_36 data: otázka číslo:6916 Absorpce léčiva. Relativní koncentrace slané kyseliny acetylsalicylové je nejvyšší:",
+    answers: ["v žaludeční šťávě", "v moči", "v plazmě"],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 823,
+    question: "Mezi enzymy I. fáze biotransformační přeměny léčiv nepatří:",
+    answers: ["2D6", "UDP-glukuronosyltransferáza (UGT)", "3A4, 5, 6"],
+    correctIndex: 1,
+    topics: [],
+  },
+  {
+    id: 824,
+    question: "Mechanismus účinku antagonistů histaminových receptorů spočívá:",
+    answers: [
+      "v antagonismu H<sub>1</subreceptorů v CNS",
+      "v antagonismu H<sub>2</subreceptorů v CNS",
+      "v antagonismu 5-HT<sub>3</subreceptorů",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 825,
+    question: "Mechanismus účinku prokinetik spočívá:",
+    answers: [
+      "v blokádě centrálních i periferních dopaminových receptorů",
+      "v blokádě opioidních receptorů v periferní tkáni",
+      "v reverzibilní inhibici acetylcholinesterázy",
+    ],
+    correctIndex: 0,
+    topics: [],
+  },
+  {
+    id: 826,
+    question: "Mezi inhibitory proteáz nepatří:",
+    answers: ["ritonavir", "indinavir", "takrolimus"],
+    correctIndex: 2,
+    topics: [],
+  },
+];
