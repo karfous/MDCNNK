@@ -9293,12 +9293,6 @@
         delegate(grid, ".card", "click", (e, card) => {
           toggleReveal(card);
         });
-        delegate(grid, ".card", "keydown", (e, card) => {
-          if (e.key === "Enter" || e.key === " ") {
-            e.preventDefault();
-            toggleReveal(card);
-          }
-        });
       }
 
       function setupFilters() {
@@ -9355,7 +9349,7 @@
 
         buildTopicChips(uniqueTopics(QUESTIONS));
         setupFilters();
-        setupCardReveal();
+        // setupCardReveal();
         setupAnswerTracking();
         render(QUESTIONS);
       })();
@@ -9444,7 +9438,8 @@
           card.classList.add("revealed");
 
           // Re-apply filters in case "Only incorrect" is on
-          applyFilters();
+          // BUG applyFilters causing double revealing the card when clicking an answer
+          //applyFilters();
         });
       }
     </script>
